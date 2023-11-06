@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Chalkboard - Installation</title>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto+Mono&family=Material+Icons" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/atom-one-dark.min.css" rel="stylesheet">
+        <link href="./resources/logo.png" rel="icon" type="image/x-icon">
+        <link href="./style.css" rel="stylesheet">
+    </head>
+    <body>
+        <div id="navbar">
+            <div class="closecontain"><p class="material-icons close" onclick="hidenavbar()">close</p></div>
+            <hr>
+            <a class="nav" href="./home.html">Home</a>
+            <a class="nav" href="./information.html">Information</a>
+            <a class="nav active" href="./installation.html">Installation</a>
+            <a class="nav" href="./documentation.html">Documentation</a>
+            <a class="nav" href="./examples.html">Examples</a>
+        </div>
+        <header id="header">
+            <p class="material-icons" onclick="opennavbar()">menu</p>
+            <h1>The Chalkboard Library</h1>
+        </header>
+        <div class="page">
+            <h2>Installation</h2>
+            <p>There are a couple different ways to install the different editions of Chalkboard into your project.</p>
+            <p>If your JavaScript program is being run within a webpage, the most straightforward way to import the Chalkboard library is to copy-and-paste this HTML line into your webpage:</p>
+<pre class="html"><code>&lt;script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Zushah/Chalkboard@1.0.0/Chalkboard.min.js"&gt;&lt;/script&gt;</code></pre>
+            <p>Otherwise, you can download the <a href="https://www.github.com/Zushah/Chalkboard/releases/tag/v1.0.0">latest release</a> of Chalkboard and put the relevant files in the directory of your project.</p>
+            <p>To download the Processing.js edition of Chalkboard, you will have to copy-and-paste this line (intsead of the one above) into your webpage:</p>
+<pre class="html"><code>&lt;script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Zushah/Chalkboard@1.0.0/ChalkboardProccessing.min.js"&gt;&lt;/script&gt;</code></pre>
+            <p>In a Khan Academy Processing.js program, unfortunately the only option you will have is to copy-and-paste the whole library into your program from the <a href="https://www.khanacademy.org/cs/z/programID">Khan Academy release</a>.</p>
+            <div class="quote">
+                <p>"Even as the finite encloses an infinite series<br>And in the unlimited limits appear,<br>So the soul of immensity dwells in minutia<br>And in narrowest limits no limit in here.<br>What joy to discern the minute in infinity! <br>The vast to perceive in the small, what divinity!"</p>
+                <p> - Jacob Bernoulli, poem on the divergence of the harmonic series</p>
+            </div>
+        </div>
+        <footer>
+            <p>Zushah 2023 - Chalkboard v1.0.0</p>
+        </footer>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script type="text/javascript" src="script.js"></script>
+    </body>
+</html>
