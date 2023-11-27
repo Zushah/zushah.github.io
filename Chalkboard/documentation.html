@@ -227,8 +227,8 @@ function calculateInterest(initial, rate, time) {
                             <p>Generates a random number.</p>
                             <h4>PARAMETERS</h4>
                             <p>
-                                inf <span class="faded">{number}</span> - Lower bound of randomization<br>
-                                sup <span class="faded">{number}</span> - Upper bound of randomization
+                                inf <span class="faded">{number} (default = 0)</span> - Lower bound of randomization<br>
+                                sup <span class="faded">{number} (default = 1)</span> - Upper bound of randomization
                             </p>
                             <h4>RETURNS</h4>
                             <p>
@@ -528,6 +528,21 @@ Chalkboard.numb.change(1, 2);</code></pre>
                             <h4>RETURNS</h4>
                             <p>
                                 <span class="faded">{number}</span> - The mapped number
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns 0.92
+Chalkboard.numb.map(23, [0, 25], [0, 1]);</code></pre>
+                        <h3><span class="faded">Chalkboard.numb.</span>binomial(n, k)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Calculates a <a href="https://en.wikipedia.org/wiki/Binomial_coefficient">binomial coefficient</a>.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                n <span class="faded">{number}</span> - The degree of the binomial<br>
+                                k <span class="faded">{number}</span> - The term of the polynomial
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{number}</span> - The binomial coefficient
                             </p>
                             <h4>EXAMPLE</h4>
 <pre class="javascript"><code>// Returns 0.92
@@ -1362,27 +1377,6 @@ let zarr = Chalkboard.comp.toArray(z);</code></pre>
 <pre class="javascript"><code>// Returns the string "1 + 2i"
 let z = Chalkboard.comp.new(1, 2);
 let zstr = Chalkboard.comp.toString(z);</code></pre>
-                        <h3><span class="faded">Chalkboard.comp.</span>display(comp, scl, rgb, origin, weight, context)</h3>
-                            <h4>DESCRIPTION</h4>
-                            <p>Draws a complex number on the canvas.</p>
-                            <h4>PARAMETERS</h4>
-                            <p>
-                                comp <span class="faded">{comp}</span> - A complex number to draw<br>
-                                scl <span class="faded">{number} (default = 1)</span> - The scale of the drawn complex number<br>
-                                rgb <span class="faded">{number[]} (default = [0, 0, 0])</span> - The color of the complex number expressed as RGB values in an array<br>
-                                origin <span class="faded">{number[]} (default = [canvas.width / 2, canvas.height / 2])</span> - The origin (starting point) of the drawn complex number on the canvas expressed as a point of the canvas in an array<br>
-                                weight <span class="faded">{number} (default = 5)</span> - The stroke weight or line width of the drawn complex number<br>
-                                context <span class="faded">{CanvasRenderingContext2D} (default = ctx)</span> - The JavaScript Canvas 2D API rendering context of the drawn complex number
-                            </p>
-                            <h4>RETURNS</h4>
-                            <p>
-                                <span class="faded">{string}</span> - A message that tells which complex number was drawn, where it was drawn, and which color it was drawn with.
-                            </p>
-                            <h4>EXAMPLE</h4>
-<pre class="javascript"><code>// Draws the complex number 1 + 2i at the center of the canvas scaled by two with an RGB color of (255, 0, 0) or red
-const ctx = document.getElementById("canvas").getContext("2d");
-let z = Chalkboard.comp.new(1, 2);
-Chalkboard.comp.display(z, 2, [255, 0, 0]);</code></pre>
                         <h3><span class="faded">Chalkboard.comp.</span>print(comp)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Prints a complex number in the console.</p>
@@ -1877,6 +1871,91 @@ Chalkboard.plot.rOplane(2);</code></pre>
 const ctx = document.getElementById("canvas").getContext("2d");
 let f = Chalkboard.real.function("x * x");
 Chalkboard.plot.function(f, 2, [255, 0, 0]);</code></pre>
+                        <h3><span class="faded">Chalkboard.plot.</span>comp(comp, scl, rgb, origin, weight, context)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Draws a complex number on the canvas.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                comp <span class="faded">{comp}</span> - A complex number to draw<br>
+                                scl <span class="faded">{number} (default = 1)</span> - The scale of the drawn complex number<br>
+                                rgb <span class="faded">{number[]} (default = [0, 0, 0])</span> - The color of the complex number expressed as RGB values in an array<br>
+                                origin <span class="faded">{number[]} (default = [canvas.width / 2, canvas.height / 2])</span> - The origin (starting point) of the drawn complex number on the canvas expressed as a point of the canvas in an array<br>
+                                weight <span class="faded">{number} (default = 5)</span> - The stroke weight or line width of the drawn complex number<br>
+                                context <span class="faded">{CanvasRenderingContext2D} (default = ctx)</span> - The JavaScript Canvas 2D API rendering context of the drawn complex number
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{string}</span> - A message that tells which complex number was drawn, where it was drawn, and which color it was drawn with.
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Draws the complex number 1 + 2i at the center of the canvas scaled by two with an RGB color of (255, 0, 0) or red
+const ctx = document.getElementById("canvas").getContext("2d");
+let z = Chalkboard.comp.new(1, 2);
+Chalkboard.plot.comp(z, 2, [255, 0, 0]);</code></pre>
+                        <h3><span class="faded">Chalkboard.plot.</span>vec2(vec2, scl, rgb, origin, weight, context)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Draws a two-dimensional vector on the canvas.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                vec2 <span class="faded">{vec2}</span> - A vector to draw<br>
+                                scl <span class="faded">{number} (default = 1)</span> - The scale of the drawn vector<br>
+                                rgb <span class="faded">{number[]} (default = [0, 0, 0])</span> - The color of the vector expressed as RGB values in an array<br>
+                                origin <span class="faded">{number[]} (default = [canvas.width / 2, canvas.height / 2])</span> - The origin (starting point) of the drawn vector on the canvas expressed as a point of the canvas in an array<br>
+                                weight <span class="faded">{number} (default = 5)</span> - The stroke weight or line width of the drawn vector<br>
+                                context <span class="faded">{CanvasRenderingContext2D} (default = ctx)</span> - The JavaScript Canvas 2D API rendering context of the drawn vector
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{string}</span> - A message that tells which vector was drawn, where it was drawn, and which color it was drawn with.
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Draws the vector (1, 2) at the center of the canvas scaled by two with an RGB color of (255, 0, 0) or red
+const ctx = document.getElementById("canvas").getContext("2d");
+let v = Chalkboard.vec2.new(1, 2);
+Chalkboard.plot.vec2(v, 2, [255, 0, 0]);</code></pre>
+                        <h3><span class="faded">Chalkboard.plot.</span>vec3(vec3, scl, rgb, origin, weight, context)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Draws a three-dimensional vector on the canvas.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                vec3 <span class="faded">{vec3}</span> - A vector to draw<br>
+                                scl <span class="faded">{number} (default = 1)</span> - The scale of the drawn vector<br>
+                                rgb <span class="faded">{number[]} (default = [0, 0, 0])</span> - The color of the vector expressed as RGB values in an array<br>
+                                origin <span class="faded">{number[]} (default = [canvas.width / 2, canvas.height / 2])</span> - The origin (starting point) of the drawn vector on the canvas expressed as a point of the canvas in an array<br>
+                                weight <span class="faded">{number} (default = 5)</span> - The stroke weight or line width of the drawn vector<br>
+                                context <span class="faded">{CanvasRenderingContext2D} (default = ctx)</span> - The JavaScript Canvas 2D API rendering context of the drawn vector
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{string}</span> - A message that tells which vector was drawn, where it was drawn, and which color it was drawn with.
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Draws the vector (1, 2, 3) at the center of the canvas scaled by two with an RGB color of (255, 0, 0) or red
+const ctx = document.getElementById("canvas").getContext("2d");
+let v = Chalkboard.vec3.new(1, 2, 3);
+Chalkboard.plot.vec3(v, 2, [255, 0, 0]);</code></pre>
+                        <h3><span class="faded">Chalkboard.plot.</span>matr(matr, scl, rgb, origin, weight, context)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Draws a 2x2 matrix on the canvas (note: the matrix must be a 2x2 matrix, or a square matrix with the size of 2).</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                matr <span class="faded">{matr}</span> - Matrix<br>
+                                scl <span class="faded">{number} (default = 1)</span> - The scale of the drawn matrix<br>
+                                rgb <span class="faded">{number[]} (default = [0, 0, 0])</span> - The color of the matrix expressed as RGB values in an array<br>
+                                origin <span class="faded">{number[]} (default = [canvas.width / 2, canvas.height / 2])</span> - The origin (center) of the drawn matrix on the canvas expressed as a point of the canvas in an array<br>
+                                weight <span class="faded">{number} (default = 5)</span> - The stroke weight or line width of the drawn matrix<br>
+                                context <span class="faded">{CanvasRenderingContext2D} (default = ctx)</span> - The JavaScript Canvas 2D API rendering context of the drawn matrix
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{string}</span> - A message that tells which matrix was drawn, where it was drawn, and which color it was drawn with.
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Draws the matrix at the center of the canvas scaled by two with an RGB color of (255, 0, 0) or red
+const ctx = document.getElementById("canvas").getContext("2d");
+let A = Chalkboard.matr.new([1, 2],
+                            [3, 4]);
+Chalkboard.plot.matr(A, 2, [255, 0, 0]);</code></pre>
                         <h3><span class="faded">Chalkboard.plot.</span>dfdx(func, scl, rgb, origin, weight, res, context)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Draws the <a href="https://en.wikipedia.org/wiki/Derivative">derivative</a> of a Chalkboard function.</p>
@@ -3577,23 +3656,7 @@ let vwang = Chalkboard.vec2.angBtwn(v, w);</code></pre>
 <pre class="javascript"><code>// Returns the vector (-2, 1)
 let v = Chalkboard.vec2.new(1, 2);
 let vrotated = Chalkboard.vec2.rotate2D(v, Chalkboard.PI(1/2));</code></pre>
-                        <h3><span class="faded">Chalkboard.vec2.</span>addScl(vec2, num)</h3>
-                            <h4>DESCRIPTION</h4>
-                            <p>Calculates the addition of a vector by a number.</p>
-                            <h4>PARAMETERS</h4>
-                            <p>
-                                vec2 <span class="faded">{vec2}</span> - A vector<br>
-                                num <span class="faded">{number}</span> - The number to add by
-                            </p>
-                            <h4>RETURNS</h4>
-                            <p>
-                                <span class="faded">{vec2}</span> - A vector added by a number
-                            </p>
-                            <h4>EXAMPLE</h4>
-<pre class="javascript"><code>// Returns the vector (3, 4)
-let v = Chalkboard.vec2.new(1, 2);
-let vplus2 = Chalkboard.vec2.addScl(v, 2);</code></pre>
-                        <h3><span class="faded">Chalkboard.vec2.</span>mulScl(vec2, num)</h3>
+                        <h3><span class="faded">Chalkboard.vec2.</span>scl(vec2, num)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Calculates the multiplication of a vector by a number.</p>
                             <h4>PARAMETERS</h4>
@@ -3608,7 +3671,7 @@ let vplus2 = Chalkboard.vec2.addScl(v, 2);</code></pre>
                             <h4>EXAMPLE</h4>
 <pre class="javascript"><code>// Returns the vector (2, 4)
 let v = Chalkboard.vec2.new(1, 2);
-let vtimes2 = Chalkboard.vec2.mulScl(v, 2);</code></pre>
+let vtimes2 = Chalkboard.vec2.scl(v, 2);</code></pre>
                         <h3><span class="faded">Chalkboard.vec2.</span>add(vec2_1, vec2_2)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Calculates the addition of two vectors.</p>
@@ -3694,20 +3757,6 @@ let vdotw = Chalkboard.vec2.dot(v, w);</code></pre>
 let v = Chalkboard.vec2.new(1, 2);
 let w = Chalkboard.vec2.new(3, 4);
 let vcrossw = Chalkboard.vec2.cross(v, w);</code></pre>
-                        <h3><span class="faded">Chalkboard.vec2.</span>fromNumber(num)</h3>
-                            <h4>DESCRIPTION</h4>
-                            <p>Defines a vector from a number.</p>
-                            <h4>PARAMETERS</h4>
-                            <p>
-                                num <span class="faded">{number}</span> - A number to convert to a vector
-                            </p>
-                            <h4>RETURNS</h4>
-                            <p>
-                                <span class="faded">{vec2}</span> - A number converted to a vector
-                            </p>
-                            <h4>EXAMPLE</h4>
-<pre class="javascript"><code>// Returns the vector (1, 0)
-let v = Chalkboard.vec2.fromNumber(1);</code></pre>
                         <h3><span class="faded">Chalkboard.vec2.</span>fromAngle(rad)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Defines a vector with an angle.</p>
@@ -3783,27 +3832,6 @@ let varr = Chalkboard.vec2.toArray(v);</code></pre>
 <pre class="javascript"><code>// Returns the string "(1, 2)"
 let v = Chalkboard.vec2.new(1, 2);
 let vstr = Chalkboard.vec2.toString(v);</code></pre>
-                        <h3><span class="faded">Chalkboard.vec2.</span>display(vec2, scl, rgb, origin, weight, context)</h3>
-                            <h4>DESCRIPTION</h4>
-                            <p>Draws a vector on the canvas.</p>
-                            <h4>PARAMETERS</h4>
-                            <p>
-                                vec2 <span class="faded">{vec2}</span> - A vector to draw<br>
-                                scl <span class="faded">{number} (default = 1)</span> - The scale of the drawn vector<br>
-                                rgb <span class="faded">{number[]} (default = [0, 0, 0])</span> - The color of the vector expressed as RGB values in an array<br>
-                                origin <span class="faded">{number[]} (default = [canvas.width / 2, canvas.height / 2])</span> - The origin (starting point) of the drawn vector on the canvas expressed as a point of the canvas in an array<br>
-                                weight <span class="faded">{number} (default = 5)</span> - The stroke weight or line width of the drawn vector<br>
-                                context <span class="faded">{CanvasRenderingContext2D} (default = ctx)</span> - The JavaScript Canvas 2D API rendering context of the drawn vector
-                            </p>
-                            <h4>RETURNS</h4>
-                            <p>
-                                <span class="faded">{string}</span> - A message that tells which vector was drawn, where it was drawn, and which color it was drawn with.
-                            </p>
-                            <h4>EXAMPLE</h4>
-<pre class="javascript"><code>// Draws the vector (1, 2) at the center of the canvas scaled by two with an RGB color of (255, 0, 0) or red
-const ctx = document.getElementById("canvas").getContext("2d");
-let v = Chalkboard.vec2.new(1, 2);
-Chalkboard.vec2.display(v, 2, [255, 0, 0]);</code></pre>
                         <h3><span class="faded">Chalkboard.vec2.</span>print(vec2)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Prints a vector in the console.</p>
@@ -3921,21 +3949,6 @@ let vmag10 = Chalkboard.vec3.magset(v, 10);</code></pre>
 <pre class="javascript"><code>// Returns the array [1.3002, 1.0069, 0.6405]
 let v = Chalkboard.vec3.new(1, 2, 3);
 let vang = Chalkboard.vec3.ang(v);</code></pre>
-                        <h3><span class="faded">Chalkboard.vec3.</span>angcos(vec3)</h3>
-                            <h4>DESCRIPTION</h4>
-                            <p>Gives an object of the <a href="https://en.wikipedia.org/wiki/Direction_cosine">direction cosines</a> of a vector.</p>
-                            <h4>PARAMETERS</h4>
-                            <p>
-                                vec3 <span class="faded">{vec3}</span> - A vector to get the direction cosines of
-                            </p>
-                            <h4>RETURNS</h4>
-                            <p>
-                                <span class="faded">{Object}</span> - The direction cosines of a vector, referred to as alpha, beta, and gamma
-                            </p>
-                            <h4>EXAMPLE</h4>
-<pre class="javascript"><code>// Returns 1.3002
-let v = Chalkboard.vec3.new(1, 2, 3);
-let vangcosalpha = Chalkboard.vec3.angcos(v).alpha;</code></pre>
                         <h3><span class="faded">Chalkboard.vec3.</span>slope(vec3)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Calculates the <a href="https://en.wikipedia.org/wiki/Slope">slope</a> of a vector.</p>
@@ -4170,23 +4183,7 @@ let vrotatey = Chalkboard.vec3.rotatey(v, Chalkboard.PI(1/2));</code></pre>
 <pre class="javascript"><code>// Returns the vector (-2, 1, 3)
 let v = Chalkboard.vec3.new(1, 2, 3);
 let vrotatez = Chalkboard.vec3.rotatez(v, Chalkboard.PI(1/2));</code></pre>
-                        <h3><span class="faded">Chalkboard.vec3.</span>addScl(vec3, num)</h3>
-                            <h4>DESCRIPTION</h4>
-                            <p>Calculates the addition of a vector by a number.</p>
-                            <h4>PARAMETERS</h4>
-                            <p>
-                                vec3 <span class="faded">{vec3}</span> - A vector<br>
-                                num <span class="faded">{number}</span> - The number to add by
-                            </p>
-                            <h4>RETURNS</h4>
-                            <p>
-                                <span class="faded">{vec3}</span> - A vector added by a number
-                            </p>
-                            <h4>EXAMPLE</h4>
-<pre class="javascript"><code>// Returns the vector (3, 4, 5)
-let v = Chalkboard.vec3.new(1, 2, 3);
-let vplus2 = Chalkboard.vec3.addScl(v, 2);</code></pre>
-                        <h3><span class="faded">Chalkboard.vec3.</span>mulScl(vec3, num)</h3>
+                        <h3><span class="faded">Chalkboard.vec3.</span>scl(vec3, num)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Calculates the multiplication of a vector by a number.</p>
                             <h4>PARAMETERS</h4>
@@ -4201,7 +4198,7 @@ let vplus2 = Chalkboard.vec3.addScl(v, 2);</code></pre>
                             <h4>EXAMPLE</h4>
 <pre class="javascript"><code>// Returns the vector (2, 4, 6)
 let v = Chalkboard.vec3.new(1, 2, 3);
-let vtimes2 = Chalkboard.vec3.mulScl(v, 2);</code></pre>
+let vtimes2 = Chalkboard.vec3.scl(v, 2);</code></pre>
                         <h3><span class="faded">Chalkboard.vec3.</span>add(vec3_1, vec3_2)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Calculates the addition of two vectors.</p>
@@ -4401,27 +4398,6 @@ let varr = Chalkboard.vec3.toArray(v);</code></pre>
 <pre class="javascript"><code>// Returns the string "(1, 2, 3)"
 let v = Chalkboard.vec3.new(1, 2, 3);
 let vstr = Chalkboard.vec3.toString(v);</code></pre>
-                        <h3><span class="faded">Chalkboard.vec3.</span>display(vec3, scl, rgb, origin, weight, context)</h3>
-                            <h4>DESCRIPTION</h4>
-                            <p>Draws a vector on the canvas.</p>
-                            <h4>PARAMETERS</h4>
-                            <p>
-                                vec3 <span class="faded">{vec3}</span> - A vector to draw<br>
-                                scl <span class="faded">{number} (default = 1)</span> - The scale of the drawn vector<br>
-                                rgb <span class="faded">{number[]} (default = [0, 0, 0])</span> - The color of the vector expressed as RGB values in an array<br>
-                                origin <span class="faded">{number[]} (default = [canvas.width / 2, canvas.height / 2])</span> - The origin (starting point) of the drawn vector on the canvas expressed as a point of the canvas in an array<br>
-                                weight <span class="faded">{number} (default = 5)</span> - The stroke weight or line width of the drawn vector<br>
-                                context <span class="faded">{CanvasRenderingContext2D} (default = ctx)</span> - The JavaScript Canvas 2D API rendering context of the drawn vector
-                            </p>
-                            <h4>RETURNS</h4>
-                            <p>
-                                <span class="faded">{string}</span> - A message that tells which vector was drawn, where it was drawn, and which color it was drawn with.
-                            </p>
-                            <h4>EXAMPLE</h4>
-<pre class="javascript"><code>// Draws the vector (1, 2, 3) at the center of the canvas scaled by two with an RGB color of (255, 0, 0) or red
-const ctx = document.getElementById("canvas").getContext("2d");
-let v = Chalkboard.vec3.new(1, 2, 3);
-Chalkboard.vec3.display(v, 2, [255, 0, 0]);</code></pre>
                         <h3><span class="faded">Chalkboard.vec3.</span>print(vec3)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Prints a vector in the console.</p>
@@ -4540,21 +4516,6 @@ let vmag10 = Chalkboard.vec4.magset(v, 10);</code></pre>
 <pre class="javascript"><code>// Returns the array [1.3872, 1.1970, 0.9912, 0.7520]
 let v = Chalkboard.vec4.new(1, 2, 3, 4);
 let vang = Chalkboard.vec4.ang(v);</code></pre>
-                        <h3><span class="faded">Chalkboard.vec4.</span>angcos(vec4)</h3>
-                            <h4>DESCRIPTION</h4>
-                            <p>Gives an object of the <a href="https://en.wikipedia.org/wiki/Direction_cosine">direction cosines</a> of a vector.</p>
-                            <h4>PARAMETERS</h4>
-                            <p>
-                                vec4 <span class="faded">{vec4}</span> - A vector to get the direction cosines of
-                            </p>
-                            <h4>RETURNS</h4>
-                            <p>
-                                <span class="faded">{Object}</span> - The direction cosines of a vector, referred to as alpha, beta, gamma, and delta
-                            </p>
-                            <h4>EXAMPLE</h4>
-<pre class="javascript"><code>// Returns 1.3872
-let v = Chalkboard.vec4.new(1, 2, 3, 4);
-let vangcosalpha = Chalkboard.vec4.angcos(v).alpha;</code></pre>
                         <h3><span class="faded">Chalkboard.vec4.</span>slope(vec4)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Calculates the <a href="https://en.wikipedia.org/wiki/Slope">slope</a> of a vector.</p>
@@ -4726,23 +4687,7 @@ let vwdistsq = Chalkboard.vec4.distsq(v, w);</code></pre>
 let v = Chalkboard.vec4.new(1, 2, 3, 4);
 let w = Chalkboard.vec4.new(5, 6, 7, 8);
 let vwang = Chalkboard.vec4.angBtwn(v, w);</code></pre>
-                        <h3><span class="faded">Chalkboard.vec4.</span>addScl(vec4, num)</h3>
-                            <h4>DESCRIPTION</h4>
-                            <p>Calculates the addition of a vector by a number.</p>
-                            <h4>PARAMETERS</h4>
-                            <p>
-                                vec4 <span class="faded">{vec4}</span> - A vector<br>
-                                num <span class="faded">{number}</span> - The number to add by
-                            </p>
-                            <h4>RETURNS</h4>
-                            <p>
-                                <span class="faded">{vec4}</span> - A vector added by a number
-                            </p>
-                            <h4>EXAMPLE</h4>
-<pre class="javascript"><code>// Returns the vector (3, 4, 5, 6)
-let v = Chalkboard.vec4.new(1, 2, 3, 4);
-let vplus2 = Chalkboard.vec4.addScl(v, 2);</code></pre>
-                        <h3><span class="faded">Chalkboard.vec4.</span>mulScl(vec4, num)</h3>
+                        <h3><span class="faded">Chalkboard.vec4.</span>scl(vec4, num)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Calculates the multiplication of a vector by a number.</p>
                             <h4>PARAMETERS</h4>
@@ -4757,7 +4702,7 @@ let vplus2 = Chalkboard.vec4.addScl(v, 2);</code></pre>
                             <h4>EXAMPLE</h4>
 <pre class="javascript"><code>// Returns the vector (2, 4, 6, 8)
 let v = Chalkboard.vec4.new(1, 2, 3, 4);
-let vtimes2 = Chalkboard.vec4.mulScl(v, 2);</code></pre>
+let vtimes2 = Chalkboard.vec4.scl(v, 2);</code></pre>
                         <h3><span class="faded">Chalkboard.vec4.</span>add(vec4_1, vec4_2)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Calculates the addition of two vectors.</p>
@@ -4936,7 +4881,7 @@ Chalkboard.vec4.print(v);</code></pre>
                                 <span class="faded">{matr}</span> - A new Chalkboard matrix
                             </p>
                             <h4>EXAMPLE</h4>
-<pre class="javascript"><code>// Defines a 3x3 matrix
+<pre class="javascript"><code>// Defines a 3x3 matrix [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 let A = Chalkboard.matr.new([1, 2, 3],
                             [4, 5, 6],
                             [7, 8, 9]);</code></pre>
@@ -4974,23 +4919,6 @@ let A = Chalkboard.matr.new([1, 2, 3],
                             [4, 5, 6],
                             [7, 8, 9]);
 let columns = Chalkboard.matr.cols(A);</code></pre>
-                        <h3><span class="faded">Chalkboard.matr.</span>dimension(matr)</h3>
-                            <h4>DESCRIPTION</h4>
-                            <p>Calculates the dimension of a matrix.</p>
-                            <h4>PARAMETERS</h4>
-                            <p>
-                                matr <span class="faded">{matr}</span> - Matrix
-                            </p>
-                            <h4>RETURNS</h4>
-                            <p>
-                                <span class="faded">{number[]}</span> - Array of the number of rows and the number of columns
-                            </p>
-                            <h4>EXAMPLE</h4>
-<pre class="javascript"><code>// Returns [3, 3]
-let A = Chalkboard.matr.new([1, 2, 3],
-                            [4, 5, 6],
-                            [7, 8, 9]);
-let dimension = Chalkboard.matr.dimension(A);</code></pre>
                         <h3><span class="faded">Chalkboard.matr.</span>empty(dimension)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Defines a empty matrix (a matrix with no elements).</p>
@@ -5025,8 +4953,8 @@ let I = Chalkboard.matr.identity(3);</code></pre>
                             <h4>PARAMETERS</h4>
                             <p>
                                 dimension <span class="faded">{number}</span> - The size of the square matrix
-                                inf <span class="faded">{number}</span> - Lower bound of randomization<br>
-                                sup <span class="faded">{number}</span> - Upper bound of randomization
+                                inf <span class="faded">{number} (default = 0)</span> - Lower bound of randomization<br>
+                                sup <span class="faded">{number} (default = 1)</span> - Upper bound of randomization
                             </p>
                             <h4>RETURNS</h4>
                             <p>
@@ -5090,6 +5018,91 @@ let A = Chalkboard.matr.new([1, 2, 3],
                             [4, 5, 6],
                             [7, 8, 9]);
 let determinant = Chalkboard.matr.det(A);</code></pre>
+                        <h3><span class="faded">Chalkboard.matr.</span>trace(matr)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Trace_(linear_algebra)">trace</a> of a matrix.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                matr <span class="faded">{matr}</span> - Matrix
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{number}</span> - Trace
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns 15
+let A = Chalkboard.matr.new([1, 2, 3],
+                            [4, 5, 6],
+                            [7, 8, 9]);
+let trace = Chalkboard.matr.trace(A);</code></pre>
+                        <h3><span class="faded">Chalkboard.matr.</span>rank(matr)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Rank_(linear_algebra)">rank</a> of a matrix.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                matr <span class="faded">{matr}</span> - Matrix
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{number}</span> - Rank
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns 2
+let A = Chalkboard.matr.new([1, 2, 3],
+                            [4, 5, 6],
+                            [7, 8, 9]);
+let rank = Chalkboard.matr.rank(A);</code></pre>
+                        <h3><span class="faded">Chalkboard.matr.</span>rowspace(matr)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Row_and_column_spaces">row space</a> of a matrix.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                matr <span class="faded">{matr}</span> - Matrix
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{matr}</span> - Row space
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the matrix [[1, 0, -1], [0, 1, 2]]
+let A = Chalkboard.matr.new([1, 2, 3],
+                            [4, 5, 6],
+                            [7, 8, 9]);
+let rowspace = Chalkboard.matr.rowspace(A);</code></pre>
+                        <h3><span class="faded">Chalkboard.matr.</span>colspace(matr)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Row_and_column_spaces">column space</a> of a matrix.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                matr <span class="faded">{matr}</span> - Matrix
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{matr}</span> - Column space
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the matrix [[1, 0], [0, 1], [-1, 2]]
+let A = Chalkboard.matr.new([1, 2, 3],
+                            [4, 5, 6],
+                            [7, 8, 9]);
+let colspace = Chalkboard.matr.colspace(A);</code></pre>
+                        <h3><span class="faded">Chalkboard.matr.</span>nullspace(matr)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Kernel_(linear_algebra)">null space</a> of a matrix.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                matr <span class="faded">{matr}</span> - Matrix
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{matr}</span> - Null space
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the matrix [[0, 0, 0]]
+let A = Chalkboard.matr.new([1, 2, 3],
+                            [4, 5, 6],
+                            [7, 8, 9]);
+let nullspace = Chalkboard.matr.nullspace(A);</code></pre>
                         <h3><span class="faded">Chalkboard.matr.</span>transpose(matr)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Calculates the <a href="https://en.wikipedia.org/wiki/Transpose">transpose</a> of a matrix.</p>
@@ -5321,7 +5334,7 @@ let A = Chalkboard.matr.new([1, 2],
                             [3, 4]);
 let Ai = Chalkboard.matr.invert(A);
 let AtimesAi = Chalkboard.matr.mul(A, Ai);</code></pre>
-                        <h3><span class="faded">Chalkboard.matr.</span>mulScl(matr, num)</h3>
+                        <h3><span class="faded">Chalkboard.matr.</span>scl(matr, num)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Calculates the multiplication of a matrix by a number.</p>
                             <h4>PARAMETERS</h4>
@@ -5338,7 +5351,63 @@ let AtimesAi = Chalkboard.matr.mul(A, Ai);</code></pre>
 let A = Chalkboard.matr.new([1, 2, 3],
                             [4, 5, 6],
                             [7, 8, 9]);
-let Atimes2 = Chalkboard.matr.mulScl(A, 2);</code></pre>
+let Atimes2 = Chalkboard.matr.scl(A, 2);</code></pre>
+                        <h3><span class="faded">Chalkboard.matr.</span>pow(matr, num)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Calculates the exponentiation of a matrix by a number.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                matr <span class="faded">{matr}</span> - Matrix<br>
+                                num <span class="faded">{number}</span> - Number
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{matr}</span> - Matrix to the power of a number
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the matrix multiplied by itself
+let A = Chalkboard.matr.new([1, 2, 3],
+                            [4, 5, 6],
+                            [7, 8, 9]);
+let Asquared = Chalkboard.matr.pow(A, 2);</code></pre>
+                        <h3><span class="faded">Chalkboard.matr.</span>reduce(matr)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Row_echelon_form">row echelon form</a> of a matrix with <a href="https://en.wikipedia.org/wiki/Gaussian_elimination">Gaussian elimination</a>.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                matr <span class="faded">{matr}</span> - Matrix
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{matr}</span> - Matrix in row echelon form
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the matrix [[1, 0, -1], [0, 1, 2], [0, 0, 0]]
+let A = Chalkboard.matr.new([1, 2, 3],
+                            [4, 5, 6],
+                            [7, 8, 9]);
+let gaussed = Chalkboard.matr.reduce(A);</code></pre>
+                        <h3><span class="faded">Chalkboard.matr.</span>solve(matr_A, matr_B)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Calculates the solutions of a <a href="https://en.wikipedia.org/wiki/System_of_linear_equations">system of linear equations</a> in the form Ax = B.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                matr_A <span class="faded">{matr}</span> - Coefficients matrix<br>
+                                matr_B <span class="faded">{matr}</span> - Constants matrix
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{matr}</span> - Solutions matrix
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the matrix [[3], [-2], [1]]
+let A = Chalkboard.matr.new([1, 1, 1],
+                            [6, -4, 5],
+                            [5, 2, 2]);
+let B = Chalkboard.matr.new([2],
+                            [31],
+                            [13]);
+let x = Chalkboard.matr.solve(A, B);</code></pre>
                         <h3><span class="faded">Chalkboard.matr.</span>toVector(matr, vec, type)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Converts a matrix to a <a href="https://en.wikipedia.org/wiki/Vector_(mathematics_and_physics)">vector</a>.</p>
@@ -5369,7 +5438,7 @@ let v = Chalkboard.matr.toVector(A, "vec2", "row");</code></pre>
                                 <span class="faded">{number[]}</span> - Matrix converted to an array
                             </p>
                             <h4>EXAMPLE</h4>
-<pre class="javascript"><code>// Returns the array of the matrix's elements
+<pre class="javascript"><code>// Returns the array [1, 2, 3, 4, 5, 6, 7, 8, 9]
 let A = Chalkboard.matr.new([1, 2, 3],
                             [4, 5, 6],
                             [7, 8, 9]);
@@ -5386,33 +5455,28 @@ let Aarr = Chalkboard.matr.toArray(A);</code></pre>
                                 <span class="faded">{string}</span> - Matrix converted to a string
                             </p>
                             <h4>EXAMPLE</h4>
-<pre class="javascript"><code>// Returns the string of the matrix's elements
+<pre class="javascript"><code>// Returns the string "[ 1 2 3 ]\n[ 4 5 6 ]\n[ 7 8 9 ]"
 let A = Chalkboard.matr.new([1, 2, 3],
                             [4, 5, 6],
                             [7, 8, 9]);
 let Astr = Chalkboard.matr.toString(A);</code></pre>
-                        <h3><span class="faded">Chalkboard.matr.</span>display(matr, scl, rgb, origin, weight, context)</h3>
+                        <h3><span class="faded">Chalkboard.matr.</span>toObject(matr)</h3>
                             <h4>DESCRIPTION</h4>
-                            <p>Draws a 2x2 matrix on the canvas (note: the matrix must be a 2x2 matrix, or a square matrix with the size of 2).</p>
+                            <p>Converts a matrix to an object.</p>
                             <h4>PARAMETERS</h4>
                             <p>
-                                matr <span class="faded">{matr}</span> - Matrix<br>
-                                scl <span class="faded">{number} (default = 1)</span> - The scale of the drawn matrix<br>
-                                rgb <span class="faded">{number[]} (default = [0, 0, 0])</span> - The color of the matrix expressed as RGB values in an array<br>
-                                origin <span class="faded">{number[]} (default = [canvas.width / 2, canvas.height / 2])</span> - The origin (center) of the drawn matrix on the canvas expressed as a point of the canvas in an array<br>
-                                weight <span class="faded">{number} (default = 5)</span> - The stroke weight or line width of the drawn matrix<br>
-                                context <span class="faded">{CanvasRenderingContext2D} (default = ctx)</span> - The JavaScript Canvas 2D API rendering context of the drawn matrix
+                                matr <span class="faded">{matr}</span> - Matrix
                             </p>
                             <h4>RETURNS</h4>
                             <p>
-                                <span class="faded">{string}</span> - A message that tells which matrix was drawn, where it was drawn, and which color it was drawn with.
+                                <span class="faded">{object}</span> - Matrix converted to an object
                             </p>
                             <h4>EXAMPLE</h4>
-<pre class="javascript"><code>// Draws the matrix at the center of the canvas scaled by two with an RGB color of (255, 0, 0) or red
-const ctx = document.getElementById("canvas").getContext("2d");
-let A = Chalkboard.matr.new([1, 2],
-                            [3, 4]);
-Chalkboard.matr.display(A, 2, [255, 0, 0]);</code></pre>
+<pre class="javascript"><code>// Returns the object { i1: { j1: 1, j2: 2, j3: 3}, i2: { j1: 4, j2: 5, j3: 6 }, i3: { j1: 7, j2: 8, j3: 9 } }
+let A = Chalkboard.matr.new([1, 2, 3],
+                            [4, 5, 6],
+                            [7, 8, 9]);
+let Aobj = Chalkboard.matr.toObject(A);</code></pre>
                         <h3><span class="faded">Chalkboard.matr.</span>print(matr)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Prints a matrix in the console.</p>
@@ -5629,7 +5693,7 @@ let solution = Chalkboard.calc.Newton(f, [-5, 5]);</code></pre>
             </div>
         </div>
         <footer>
-            <p>Zushah 2023 - Chalkboard v1.1.0</p>
+            <p>Zushah 2023 - Chalkboard v1.2.0</p>
         </footer>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
         <script type="text/javascript" src="script.js"></script>
