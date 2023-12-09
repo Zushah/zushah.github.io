@@ -1,4 +1,17 @@
 <!DOCTYPE html>
+<!--
+==================================================================
+The Chalkboard Library
+(https://www.github.com/Zushah/Chalkboard)
+(https://www.khanacademy.org/cs/chalkboard/6708642430369792)
+==================================================================
+Zushah (https://www.github.com/Zushah)
+==================================================================
+Released on Khan Academy: 11/06/2023
+Released on GitHub: 11/06/2023
+Last updated: 12/09/2023
+==================================================================
+-->
 <html>
     <head>
         <meta charset="utf-8">
@@ -26,7 +39,7 @@
             <h2>Documentation</h2>
             <p>This page has all the information you need to successfully operate the Chalkboard library. If you have any questions, feel free to contact <a href="https://www.github.com/Zushah">Zushah</a>.</p>
             <p>Click on a category below to view the documentation for each of its commands.</p>
-            <p>Note: The updated documentation for Chalkboard <a href="https://github.com/Zushah/Chalkboard/releases/tag/v1.3.1">v1.3.1</a> is not available yet, so this current documentation is still on <a href="https://github.com/Zushah/Chalkboard/releases/tag/v1.2.0">v1.2.0</a>.</p>
+            <p>The source code for the <a href="https://github.com/Zushah/Chalkboard/releases/tag/v1.3.1">latest release</a> can be found <a href="https://github.com/Zushah/Chalkboard/blob/v1.3.1/src/Chalkboard.js">here</a>.</p>
             <div id="docs">
 <!--
                     <div>
@@ -57,87 +70,126 @@
                 <div>
                     <h2 id="types" class="dropdown-button" onclick="dropdown(this)">Types</h2>
                     <div class="dropdown hidden">
-                        <h3 id="types-func">func</h3>
+                        <h3>func</h3>
                             <h4>DESCRIPTION</h4>
                             <p>The type used for mathematical functions in Chalkboard commands.</p>
                             <h4>PROPERTIES</h4>
                             <p>
-                                Definition <span class="faded">{String}</span> - The definition of the function<br>
-                                Type <span class="faded">{String}</span> - The type of the function, which is either "expl", "pola", or "para"
+                                Definition <span class="faded">{string}</span> - The definition of the function<br>
+                                Type <span class="faded">{string}</span> - The type of the function, which is either "expl", "pola", "curv", "surf", or "mult"
                             </p>
                             <h4>EXAMPLE</h4>
 <pre class="javascript"><code>// The variable f is of type func
 let f = Chalkboard.real.function("x * x");</code></pre>
-                        <h3 id="types-comp">comp</h3>
+                        <h3>comp</h3>
                             <h4>DESCRIPTION</h4>
                             <p>The type used for complex numbers.</p>
                             <h4>PROPERTIES</h4>
                             <p>
-                                a <span class="faded">{Number}</span> - The value of the real part of the complex number<br>
-                                b <span class="faded">{Number}</span> - The value of the imaginary part of the complex number
+                                a <span class="faded">{number}</span> - The value of the real part of the complex number<br>
+                                b <span class="faded">{number}</span> - The value of the imaginary part of the complex number
                             </p>
                             <h4>EXAMPLE</h4>
 <pre class="javascript"><code>// The variable z is of type comp
 let z = Chalkboard.comp.new(1, 2);</code></pre>
-                        <h3 id="types-comp">quat</h3>
+                        <h3>quat</h3>
                             <h4>DESCRIPTION</h4>
                             <p>The type used for quaternions.</p>
                             <h4>PROPERTIES</h4>
                             <p>
-                                a <span class="faded">{Number}</span> - The value of the real part of the quaternion<br>
-                                b <span class="faded">{Number}</span> - The value of the first imaginary part of the quaternion<br>
-                                c <span class="faded">{Number}</span> - The value of the second imaginary part of the quaternion<br>
-                                d <span class="faded">{Number}</span> - The value of the third imaginary part of the quaternion<br>
+                                a <span class="faded">{number}</span> - The value of the real part of the quaternion<br>
+                                b <span class="faded">{number}</span> - The value of the first imaginary part of the quaternion<br>
+                                c <span class="faded">{number}</span> - The value of the second imaginary part of the quaternion<br>
+                                d <span class="faded">{number}</span> - The value of the third imaginary part of the quaternion<br>
                             </p>
                             <h4>EXAMPLE</h4>
 <pre class="javascript"><code>// The variable q is of type quat
 let q = Chalkboard.quat.new(1, 2, 3, 4);</code></pre>
-                        <h3 id="types-comp">vec2</h3>
+                        <h3>vec2</h3>
                             <h4>DESCRIPTION</h4>
                             <p>The type used for two-dimensional vectors.</p>
                             <h4>PROPERTIES</h4>
                             <p>
-                                x <span class="faded">{Number}</span> - The value of the first component of the vector<br>
-                                y <span class="faded">{Number}</span> - The value of the second component of the vector<br>
-                                type <span class="faded">{String}</span> - The type of the vector, always set to "vec2"
+                                x <span class="faded">{number}</span> - The value of the first component of the vector<br>
+                                y <span class="faded">{number}</span> - The value of the second component of the vector<br>
+                                type <span class="faded">{string}</span> - The type of the vector, always set to "vec2"
                             </p>
                             <h4>EXAMPLE</h4>
 <pre class="javascript"><code>// The variable v is of type vec2
 let v = Chalkboard.vec2.new(1, 2);</code></pre>
-                        <h3 id="types-comp">vec3</h3>
+                        <h3>vec3</h3>
                             <h4>DESCRIPTION</h4>
                             <p>The type used for three-dimensional vectors.</p>
                             <h4>PROPERTIES</h4>
                             <p>
-                                x <span class="faded">{Number}</span> - The value of the first component of the vector<br>
-                                y <span class="faded">{Number}</span> - The value of the second component of the vector<br>
-                                z <span class="faded">{Number}</span> - The value of the third component of the vector<br>
-                                type <span class="faded">{String}</span> - The type of the vector, always set to "vec3"
+                                x <span class="faded">{number}</span> - The value of the first component of the vector<br>
+                                y <span class="faded">{number}</span> - The value of the second component of the vector<br>
+                                z <span class="faded">{number}</span> - The value of the third component of the vector<br>
+                                type <span class="faded">{string}</span> - The type of the vector, always set to "vec3"
                             </p>
                             <h4>EXAMPLE</h4>
 <pre class="javascript"><code>// The variable v is of type vec3
 let v = Chalkboard.vec3.new(1, 2, 3);</code></pre>
-                        <h3 id="types-comp">vec4</h3>
+                        <h3>vec4</h3>
                             <h4>DESCRIPTION</h4>
                             <p>The type used for four-dimensional vectors.</p>
                             <h4>PROPERTIES</h4>
                             <p>
-                                x <span class="faded">{Number}</span> - The value of the first component of the vector<br>
-                                y <span class="faded">{Number}</span> - The value of the second component of the vector<br>
-                                z <span class="faded">{Number}</span> - The value of the third component of the vector<br>
-                                w <span class="faded">{Number}</span> - The value of the fourth component of the vector<br>
-                                type <span class="faded">{String}</span> - The type of the vector, always set to "vec4"
+                                x <span class="faded">{number}</span> - The value of the first component of the vector<br>
+                                y <span class="faded">{number}</span> - The value of the second component of the vector<br>
+                                z <span class="faded">{number}</span> - The value of the third component of the vector<br>
+                                w <span class="faded">{number}</span> - The value of the fourth component of the vector<br>
+                                type <span class="faded">{string}</span> - The type of the vector, always set to "vec4"
                             </p>
                             <h4>EXAMPLE</h4>
 <pre class="javascript"><code>// The variable v is of type vec4
 let v = Chalkboard.vec4.new(1, 2, 3, 4);</code></pre>
-                        <h3 id="types-comp">matr</h3>
+                        <h3>vec2field</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>The type used for two-dimensional vector fields.</p>
+                            <h4>PROPERTIES</h4>
+                            <p>
+                                p <span class="faded">{number}</span> - The definition of the first component of the vector field<br>
+                                q <span class="faded">{number}</span> - The definition of the second component of the vector field<br>
+                                type <span class="faded">{string}</span> - The type of the vector field, always set to "vec2field"
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// The variable F is of type vec2field
+let F = Chalkboard.vec2.field("x", "y");</code></pre>
+                        <h3>vec3field</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>The type used for three-dimensional vector fields.</p>
+                            <h4>PROPERTIES</h4>
+                            <p>
+                                p <span class="faded">{number}</span> - The definition of the first component of the vector field<br>
+                                q <span class="faded">{number}</span> - The definition of the second component of the vector field<br>
+                                r <span class="faded">{number}</span> - The definition of the third component of the vector field<br>
+                                type <span class="faded">{string}</span> - The type of the vector field, always set to "vec3field"
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// The variable F is of type vec3field
+let F = Chalkboard.vec3.field("x", "y", "z");</code></pre>
+                        <h3>vec4field</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>The type used for four-dimensional vector fields.</p>
+                            <h4>PROPERTIES</h4>
+                            <p>
+                                p <span class="faded">{number}</span> - The definition of the first component of the vector field<br>
+                                q <span class="faded">{number}</span> - The definition of the second component of the vector field<br>
+                                r <span class="faded">{number}</span> - The definition of the third component of the vector field<br>
+                                s <span class="faded">{number}</span> - The definition of the fourth component of the vector field<br>
+                                type <span class="faded">{string}</span> - The type of the vector field, always set to "vec4field"
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// The variable F is of type vec4field
+let F = Chalkboard.vec4.field("x", "y", "z", "w");</code></pre>
+                        <h3>matr</h3>
                             <h4>DESCRIPTION</h4>
                             <p>The type used for matrices.</p>
                             <h4>PROPERTIES</h4>
                             <p>
-                                matrix <span class="faded">{Array[]}</span> - The rows of the matrix<br>
-                                matrix []<span class="faded">{number[]}</span> - The columns of the matrix
+                                matrix <span class="faded">{array[]}</span> - The rows of the matrix<br>
+                                matrix[]<span class="faded">{number[]}</span> - The columns of the matrix
                             </p>
                             <h4>EXAMPLE</h4>
 <pre class="javascript"><code> // The variable A is of type matr
@@ -210,8 +262,8 @@ const TAU = Chalkboard.PI(2);</code></pre>
                             </p>
                             <h4>EXAMPLE</h4>
 <pre class="javascript"><code>// A function that calculates continuous interest
-function calculateInterest(initial, rate, time) {
-    return initial * Chalkboard.E(rate * time);
+function calculateInterest(initialMoney, rate, time) {
+    return initialMoney * Chalkboard.E(rate * time);
 }
 </code></pre>
                     </div>
@@ -587,25 +639,34 @@ Chalkboard.numb.Gaussian(1, 0, 1);</code></pre>
                     <div class="dropdown hidden">
                         <h3><span class="faded">Chalkboard.real.</span>function(definition, type)</h3>
                             <h4>DESCRIPTION</h4>
-                            <p>Defines a <a href="https://en.wikipedia.org/wiki/Function_(mathematics)">mathematical function</a> with either an explicit representation, a parametric one, or a polar one.</p>
+                            <p>Defines a <a href="https://en.wikipedia.org/wiki/Function_(mathematics)">mathematical function</a> with either an explicit single-variable representation, a polar one, a parametric curve one, a parametric surface one, or an explicit multivariable one.</p>
                             <h4>PARAMETERS</h4>
                             <p>
-                                definition <span class="faded">{string | string[]}</span> - The mathematical expression that defines the function, which is written as a string for explicit and polar functions and as an array of two strings for parametric functions. The variable used for explicit functions must be "x," the variable used for polar functions must be "O," and the variable used for parametric functions must be "t"<br>
-                                type <span class="faded">{string} (default = expl)</span> - The type of the function, which can only be either "expl" for an explicit function, "pola" for a polar function, or "para" for a parametric function
+                                definition <span class="faded">{string | string[]}</span> - The mathematical expression that defines the function, which is written as a string for explicit, polar, and multivariable functions, as an array of two or three strings for parametric curves, and as an array of three strings for parametric surfaces. The variable used for explicit functions must be "x", the variable used for polar functions must be "O", the variable used for parametric curves must be "t", the variables used for parametric surfaces must be "s" and "t", and the variables used for multivariable functions must be "x" and "y".<br>
+                                type <span class="faded">{string} (default = "expl")</span> - The type of the function, which can only be either "expl" for an explicit function, "pola" for a polar function, "curv" for a parametric curve, "surf" for a parametric surface, and "mult" for a multivariable function
                             </p>
                             <h4>RETURNS</h4>
                             <p>
                                 <span class="faded">{func}</span> - A new Chalkboard function defined by the definition parameter
                             </p>
                             <h4>EXAMPLE</h4>
-<pre class="javascript"><code>// Defines the explicit function f(x) = x^2
+<pre class="javascript"><code>// Defines the explicit single-variable function f(x) = x^2
 let f = Chalkboard.real.function("x * x");
 
 // Defines the polar function r(O) = cos(O)
 let r = Chalkboard.real.function("Math.cos(O)", "pola");
 
-// Defines the parametric function s(t) = (cos(t), sin(t))
-let s = Chalkboard.real.function(["Math.cos(t)", "Math.sin(t)"], "para");</code></pre>
+// Defines the parametric curve r(t) = (cos(t), sin(t))
+let r = Chalkboard.real.function(["Math.cos(t)", "Math.sin(t)"], "curv");
+
+// Defines the parametric curve r(t) = (cos(t), sin(t), t)
+let r = Chalkboard.real.function(["Math.cos(t)", "Math.sin(t)", "t"], "curv");
+
+// Defines the parametric surface r(s, t) = (cos(s)cos(t), cos(s)sin(t), sin(s))
+let r = Chalkboard.real.function(["Math.cos(s) * Math.cos(t)", "Math.cos(s) * Math.sin(t)", "Math.sin(s)"], "surf");
+
+// Defines the explicit multivariable function f(x, y) = x^2 + y^2
+let f = Chalkboard.real.function("x * x + y * y", "mult");</code></pre>
                         <h3><span class="faded">Chalkboard.real.</span>parse(str)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Parses and executes a string of JavaScript code.</p>
@@ -630,7 +691,7 @@ let four = Chalkboard.real.parse("2 + 2");</code></pre>
                             </p>
                             <h4>RETURNS</h4>
                             <p>
-                                <span class="faded">{number}</span> - A value of the Chalkboard function
+                                <span class="faded">{number|vec2|vec3}</span> - A value of the Chalkboard function
                             </p>
                             <h4>EXAMPLE</h4>
 <pre class="javascript"><code>// Returns 1
@@ -1265,6 +1326,37 @@ let zsqrt = Chalkboard.comp.sqrt(z);</code></pre>
 <pre class="javascript"><code>// Returns the complex number -2 + i
 let z = Chalkboard.comp.new(1, 2);
 let zrotated = Chalkboard.comp.rotate(z, Chalkboard.PI(1/2));</code></pre>
+                        <h3><span class="faded">Chalkboard.comp.</span>conjugate(comp)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Complex_conjugate">conjugate</a> of a complex number.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                comp <span class="faded">{comp}</span> - A complex number to conjugate
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{comp}</span> - A conjugated complex number
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the complex number 1 - 2i
+let z = Chalkboard.comp.new(1, 2);
+let zconjugate = Chalkboard.comp.conjugate(z);</code></pre>
+                        <h3><span class="faded">Chalkboard.comp.</span>scl(comp, num)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Multiplies the components of a complex number by a real number.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                comp <span class="faded">{comp}</span> - A complex number to scale<br>
+                                num <span class="faded">{num}</span> - A number to scale by
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{comp}</span> - A scaled complex number
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the complex number 3 + 6i
+let z = Chalkboard.comp.new(1, 2);
+let zscl = Chalkboard.comp.scl(z, 3);</code></pre>
                         <h3><span class="faded">Chalkboard.comp.</span>add(comp_1, comp_2)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Calculates the addition of two complex numbers.</p>
@@ -1647,6 +1739,22 @@ let qrdist = Chalkboard.quat.dist(q, r);</code></pre>
 let q = Chalkboard.quat.new(1, 2, 3, 4);
 let r = Chalkboard.quat.new(5, 6, 7, 8);
 let qrdistsq = Chalkboard.quat.distsq(q, r);</code></pre>
+                        <h3><span class="faded">Chalkboard.quat.</span>scl(quat, num)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Multiplies the components of a quaternion by a real number.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                quat <span class="faded">{quat}</span> - A quaternion to scale<br>
+                                num <span class="faded">{num}</span> - A number to scale by
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{quat}</span> - A scaled quaternion
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the quaternion 3 + 6i + 9j + 12k
+let q = Chalkboard.quat.new(1, 2, 3, 4);
+let qscl = Chalkboard.quat.scl(q, 3);</code></pre>
                         <h3><span class="faded">Chalkboard.quat.</span>add(quat_1, quat_2)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Calculates the addition of two quaternions.</p>
@@ -1813,13 +1921,13 @@ Chalkboard.quat.print(q);</code></pre>
                 <div>
                     <h2 id="plot" class="dropdown-button" onclick="dropdown(this)">plot</h2>
                     <div class="dropdown hidden">
-                        <h3><span class="faded">Chalkboard.plot.</span>xyplane(scl, rgb, origin, weight, context)</h3>
+                        <h3><span class="faded">Chalkboard.plot.</span>xyplane(scl, rgba, origin, weight, context)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Draws the <a href="https://en.wikipedia.org/wiki/Cartesian_coordinate_system">Cartesian plane</a>.</p>
                             <h4>PARAMETERS</h4>
                             <p>
                                 scl <span class="faded">{number} (default = 1)</span> - The scale of the plane<br>
-                                rgb <span class="faded">{number[]} (default = [0, 0, 0])</span> - The color of the plane expressed as RGB values in an array<br>
+                                rgba <span class="faded">{number[]} (default = [0, 0, 0])</span> - The color of the plane expressed as RGB values (or RGBA values which includes opacity) in an array<br>
                                 origin <span class="faded">{number[]} (default = [canvas.width / 2, canvas.height / 2])</span> - The origin (center) of the plane on the canvas expressed as a point of the canvas in an array<br>
                                 weight <span class="faded">{number} (default = 2)</span> - The stroke weight or line width of the plane<br>
                                 context <span class="faded">{CanvasRenderingContext2D} (default = ctx)</span> - The JavaScript Canvas 2D API rendering context of the plane
@@ -1832,13 +1940,13 @@ Chalkboard.quat.print(q);</code></pre>
 <pre class="javascript"><code>// Draws the Cartesian plane with a scale of 2 colored black at the center of the canvas
 const ctx = document.getElementById("canvas").getContext("2d");
 Chalkboard.plot.xyplane(2);</code></pre>
-                        <h3><span class="faded">Chalkboard.plot.</span>rOplane(scl, rgb, origin, weight, context)</h3>
+                        <h3><span class="faded">Chalkboard.plot.</span>rOplane(scl, rgba, origin, weight, context)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Draws the <a href="https://en.wikipedia.org/wiki/Polar_coordinate_system">polar plane</a>.</p>
                             <h4>PARAMETERS</h4>
                             <p>
                                 scl <span class="faded">{number} (default = 1)</span> - The scale of the plane<br>
-                                rgb <span class="faded">{number[]} (default = [0, 0, 0])</span> - The color of the plane expressed as RGB values in an array<br>
+                                rgba <span class="faded">{number[]} (default = [0, 0, 0])</span> - The color of the plane expressed as RGB values (or RGBA values which includes opacity) in an array<br>
                                 origin <span class="faded">{number[]} (default = [canvas.width / 2, canvas.height / 2])</span> - The origin (center) of the plane on the canvas expressed as a point of the canvas in an array<br>
                                 weight <span class="faded">{number} (default = 2)</span> - The stroke weight or line width of the plane<br>
                                 context <span class="faded">{CanvasRenderingContext2D} (default = ctx)</span> - The JavaScript Canvas 2D API rendering context of the plane
@@ -1851,14 +1959,15 @@ Chalkboard.plot.xyplane(2);</code></pre>
 <pre class="javascript"><code>// Draws the polar plane with a scale of 2 colored black at the center of the canvas
 const ctx = document.getElementById("canvas").getContext("2d");
 Chalkboard.plot.rOplane(2);</code></pre>
-                        <h3><span class="faded">Chalkboard.plot.</span>function(func, scl, rgb, origin, weight, context)</h3>
+                        <h3><span class="faded">Chalkboard.plot.</span>function(func, scl, rgba, domain, origin, weight, context)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Draws a Chalkboard function.</p>
                             <h4>PARAMETERS</h4>
                             <p>
                                 func <span class="faded">{func}</span> - The function to draw<br>
                                 scl <span class="faded">{number} (default = 1)</span> - The scale of the function<br>
-                                rgb <span class="faded">{number[]} (default = [0, 0, 0])</span> - The color of the function expressed as RGB values in an array<br>
+                                rgba <span class="faded">{number[]} (default = [0, 0, 0])</span> - The color of the function expressed as RGB values (or RGBA values which includes opacity) in an array<br>
+                                domain <span class="faded">{number[]} (default = [-10, 10])</span> - The domain of the function, or the range of x-values where the function is drawn, expressed as an array of the lower bound and upper bound<br>
                                 origin <span class="faded">{number[]} (default = [canvas.width / 2, canvas.height / 2])</span> - The origin of the function (where x = 0) on the canvas expressed as a point of the canvas in an array<br>
                                 weight <span class="faded">{number} (default = 2)</span> - The stroke weight or line width of the function<br>
                                 context <span class="faded">{CanvasRenderingContext2D} (default = ctx)</span> - The JavaScript Canvas 2D API rendering context of the function
@@ -1872,14 +1981,14 @@ Chalkboard.plot.rOplane(2);</code></pre>
 const ctx = document.getElementById("canvas").getContext("2d");
 let f = Chalkboard.real.function("x * x");
 Chalkboard.plot.function(f, 2, [255, 0, 0]);</code></pre>
-                        <h3><span class="faded">Chalkboard.plot.</span>comp(comp, scl, rgb, origin, weight, context)</h3>
+                        <h3><span class="faded">Chalkboard.plot.</span>comp(comp, scl, rgba, origin, weight, context)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Draws a complex number on the canvas.</p>
                             <h4>PARAMETERS</h4>
                             <p>
                                 comp <span class="faded">{comp}</span> - A complex number to draw<br>
                                 scl <span class="faded">{number} (default = 1)</span> - The scale of the drawn complex number<br>
-                                rgb <span class="faded">{number[]} (default = [0, 0, 0])</span> - The color of the complex number expressed as RGB values in an array<br>
+                                rgba <span class="faded">{number[]} (default = [0, 0, 0])</span> - The color of the complex number expressed as RGB values (or RGBA values which includes opacity) in an array<br>
                                 origin <span class="faded">{number[]} (default = [canvas.width / 2, canvas.height / 2])</span> - The origin (starting point) of the drawn complex number on the canvas expressed as a point of the canvas in an array<br>
                                 weight <span class="faded">{number} (default = 5)</span> - The stroke weight or line width of the drawn complex number<br>
                                 context <span class="faded">{CanvasRenderingContext2D} (default = ctx)</span> - The JavaScript Canvas 2D API rendering context of the drawn complex number
@@ -1893,14 +2002,14 @@ Chalkboard.plot.function(f, 2, [255, 0, 0]);</code></pre>
 const ctx = document.getElementById("canvas").getContext("2d");
 let z = Chalkboard.comp.new(1, 2);
 Chalkboard.plot.comp(z, 2, [255, 0, 0]);</code></pre>
-                        <h3><span class="faded">Chalkboard.plot.</span>vec2(vec2, scl, rgb, origin, weight, context)</h3>
+                        <h3><span class="faded">Chalkboard.plot.</span>vec2(vec2, scl, rgba, origin, weight, context)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Draws a two-dimensional vector on the canvas.</p>
                             <h4>PARAMETERS</h4>
                             <p>
                                 vec2 <span class="faded">{vec2}</span> - A vector to draw<br>
                                 scl <span class="faded">{number} (default = 1)</span> - The scale of the drawn vector<br>
-                                rgb <span class="faded">{number[]} (default = [0, 0, 0])</span> - The color of the vector expressed as RGB values in an array<br>
+                                rgba <span class="faded">{number[]} (default = [0, 0, 0])</span> - The color of the vector expressed as RGB values (or RGBA values which includes opacity) in an array<br>
                                 origin <span class="faded">{number[]} (default = [canvas.width / 2, canvas.height / 2])</span> - The origin (starting point) of the drawn vector on the canvas expressed as a point of the canvas in an array<br>
                                 weight <span class="faded">{number} (default = 5)</span> - The stroke weight or line width of the drawn vector<br>
                                 context <span class="faded">{CanvasRenderingContext2D} (default = ctx)</span> - The JavaScript Canvas 2D API rendering context of the drawn vector
@@ -1914,14 +2023,37 @@ Chalkboard.plot.comp(z, 2, [255, 0, 0]);</code></pre>
 const ctx = document.getElementById("canvas").getContext("2d");
 let v = Chalkboard.vec2.new(1, 2);
 Chalkboard.plot.vec2(v, 2, [255, 0, 0]);</code></pre>
-                        <h3><span class="faded">Chalkboard.plot.</span>vec3(vec3, scl, rgb, origin, weight, context)</h3>
+                        <h3><span class="faded">Chalkboard.plot.</span>field(vec2field, scl, rgba, domain, origin, weight, res, context)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Draws a two-dimensional vector field on the canvas.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                vec2field <span class="faded">{vec2field}</span> - A vector field to draw<br>
+                                scl <span class="faded">{number} (default = 1)</span> - The scale of the drawn vector field<br>
+                                rgba <span class="faded">{number[]} (default = [0, 0, 0])</span> - The color of the vector field expressed as RGB values (or RGBA values which includes opacity) in an array<br>
+                                domain <span class="faded">{number[]} (default = [-10, 10])</span> - The domain of the vector field, or the range of x- and y-values where the function is drawn, expressed as an array of the arrays of the lower bounds and upper bounds<br>
+                                origin <span class="faded">{number[]} (default = [canvas.width / 2, canvas.height / 2])</span> - The origin (center) of the drawn vector field on the canvas expressed as a point of the canvas in an array<br>
+                                weight <span class="faded">{number} (default = 5)</span> - The stroke weight or line width of the drawn vector field<br>
+                                res <span class="faded">{number} (default = 25)</span> - The resolution of the vector field (the gap in pixels of when the vector field's vector is computed)<br>
+                                context <span class="faded">{CanvasRenderingContext2D} (default = ctx)</span> - The JavaScript Canvas 2D API rendering context of the drawn vector field
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{string}</span> - A message that tells which vector field was drawn, where it was drawn, and which color it was drawn with.
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Draws the vector field F(x, y) = (-y, x) at the center of the canvas scaled by two with an RGB color of (0, 0, 255) or blue
+const ctx = document.getElementById("canvas").getContext("2d");
+let F = Chalkboard.vec2.field("-y", "x");
+Chalkboard.plot.field(F, 2, [0, 0, 255]);</code></pre>
+                        <h3><span class="faded">Chalkboard.plot.</span>vec3(vec3, scl, rgba, origin, weight, context)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Draws a three-dimensional vector on the canvas.</p>
                             <h4>PARAMETERS</h4>
                             <p>
                                 vec3 <span class="faded">{vec3}</span> - A vector to draw<br>
                                 scl <span class="faded">{number} (default = 1)</span> - The scale of the drawn vector<br>
-                                rgb <span class="faded">{number[]} (default = [0, 0, 0])</span> - The color of the vector expressed as RGB values in an array<br>
+                                rgba <span class="faded">{number[]} (default = [0, 0, 0])</span> - The color of the vector expressed as RGB values (or RGBA values which includes opacity) in an array<br>
                                 origin <span class="faded">{number[]} (default = [canvas.width / 2, canvas.height / 2])</span> - The origin (starting point) of the drawn vector on the canvas expressed as a point of the canvas in an array<br>
                                 weight <span class="faded">{number} (default = 5)</span> - The stroke weight or line width of the drawn vector<br>
                                 context <span class="faded">{CanvasRenderingContext2D} (default = ctx)</span> - The JavaScript Canvas 2D API rendering context of the drawn vector
@@ -1935,14 +2067,14 @@ Chalkboard.plot.vec2(v, 2, [255, 0, 0]);</code></pre>
 const ctx = document.getElementById("canvas").getContext("2d");
 let v = Chalkboard.vec3.new(1, 2, 3);
 Chalkboard.plot.vec3(v, 2, [255, 0, 0]);</code></pre>
-                        <h3><span class="faded">Chalkboard.plot.</span>matr(matr, scl, rgb, origin, weight, context)</h3>
+                        <h3><span class="faded">Chalkboard.plot.</span>matr(matr, scl, rgba, origin, weight, context)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Draws a 2x2 matrix on the canvas (note: the matrix must be a 2x2 matrix, or a square matrix with the size of 2).</p>
                             <h4>PARAMETERS</h4>
                             <p>
                                 matr <span class="faded">{matr}</span> - Matrix<br>
                                 scl <span class="faded">{number} (default = 1)</span> - The scale of the drawn matrix<br>
-                                rgb <span class="faded">{number[]} (default = [0, 0, 0])</span> - The color of the matrix expressed as RGB values in an array<br>
+                                rgba <span class="faded">{number[]} (default = [0, 0, 0])</span> - The color of the matrix expressed as RGB values (or RGBA values which includes opacity) in an array<br>
                                 origin <span class="faded">{number[]} (default = [canvas.width / 2, canvas.height / 2])</span> - The origin (center) of the drawn matrix on the canvas expressed as a point of the canvas in an array<br>
                                 weight <span class="faded">{number} (default = 5)</span> - The stroke weight or line width of the drawn matrix<br>
                                 context <span class="faded">{CanvasRenderingContext2D} (default = ctx)</span> - The JavaScript Canvas 2D API rendering context of the drawn matrix
@@ -1957,14 +2089,15 @@ const ctx = document.getElementById("canvas").getContext("2d");
 let A = Chalkboard.matr.new([1, 2],
                             [3, 4]);
 Chalkboard.plot.matr(A, 2, [255, 0, 0]);</code></pre>
-                        <h3><span class="faded">Chalkboard.plot.</span>dfdx(func, scl, rgb, origin, weight, res, context)</h3>
+                        <h3><span class="faded">Chalkboard.plot.</span>dfdx(func, scl, rgba, domain, origin, weight, res, context)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Draws the <a href="https://en.wikipedia.org/wiki/Derivative">derivative</a> of a Chalkboard function.</p>
                             <h4>PARAMETERS</h4>
                             <p>
                                 func <span class="faded">{func}</span> - The function to draw the derivative of<br>
                                 scl <span class="faded">{number} (default = 1)</span> - The scale of the derivative<br>
-                                rgb <span class="faded">{number[]} (default = [0, 0, 0])</span> - The color of the derivative expressed as RGB values in an array<br>
+                                rgba <span class="faded">{number[]} (default = [0, 0, 0])</span> - The color of the derivative expressed as RGB values (or RGBA values which includes opacity) in an array<br>
+                                domain <span class="faded">{number[]} (default = [-10, 10])</span> - The domain of the function, or the range of x-values where the derivative is drawn, expressed as an array of the lower bound and upper bound<br>
                                 origin <span class="faded">{number[]} (default = [canvas.width / 2, canvas.height / 2])</span> - The origin of the derivative (where x = 0) on the canvas expressed as a point of the canvas in an array<br>
                                 weight <span class="faded">{number} (default = 2)</span> - The stroke weight or line width of the derivative<br>
                                 res <span class="faded">{number} (default = 25)</span> - The resolution of the derivative (the gap in pixels of when the function's derivative is computed)<br>
@@ -1979,14 +2112,38 @@ Chalkboard.plot.matr(A, 2, [255, 0, 0]);</code></pre>
 const ctx = document.getElementById("canvas").getContext("2d");
 let f = Chalkboard.real.function("x * x");
 Chalkboard.plot.dfdx(f, 2, [0, 255, 0], [canvas.width / 2, canvas.height / 4]);</code></pre>
-                        <h3><span class="faded">Chalkboard.plot.</span>fxdx(func, scl, rgb, origin, weight, res, context)</h3>
+                        <h3><span class="faded">Chalkboard.plot.</span>d2fdx2(func, scl, rgba, domain, origin, weight, res, context)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Draws the <a href="https://en.wikipedia.org/wiki/Second_derivative">second derivative</a> of a Chalkboard function.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                func <span class="faded">{func}</span> - The function to draw the second derivative of<br>
+                                scl <span class="faded">{number} (default = 1)</span> - The scale of the second derivative<br>
+                                rgba <span class="faded">{number[]} (default = [0, 0, 0])</span> - The color of the second derivative expressed as RGB values (or RGBA values which includes opacity) in an array<br>
+                                domain <span class="faded">{number[]} (default = [-10, 10])</span> - The domain of the function, or the range of x-values where the second derivative is drawn, expressed as an array of the lower bound and upper bound<br>
+                                origin <span class="faded">{number[]} (default = [canvas.width / 2, canvas.height / 2])</span> - The origin of the second derivative (where x = 0) on the canvas expressed as a point of the canvas in an array<br>
+                                weight <span class="faded">{number} (default = 2)</span> - The stroke weight or line width of the second derivative<br>
+                                res <span class="faded">{number} (default = 25)</span> - The resolution of the second derivative (the gap in pixels of when the function's second derivative is computed)<br>
+                                context <span class="faded">{CanvasRenderingContext2D} (default = ctx)</span> - The JavaScript Canvas 2D API rendering context of the second derivative
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{string}</span> - A message that tells which function's derivative was drawn, where it was drawn, and which color it was drawn with.
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Draws the derivative of the function f(x) = x^2 with a scale of 2 colored green at the top-center of the canvas
+const ctx = document.getElementById("canvas").getContext("2d");
+let f = Chalkboard.real.function("x * x");
+Chalkboard.plot.dfdx(f, 2, [0, 255, 0], [canvas.width / 2, canvas.height / 4]);</code></pre>
+                        <h3><span class="faded">Chalkboard.plot.</span>fxdx(func, scl, rgba, domain, origin, weight, res, context)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Draws the <a href="https://en.wikipedia.org/wiki/Antiderivative">antiderivative</a> of a Chalkboard function.</p>
                             <h4>PARAMETERS</h4>
                             <p>
                                 func <span class="faded">{func}</span> - The function to draw the antiderivative of<br>
                                 scl <span class="faded">{number} (default = 1)</span> - The scale of the antiderivative<br>
-                                rgb <span class="faded">{number[]} (default = [0, 0, 0])</span> - The color of the antiderivative expressed as RGB values in an array<br>
+                                rgba <span class="faded">{number[]} (default = [0, 0, 0])</span> - The color of the antiderivative expressed as RGB values (or RGBA values which includes opacity) in an array<br>
+                                domain <span class="faded">{number[]} (default = [-10, 10])</span> - The domain of the function, or the range of x-values where the antiderivative is drawn, expressed as an array of the lower bound and upper bound<br>
                                 origin <span class="faded">{number[]} (default = [canvas.width / 2, canvas.height / 2])</span> - The origin of the antiderivative (where x = 0) on the canvas expressed as a point of the canvas in an array<br>
                                 weight <span class="faded">{number} (default = 2)</span> - The stroke weight or line width of the antiderivative<br>
                                 res <span class="faded">{number} (default = 25)</span> - The resolution of the antiderivative (the gap in pixels of when the function's antiderivative is computed)<br>
@@ -2001,7 +2158,7 @@ Chalkboard.plot.dfdx(f, 2, [0, 255, 0], [canvas.width / 2, canvas.height / 4]);<
 const ctx = document.getElementById("canvas").getContext("2d");
 let f = Chalkboard.real.function("x * x");
 Chalkboard.plot.fxdx(f, 2, [0, 0, 255], [canvas.width / 2, 3 * canvas.height / 4]);</code></pre>
-                        <h3><span class="faded">Chalkboard.plot.</span>convolution(func_1, func_2, scl, rgb, origin, weight, res, context)</h3>
+                        <h3><span class="faded">Chalkboard.plot.</span>convolution(func_1, func_2, scl, rgba, domain, origin, weight, res, context)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Draws the <a href="https://en.wikipedia.org/wiki/Convolution">convolution</a> of two Chalkboard functions.</p>
                             <h4>PARAMETERS</h4>
@@ -2009,7 +2166,8 @@ Chalkboard.plot.fxdx(f, 2, [0, 0, 255], [canvas.width / 2, 3 * canvas.height / 4
                                 func_1 <span class="faded">{func}</span> - The first function to convolve<br>
                                 func_2 <span class="faded">{func}</span> - The second function to convolve<br>
                                 scl <span class="faded">{number} (default = 1)</span> - The scale of the convolution<br>
-                                rgb <span class="faded">{number[]} (default = [0, 0, 0])</span> - The color of the convolution expressed as RGB values in an array<br>
+                                rgba <span class="faded">{number[]} (default = [0, 0, 0])</span> - The color of the convolution expressed as RGB values (or RGBA values which includes opacity) in an array<br>
+                                domain <span class="faded">{number[]} (default = [-10, 10])</span> - The domain of the function, or the range of x-values where the convolution is drawn, expressed as an array of the lower bound and upper bound<br>
                                 origin <span class="faded">{number[]} (default = [canvas.width / 2, canvas.height / 2])</span> - The origin of the convolution (where x = 0) on the canvas expressed as a point of the canvas in an array<br>
                                 weight <span class="faded">{number} (default = 2)</span> - The stroke weight or line width of the convolution<br>
                                 res <span class="faded">{number} (default = 25)</span> - The resolution of the convolution (the gap in pixels of when the two functions' convolution is computed)<br>
@@ -2025,7 +2183,7 @@ const ctx = document.getElementById("canvas").getContext("2d");
 let f = Chalkboard.real.function("Math.cos(x)");
 let g = Chalkboard.real.function("x");
 Chalkboard.plot.convolution(f, g);</code></pre>
-                        <h3><span class="faded">Chalkboard.plot.</span>correlation(func_1, func_2, scl, rgb, origin, weight, res, context)</h3>
+                        <h3><span class="faded">Chalkboard.plot.</span>correlation(func_1, func_2, scl, rgba, domain, origin, weight, res, context)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Draws the <a href="https://en.wikipedia.org/wiki/Cross-correlation">cross-correlation</a> of two Chalkboard functions.</p>
                             <h4>PARAMETERS</h4>
@@ -2033,7 +2191,8 @@ Chalkboard.plot.convolution(f, g);</code></pre>
                                 func_1 <span class="faded">{func}</span> - The first function to cross-correlate<br>
                                 func_2 <span class="faded">{func}</span> - The second function to cross-correlate<br>
                                 scl <span class="faded">{number} (default = 1)</span> - The scale of the cross-correlation<br>
-                                rgb <span class="faded">{number[]} (default = [0, 0, 0])</span> - The color of the cross-correlation expressed as RGB values in an array<br>
+                                rgba <span class="faded">{number[]} (default = [0, 0, 0])</span> - The color of the cross-correlation expressed as RGB values (or RGBA values which includes opacity) in an array<br>
+                                domain <span class="faded">{number[]} (default = [-10, 10])</span> - The domain of the function, or the range of x-values where the cross-correlation is drawn, expressed as an array of the lower bound and upper bound<br>
                                 origin <span class="faded">{number[]} (default = [canvas.width / 2, canvas.height / 2])</span> - The origin of the cross-correlation (where x = 0) on the canvas expressed as a point of the canvas in an array<br>
                                 weight <span class="faded">{number} (default = 2)</span> - The stroke weight or line width of the cross-correlation<br>
                                 res <span class="faded">{number} (default = 25)</span> - The resolution of the cross-correlation (the gap in pixels of when the two functions' cross-correlation is computed)<br>
@@ -2049,14 +2208,15 @@ const ctx = document.getElementById("canvas").getContext("2d");
 let f = Chalkboard.real.function("Math.cos(x)");
 let g = Chalkboard.real.function("x");
 Chalkboard.plot.correlation(f, g);</code></pre>
-                        <h3><span class="faded">Chalkboard.plot.</span>autocorrelation(func, scl, rgb, origin, weight, res, context)</h3>
+                        <h3><span class="faded">Chalkboard.plot.</span>autocorrelation(func, scl, rgba, domain, origin, weight, res, context)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Draws the <a href="https://en.wikipedia.org/wiki/Autocorrelation">autocorrelation</a> of a Chalkboard function.</p>
                             <h4>PARAMETERS</h4>
                             <p>
                                 func <span class="faded">{func}</span> - The function to autocorrelate<br>
                                 scl <span class="faded">{number} (default = 1)</span> - The scale of the autocorrelation<br>
-                                rgb <span class="faded">{number[]} (default = [0, 0, 0])</span> - The color of the autocorrelation expressed as RGB values in an array<br>
+                                rgba <span class="faded">{number[]} (default = [0, 0, 0])</span> - The color of the autocorrelation expressed as RGB values (or RGBA values which includes opacity) in an array<br>
+                                domain <span class="faded">{number[]} (default = [-10, 10])</span> - The domain of the function, or the range of x-values where the autocorrelation is drawn, expressed as an array of the lower bound and upper bound<br>
                                 origin <span class="faded">{number[]} (default = [canvas.width / 2, canvas.height / 2])</span> - The origin of the autocorrelation (where x = 0) on the canvas expressed as a point of the canvas in an array<br>
                                 weight <span class="faded">{number} (default = 2)</span> - The stroke weight or line width of the autocorrelation<br>
                                 res <span class="faded">{number} (default = 25)</span> - The resolution of the autocorrelation (the gap in pixels of when the function's autocorrelation is computed)<br>
@@ -2071,14 +2231,15 @@ Chalkboard.plot.correlation(f, g);</code></pre>
 const ctx = document.getElementById("canvas").getContext("2d");
 let f = Chalkboard.real.function("Math.cos(x)");
 Chalkboard.plot.autocorrelation(f);</code></pre>
-                        <h3><span class="faded">Chalkboard.plot.</span>Laplace(func, scl, rgb, origin, weight, res, context)</h3>
+                        <h3><span class="faded">Chalkboard.plot.</span>Laplace(func, scl, rgba, domain, origin, weight, res, context)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Draws the <a href="https://en.wikipedia.org/wiki/Laplace_transform">Laplace transform</a> of a Chalkboard function.</p>
                             <h4>PARAMETERS</h4>
                             <p>
                                 func <span class="faded">{func}</span> - The function to draw the Laplace transform of<br>
                                 scl <span class="faded">{number} (default = 1)</span> - The scale of the Laplace transform<br>
-                                rgb <span class="faded">{number[]} (default = [0, 0, 0])</span> - The color of the Laplace transform expressed as RGB values in an array<br>
+                                rgba <span class="faded">{number[]} (default = [0, 0, 0])</span> - The color of the Laplace transform expressed as RGB values (or RGBA values which includes opacity) in an array<br>
+                                domain <span class="faded">{number[]} (default = [-10, 10])</span> - The domain of the function, or the range of x-values where the Laplace transform is drawn, expressed as an array of the lower bound and upper bound<br>
                                 origin <span class="faded">{number[]} (default = [canvas.width / 2, canvas.height / 2])</span> - The origin of the Laplace transform (where x = 0) on the canvas expressed as a point of the canvas in an array<br>
                                 weight <span class="faded">{number} (default = 2)</span> - The stroke weight or line width of the Laplace transform<br>
                                 res <span class="faded">{number} (default = 25)</span> - The resolution of the Laplace transform (the gap in pixels of when the function's Laplace transform is computed)<br>
@@ -2093,14 +2254,15 @@ Chalkboard.plot.autocorrelation(f);</code></pre>
 const ctx = document.getElementById("canvas").getContext("2d");
 let f = Chalkboard.real.function("Math.sin(x)");
 Chalkboard.plot.Laplace(f);</code></pre>
-                        <h3><span class="faded">Chalkboard.plot.</span>Fourier(func, scl, rgb, origin, weight, res, context)</h3>
+                        <h3><span class="faded">Chalkboard.plot.</span>Fourier(func, scl, rgba, domain, origin, weight, res, context)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Draws the <a href="https://en.wikipedia.org/wiki/Fourier_transform">Fourier transform</a> of a Chalkboard function.</p>
                             <h4>PARAMETERS</h4>
                             <p>
                                 func <span class="faded">{func}</span> - The function to draw the Fourier transform of<br>
                                 scl <span class="faded">{number} (default = 1)</span> - The scale of the Fourier transform<br>
-                                rgb <span class="faded">{number[]} (default = [0, 0, 0])</span> - The color of the Fourier transform expressed as RGB values in an array<br>
+                                rgba <span class="faded">{number[]} (default = [0, 0, 0])</span> - The color of the Fourier transform expressed as RGB values (or RGBA values which includes opacity) in an array<br>
+                                domain <span class="faded">{number[]} (default = [-10, 10])</span> - The domain of the function, or the range of x-values where the Fourier transform is drawn, expressed as an array of the lower bound and upper bound<br>
                                 origin <span class="faded">{number[]} (default = [canvas.width / 2, canvas.height / 2])</span> - The origin of the Fourier transform (where x = 0) on the canvas expressed as a point of the canvas in an array<br>
                                 weight <span class="faded">{number} (default = 2)</span> - The stroke weight or line width of the Fourier transform<br>
                                 res <span class="faded">{number} (default = 25)</span> - The resolution of the Fourier transform (the gap in pixels of when the function's Fourier transform is computed)<br>
@@ -2169,9 +2331,9 @@ let hypotenuse = Chalkboard.geom.Pythagorean(3, 4);</code></pre>
                             <h4>EXAMPLE</h4>
 <pre class="javascript"><code>// Returns a random Pythagorean Triple like 7-24-25 or 19-180-181
 let randomPythagorean = Chalkboard.geom.PythagoreanTriple(0, 10);</code></pre>
-                        <h3><span class="faded">Chalkboard.geom.</span>dist2D(p1, p2)</h3>
+                        <h3><span class="faded">Chalkboard.geom.</span>dist(p1, p2)</h3>
                             <h4>DESCRIPTION</h4>
-                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Euclidean_distance">Euclidean distance</a> between two two-dimensional points.</p>
+                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Euclidean_distance">Euclidean distance</a> between two points of any (but equal) dimensions.</p>
                             <h4>PARAMETERS</h4>
                             <p>
                                 p1 <span class="faded">{number[]}</span> - First point<br>
@@ -2182,13 +2344,13 @@ let randomPythagorean = Chalkboard.geom.PythagoreanTriple(0, 10);</code></pre>
                                 <span class="faded">{number}</span> - Distance
                             </p>
                             <h4>EXAMPLE</h4>
-<pre class="javascript"><code>// Returns √8
-let p1 = [1, 2];
-let p2 = [3, 4];
-let dist = Chalkboard.geom.dist2D(p1, p2);</code></pre>
-                        <h3><span class="faded">Chalkboard.geom.</span>dist3D(p1, p2)</h3>
+<pre class="javascript"><code>// Returns √1000
+let p1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+let p2 = [11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+let dist = Chalkboard.geom.dist(p1, p2);</code></pre>
+                        <h3><span class="faded">Chalkboard.geom.</span>dist(p1, p2)</h3>
                             <h4>DESCRIPTION</h4>
-                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Euclidean_distance">Euclidean distance</a> between two three-dimensional points.</p>
+                            <p>Calculates the squared <a href="https://en.wikipedia.org/wiki/Euclidean_distance">Euclidean distance</a> between two points of any (but equal) dimensions.</p>
                             <h4>PARAMETERS</h4>
                             <p>
                                 p1 <span class="faded">{number[]}</span> - First point<br>
@@ -2196,13 +2358,13 @@ let dist = Chalkboard.geom.dist2D(p1, p2);</code></pre>
                             </p>
                             <h4>RETURNS</h4>
                             <p>
-                                <span class="faded">{number}</span> - Distance
+                                <span class="faded">{number}</span> - Squared distance
                             </p>
                             <h4>EXAMPLE</h4>
-<pre class="javascript"><code>// Returns √27
-let p1 = [1, 2, 3];
-let p2 = [4, 5, 6];
-let dist = Chalkboard.geom.dist3D(p1, p2);</code></pre>
+<pre class="javascript"><code>// Returns 1000
+let p1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+let p2 = [11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+let distsq = Chalkboard.geom.distsq(p1, p2);</code></pre>
                         <h3><span class="faded">Chalkboard.geom.</span>circleP(r)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Calculates the circumference of a circle.</p>
@@ -3118,21 +3280,24 @@ let min = Chalkboard.stat.min(arr);</code></pre>
 <pre class="javascript"><code>// Returns 4
 let arr = [4, 2, 1, 5, 3];
 let range = Chalkboard.stat.range(arr);</code></pre>
-                        <h3><span class="faded">Chalkboard.stat.</span>mean(arr)</h3>
+                        <h3><span class="faded">Chalkboard.stat.</span>mean(arr, type)</h3>
                             <h4>DESCRIPTION</h4>
-                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Arithmetic_mean">arithmetic mean</a> of an array.</p>
+                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Arithmetic_mean">arithmetic mean</a>, <a href="https://en.wikipedia.org/wiki/Geometric_mean">geometric mean</a>, or <a href="https://en.wikipedia.org/wiki/Harmonic_mean">harmonic mean</a> of an array.</p>
                             <h4>PARAMETERS</h4>
                             <p>
-                                arr <span class="faded">{number[]}</span> - Array
+                                arr <span class="faded">{number[]}</span> - Array<br>
+                                type <span class="faded">{string} (default = "arithmetic")</span> - Either "arithmetic", "geometric", or "harmonic" for the different types of means
                             </p>
                             <h4>RETURNS</h4>
                             <p>
-                                <span class="faded">{number}</span> - Arithmetic mean
+                                <span class="faded">{number}</span> - Mean
                             </p>
                             <h4>EXAMPLE</h4>
-<pre class="javascript"><code>// Returns 3
+<pre class="javascript"><code>// Returns 3, 0, and 2.1897
 let arr = [4, 2, 1, 5, 3];
-let mean = Chalkboard.stat.mean(arr);</code></pre>
+let arithmeticMean = Chalkboard.stat.mean(arr);
+let geometricMean = Chalkboard.stat.mean(arr, "geometric");
+let harmonicMean = Chalkboard.stat.mean(arr, "harmonic");</code></pre>
                         <h3><span class="faded">Chalkboard.stat.</span>median(arr)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Calculates the <a href="https://en.wikipedia.org/wiki/Median">median</a> of an array.</p>
@@ -3641,22 +3806,6 @@ let vwdistsq = Chalkboard.vec2.distsq(v, w);</code></pre>
 let v = Chalkboard.vec2.new(1, 2);
 let w = Chalkboard.vec2.new(3, 4);
 let vwang = Chalkboard.vec2.angBtwn(v, w);</code></pre>
-                        <h3><span class="faded">Chalkboard.vec2.</span>rotate2D(vec2, rad)</h3>
-                            <h4>DESCRIPTION</h4>
-                            <p>Calculates the rotation of a vector on the xy-plane by multiplying it with a <a href="https://en.wikipedia.org/wiki/Rotation_matrix">rotation matrix</a>.</p>
-                            <h4>PARAMETERS</h4>
-                            <p>
-                                vec2 <span class="faded">{vec2}</span> - A vector<br>
-                                rad <span class="faded">{number}</span> - The radians to rotate by
-                            </p>
-                            <h4>RETURNS</h4>
-                            <p>
-                                <span class="faded">{vec2}</span> - A vector rotated on the xy-plane by some radians
-                            </p>
-                            <h4>EXAMPLE</h4>
-<pre class="javascript"><code>// Returns the vector (-2, 1)
-let v = Chalkboard.vec2.new(1, 2);
-let vrotated = Chalkboard.vec2.rotate2D(v, Chalkboard.PI(1/2));</code></pre>
                         <h3><span class="faded">Chalkboard.vec2.</span>scl(vec2, num)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Calculates the multiplication of a vector by a number.</p>
@@ -3758,6 +3907,40 @@ let vdotw = Chalkboard.vec2.dot(v, w);</code></pre>
 let v = Chalkboard.vec2.new(1, 2);
 let w = Chalkboard.vec2.new(3, 4);
 let vcrossw = Chalkboard.vec2.cross(v, w);</code></pre>
+                        <h3><span class="faded">Chalkboard.vec2.</span>proj(vec2_1, vec2_2)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Vector_projection">vector projection</a> of the first vector on the second vector.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                vec2_1 <span class="faded">{vec2}</span> - The first vector<br>
+                                vec2_2 <span class="faded">{vec2}</span> - The second vector
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{vec2}</span> - The vector projection of the first vector on the second vector
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the vector (1.32, 1.76)
+let v = Chalkboard.vec2.new(1, 2);
+let w = Chalkboard.vec2.new(3, 4);
+let projvw = Chalkboard.vec2.proj(v, w);</code></pre>
+                        <h3><span class="faded">Chalkboard.vec2.</span>oproj(vec2_1, vec2_2)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Vector_projection">vector rejection</a> of the first vector on the second vector.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                vec2_1 <span class="faded">{vec2}</span> - The first vector<br>
+                                vec2_2 <span class="faded">{vec2}</span> - The second vector
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{vec2}</span> - The vector rejection of the first vector on the second vector
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the vector (-0.32, 0.24)
+let v = Chalkboard.vec2.new(1, 2);
+let w = Chalkboard.vec2.new(3, 4);
+let oprojvw = Chalkboard.vec2.oproj(v, w);</code></pre>
                         <h3><span class="faded">Chalkboard.vec2.</span>fromAngle(rad)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Defines a vector with an angle.</p>
@@ -3771,7 +3954,67 @@ let vcrossw = Chalkboard.vec2.cross(v, w);</code></pre>
                             </p>
                             <h4>EXAMPLE</h4>
 <pre class="javascript"><code>// Returns the vector (1, 0)
-let vfromangles = Chalkboard.vec2.fromAngle(Chalkboard.PI(2));</code></pre>
+let vfromangle = Chalkboard.vec2.fromAngle(Chalkboard.PI(2));</code></pre>
+                        <h3><span class="faded">Chalkboard.vec2.</span>fromPolar(vec2)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Converts a vector from <a href="https://en.wikipedia.org/wiki/Polar_coordinate_system">polar coordinates</a> to Cartesian coordinates.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                vec2 <span class="faded">{vec2}</span> - A vector in polar coordinates
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{vec2}</span> - A vector in Cartesian coordinates
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the vector (0, 1)
+let v = Chalkboard.vec2.new(1, Chalkboard.PI(1/2));
+let w = Chalkboard.vec2.fromPolar(v);</code></pre>
+                        <h3><span class="faded">Chalkboard.vec2.</span>fromBipolar(vec2)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Converts a vector from <a href="https://en.wikipedia.org/wiki/Bipolar_coordinates">bipolar coordinates</a> to Cartesian coordinates.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                vec2 <span class="faded">{vec2}</span> - A vector in bipolar coordinates
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{vec2}</span> - A vector in Cartesian coordinates
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the vector (1, 0)
+let v = Chalkboard.vec2.new(2, 0);
+let w = Chalkboard.vec2.fromBipolar(v);</code></pre>
+                        <h3><span class="faded">Chalkboard.vec2.</span>toPolar(vec2)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Converts a vector from Cartesian coordinates to <a href="https://en.wikipedia.org/wiki/Polar_coordinate_system">polar coordinates</a>.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                vec2 <span class="faded">{vec2}</span> - A vector in Cartesian coordinates
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{vec2}</span> - A vector in polar coordinates
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the vector (1, π/2)
+let v = Chalkboard.vec2.new(0, 1);
+let w = Chalkboard.vec2.toPolar(v);</code></pre>
+                        <h3><span class="faded">Chalkboard.vec2.</span>toBipolar(vec2)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Converts a vector from Cartesian coordinates to <a href="https://en.wikipedia.org/wiki/Bipolar_coordinates">bipolar coordinates</a>.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                vec2 <span class="faded">{vec2}</span> - A vector in Cartesian coordinates
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{vec2}</span> - A vector in bipolar coordinates
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the vector (2, 0)
+let v = Chalkboard.vec2.new(1, 0);
+let w = Chalkboard.vec2.toBipolar(v);</code></pre>
                         <h3><span class="faded">Chalkboard.vec2.</span>toMatrix(vec2, type)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Converts a vector to a <a href="https://en.wikipedia.org/wiki/Matrix_(mathematics)">matrix</a>.</p>
@@ -3833,6 +4076,38 @@ let varr = Chalkboard.vec2.toArray(v);</code></pre>
 <pre class="javascript"><code>// Returns the string "(1, 2)"
 let v = Chalkboard.vec2.new(1, 2);
 let vstr = Chalkboard.vec2.toString(v);</code></pre>
+                        <h3><span class="faded">Chalkboard.vec2.</span>field(p, q)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Defines a two-dimensional <a href="https://en.wikipedia.org/wiki/Vector_field">vector field</a>.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                p <span class="faded">{string}</span> - The x-component of the vector field written as an equation of variables "x" and "y"<br>
+                                q <span class="faded">{string}</span> - The y-component of the vector field written as an equation of variables "x" and "y"
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{vec2field}</span> - A new Chalkboard vector field
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Defines the vector field F(x, y) = (2cos(y), -sin(x))
+let F = Chalkboard.vec2.field("2 * Math.cos(y)", "-Math.sin(x)");</code></pre>
+                        <h3><span class="faded">Chalkboard.vec2.</span>fromField(vec2field, vec2)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Calculates the vector of the vector field at a particular vector in space.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                vec2field <span class="faded">{vec2field}</span> - The vector field to evaluate<br>
+                                vec2 <span class="faded">{vec2}</span> - The vector to evaluate the vector field at
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{vec2}</span> - The vector field's vector at a particular vector
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the vector (-2, 1)
+let F = Chalkboard.vec2.field("-y", "x");
+let v = Chalkboard.vec2.new(1, 2);
+let w = Chalkboard.vec2.fromField(F, v);</code></pre>
                         <h3><span class="faded">Chalkboard.vec2.</span>print(vec2)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Prints a vector in the console.</p>
@@ -4136,54 +4411,6 @@ let vwdistsq = Chalkboard.vec3.distsq(v, w);</code></pre>
 let v = Chalkboard.vec3.new(1, 2, 3);
 let w = Chalkboard.vec3.new(4, 5, 6);
 let vwang = Chalkboard.vec3.angBtwn(v, w);</code></pre>
-                        <h3><span class="faded">Chalkboard.vec3.</span>rotatex(vec3, rad)</h3>
-                            <h4>DESCRIPTION</h4>
-                            <p>Calculates the rotation of a vector in the x-direction by multiplying it with a <a href="https://en.wikipedia.org/wiki/Rotation_matrix">rotation matrix</a>.</p>
-                            <h4>PARAMETERS</h4>
-                            <p>
-                                vec3 <span class="faded">{vec3}</span> - A vector<br>
-                                rad <span class="faded">{number}</span> - The radians to rotate by
-                            </p>
-                            <h4>RETURNS</h4>
-                            <p>
-                                <span class="faded">{vec3}</span> - A vector rotated along the x-direction by some radians
-                            </p>
-                            <h4>EXAMPLE</h4>
-<pre class="javascript"><code>// Returns the vector (1, -3, 2)
-let v = Chalkboard.vec3.new(1, 2, 3);
-let vrotatex = Chalkboard.vec3.rotatex(v, Chalkboard.PI(1/2));</code></pre>
-                        <h3><span class="faded">Chalkboard.vec3.</span>rotatey(vec3, rad)</h3>
-                            <h4>DESCRIPTION</h4>
-                            <p>Calculates the rotation of a vector in the y-direction by multiplying it with a <a href="https://en.wikipedia.org/wiki/Rotation_matrix">rotation matrix</a>.</p>
-                            <h4>PARAMETERS</h4>
-                            <p>
-                                vec3 <span class="faded">{vec3}</span> - A vector<br>
-                                rad <span class="faded">{number}</span> - The radians to rotate by
-                            </p>
-                            <h4>RETURNS</h4>
-                            <p>
-                                <span class="faded">{vec3}</span> - A vector rotated along the y-direction by some radians
-                            </p>
-                            <h4>EXAMPLE</h4>
-<pre class="javascript"><code>// Returns the vector (-2, 2, 1)
-let v = Chalkboard.vec3.new(1, 2, 3);
-let vrotatey = Chalkboard.vec3.rotatey(v, Chalkboard.PI(1/2));</code></pre>
-                        <h3><span class="faded">Chalkboard.vec3.</span>rotatez(vec3, rad)</h3>
-                            <h4>DESCRIPTION</h4>
-                            <p>Calculates the rotation of a vector in the z-direction by multiplying it with a <a href="https://en.wikipedia.org/wiki/Rotation_matrix">rotation matrix</a>.</p>
-                            <h4>PARAMETERS</h4>
-                            <p>
-                                vec3 <span class="faded">{vec3}</span> - A vector<br>
-                                rad <span class="faded">{number}</span> - The radians to rotate by
-                            </p>
-                            <h4>RETURNS</h4>
-                            <p>
-                                <span class="faded">{vec3}</span> - A vector rotated along the z-direction by some radians
-                            </p>
-                            <h4>EXAMPLE</h4>
-<pre class="javascript"><code>// Returns the vector (-2, 1, 3)
-let v = Chalkboard.vec3.new(1, 2, 3);
-let vrotatez = Chalkboard.vec3.rotatez(v, Chalkboard.PI(1/2));</code></pre>
                         <h3><span class="faded">Chalkboard.vec3.</span>scl(vec3, num)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Calculates the multiplication of a vector by a number.</p>
@@ -4323,6 +4550,40 @@ let u = Chalkboard.vec3.new(1, 2, 3)
 let v = Chalkboard.vec3.new(4, 5, 6);
 let w = Chalkboard.vec3.new(7, 8, 9);
 let ucrossvcrossw = Chalkboard.vec3.vectorTriple(u, v, w);</code></pre>
+                        <h3><span class="faded">Chalkboard.vec3.</span>proj(vec3_1, vec3_2)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Vector_projection">vector projection</a> of the first vector on the second vector.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                vec3_1 <span class="faded">{vec3}</span> - The first vector<br>
+                                vec3_2 <span class="faded">{vec3}</span> - The second vector
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{vec3}</span> - The vector projection of the first vector on the second vector
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the vector (1.6623, 2.0779, 2.4935)
+let v = Chalkboard.vec3.new(1, 2, 3);
+let w = Chalkboard.vec3.new(4, 5, 6);
+let projvw = Chalkboard.vec3.proj(v, w);</code></pre>
+                        <h3><span class="faded">Chalkboard.vec3.</span>oproj(vec3_1, vec3_2)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Vector_projection">vector rejection</a> of the first vector on the second vector.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                vec3_1 <span class="faded">{vec3}</span> - The first vector<br>
+                                vec3_2 <span class="faded">{vec3}</span> - The second vector
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{vec3}</span> - The vector rejection of the first vector on the second vector
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the vector (-0.6623, -0.0779, 0.5065)
+let v = Chalkboard.vec3.new(1, 2, 3);
+let w = Chalkboard.vec3.new(4, 5, 6);
+let oprojvw = Chalkboard.vec3.oproj(v, w);</code></pre>
                         <h3><span class="faded">Chalkboard.vec3.</span>fromAngles(rad1, rad2)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Defines a vector with two angles.</p>
@@ -4353,6 +4614,66 @@ let vfromangles = Chalkboard.vec3.fromAngles(Chalkboard.PI(2), Chalkboard.PI(2))
 <pre class="javascript"><code>// Returns the vector (1, 2, 0)
 let v = Chalkboard.vec2.new(1, 2);
 let w = Chalkboard.vec3.fromVector(v);</code></pre>
+                        <h3><span class="faded">Chalkboard.vec3.</span>fromCylindrical(vec3)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Converts a vector from <a href="https://en.wikipedia.org/wiki/Cylindrical_coordinate_system">cylindrical coordinates</a> to Cartesian coordinates.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                vec3 <span class="faded">{vec3}</span> - A vector in cylindrical coordinates
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{vec3}</span> - A vector in Cartesian coordinates
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the vector (0, 1, 2)
+let v = Chalkboard.vec3.new(1, Chalkboard.PI(1/2), 2);
+let w = Chalkboard.vec3.fromCylindrical(v);</code></pre>
+                        <h3><span class="faded">Chalkboard.vec3.</span>fromSpherical(vec3)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Converts a vector from <a href="https://en.wikipedia.org/wiki/Spherical_coordinate_system">spherical coordinates</a> to Cartesian coordinates.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                vec3 <span class="faded">{vec3}</span> - A vector in spherical coordinates
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{vec3}</span> - A vector in Cartesian coordinates
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the vector (1, 0, 0)
+let v = Chalkboard.vec3.new(1, 0, Chalkboard.PI(1/2));
+let w = Chalkboard.vec3.fromSpherical(v);</code></pre>
+                        <h3><span class="faded">Chalkboard.vec3.</span>toCylindrical(vec3)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Converts a vector from Cartesian coordinates to <a href="https://en.wikipedia.org/wiki/Cylindrical_coordinate_system">cylindrical coordinates</a>.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                vec3 <span class="faded">{vec3}</span> - A vector in Cartesian coordinates
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{vec3}</span> - A vector in cylindrical coordinates
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the vector (1, π/2, 2)
+let v = Chalkboard.vec3.new(0, 1, 2);
+let w = Chalkboard.vec3.toCylindrical(v);</code></pre>
+                        <h3><span class="faded">Chalkboard.vec3.</span>toSpherical(vec3)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Converts a vector from Cartesian coordinates to <a href="https://en.wikipedia.org/wiki/Spherical_coordinate_system">spherical coordinates</a>.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                vec3 <span class="faded">{vec3}</span> - A vector in Cartesian coordinates
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{vec3}</span> - A vector in spherical coordinates
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the vector (1, 0, π/2)
+let v = Chalkboard.vec3.new(1, 0, 0);
+let w = Chalkboard.vec3.toSpherical(v);</code></pre>
                         <h3><span class="faded">Chalkboard.vec3.</span>toMatrix(vec3, type)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Converts a vector to a <a href="https://en.wikipedia.org/wiki/Matrix_(mathematics)">matrix</a>.</p>
@@ -4399,6 +4720,39 @@ let varr = Chalkboard.vec3.toArray(v);</code></pre>
 <pre class="javascript"><code>// Returns the string "(1, 2, 3)"
 let v = Chalkboard.vec3.new(1, 2, 3);
 let vstr = Chalkboard.vec3.toString(v);</code></pre>
+                        <h3><span class="faded">Chalkboard.vec3.</span>field(p, q, r)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Defines a three-dimensional <a href="https://en.wikipedia.org/wiki/Vector_field">vector field</a>.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                p <span class="faded">{string}</span> - The x-component of the vector field written as an equation of variables "x", "y", and "z"<br>
+                                q <span class="faded">{string}</span> - The y-component of the vector field written as an equation of variables "x", "y", and "z"<br>
+                                r <span class="faded">{string}</span> - The z-component of the vector field written as an equation of variables "x", "y", and "z"
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{vec3field}</span> - A new Chalkboard vector field
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Defines the vector field F(x, y, z) = (-y, x, -z)
+let F = Chalkboard.vec3.field("-y", "x", "-z");</code></pre>
+                        <h3><span class="faded">Chalkboard.vec3.</span>fromField(vec3field, vec3)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Calculates the vector of the vector field at a particular vector in space.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                vec3field <span class="faded">{vec3field}</span> - The vector field to evaluate<br>
+                                vec3 <span class="faded">{vec3}</span> - The vector to evaluate the vector field at
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{vec3}</span> - The vector field's vector at a particular vector
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the vector (1, 2, 3)
+let F = Chalkboard.vec3.field("x", "y", "z");
+let v = Chalkboard.vec3.new(1, 2, 3);
+let w = Chalkboard.vec3.fromField(F, v);</code></pre>
                         <h3><span class="faded">Chalkboard.vec3.</span>print(vec3)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Prints a vector in the console.</p>
@@ -4772,6 +5126,40 @@ let vmidw = Chalkboard.vec4.mid(v, w);</code></pre>
 let v = Chalkboard.vec4.new(1, 2, 3, 4);
 let w = Chalkboard.vec4.new(5, 6, 7, 8);
 let vdotw = Chalkboard.vec4.dot(v, w);</code></pre>
+                        <h3><span class="faded">Chalkboard.vec4.</span>proj(vec4_1, vec4_2)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Vector_projection">vector projection</a> of the first vector on the second vector.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                vec4_1 <span class="faded">{vec4}</span> - The first vector<br>
+                                vec4_2 <span class="faded">{vec4}</span> - The second vector
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{vec4}</span> - The vector projection of the first vector on the second vector
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the vector (2.0115, 2.4138, 2.8161, 3.2184)
+let v = Chalkboard.vec4.new(1, 2, 3, 4);
+let w = Chalkboard.vec4.new(5, 6, 7, 8);
+let projvw = Chalkboard.vec4.proj(v, w);</code></pre>
+                        <h3><span class="faded">Chalkboard.vec4.</span>oproj(vec4_1, vec4_2)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Vector_projection">vector rejection</a> of the first vector on the second vector.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                vec4_1 <span class="faded">{vec4}</span> - The first vector<br>
+                                vec4_2 <span class="faded">{vec4}</span> - The second vector
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{vec4}</span> - The vector rejection of the first vector on the second vector
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the vector (-1.0115, -0.4138, 0.1839, 0.7816)
+let v = Chalkboard.vec4.new(1, 2, 3, 4);
+let w = Chalkboard.vec4.new(5, 6, 7, 8);
+let oprojvw = Chalkboard.vec4.oproj(v, w);</code></pre>
                         <h3><span class="faded">Chalkboard.vec4.</span>fromVector(vec3)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Defines a <a href="https://en.wikipedia.org/wiki/4D_vector">four-dimensional vector</a> from a <a href="https://en.wikipedia.org/wiki/Euclidean_vector">three-dimensional vector</a>.</p>
@@ -4787,6 +5175,66 @@ let vdotw = Chalkboard.vec4.dot(v, w);</code></pre>
 <pre class="javascript"><code>// Returns the vector (1, 2, 3, 0)
 let v = Chalkboard.vec3.new(1, 2, 3);
 let w = Chalkboard.vec4.fromVector(v);</code></pre>
+                        <h3><span class="faded">Chalkboard.vec4.</span>fromHypercylindrical(vec4)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Converts a vector from <a href="https://en.wikipedia.org/wiki/Cylindrical_coordinate_system">hypercylindrical coordinates</a> to Cartesian coordinates.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                vec4 <span class="faded">{vec4}</span> - A vector in hypercylindrical coordinates
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{vec4}</span> - A vector in Cartesian coordinates
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the vector (1, 2, 3, 4)
+let v = Chalkboard.vec4.new(3.7417, 1.1071, 0.6405, 4);
+let w = Chalkboard.vec4.fromHypercylindrical(v);</code></pre>
+                        <h3><span class="faded">Chalkboard.vec4.</span>fromHyperspherical(vec4)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Converts a vector from <a href="https://en.wikipedia.org/wiki/Spherical_coordinate_system">hyperspherical coordinates</a> to Cartesian coordinates.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                vec4 <span class="faded">{vec4}</span> - A vector in hyperspherical coordinates
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{vec4}</span> - A vector in Cartesian coordinates
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the vector (1, 2, 3, 4)
+let v = Chalkboard.vec4.new(5.4772, 1.1072, 0.6405, 0.7520);
+let w = Chalkboard.vec4.fromHyperspherical(v);</code></pre>
+                        <h3><span class="faded">Chalkboard.vec4.</span>toHypercylindrical(vec4)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Converts a vector from Cartesian coordinates to <a href="https://en.wikipedia.org/wiki/Cylindrical_coordinate_system">hypercylindrical coordinates</a>.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                vec4 <span class="faded">{vec4}</span> - A vector in Cartesian coordinates
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{vec4}</span> - A vector in hypercylindrical coordinates
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the vector (3.7417, 1.1071, 0.6405, 4)
+let v = Chalkboard.vec4.new(1, 2, 3, 4);
+let w = Chalkboard.vec4.toHypercylindrical(v);</code></pre>
+                        <h3><span class="faded">Chalkboard.vec4.</span>toHyperspherical(vec4)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Converts a vector from Cartesian coordinates to <a href="https://en.wikipedia.org/wiki/Spherical_coordinate_system">hyperspherical coordinates</a>.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                vec4 <span class="faded">{vec4}</span> - A vector in Cartesian coordinates
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{vec4}</span> - A vector in hyperspherical coordinates
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the vector (5.4772, 1.1072, 0.6405, 0.7520)
+let v = Chalkboard.vec4.new(1, 2, 3, 4);
+let w = Chalkboard.vec4.toHyperspherical(v);</code></pre>
                         <h3><span class="faded">Chalkboard.vec4.</span>toMatrix(vec4, type)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Converts a vector to a <a href="https://en.wikipedia.org/wiki/Matrix_(mathematics)">matrix</a>.</p>
@@ -4848,6 +5296,40 @@ let varr = Chalkboard.vec4.toArray(v);</code></pre>
 <pre class="javascript"><code>// Returns the string "(1, 2, 3, 4)"
 let v = Chalkboard.vec4.new(1, 2, 3, 4);
 let vstr = Chalkboard.vec4.toString(v);</code></pre>
+                        <h3><span class="faded">Chalkboard.vec4.</span>field(p, q, r, s)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Defines a four-dimensional <a href="https://en.wikipedia.org/wiki/Vector_field">vector field</a>.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                p <span class="faded">{string}</span> - The x-component of the vector field written as an equation of variables "x", "y", "z", and "w"<br>
+                                q <span class="faded">{string}</span> - The y-component of the vector field written as an equation of variables "x", "y", "z", and "w"<br>
+                                r <span class="faded">{string}</span> - The z-component of the vector field written as an equation of variables "x", "y", "z", and "w"<br>
+                                s <span class="faded">{string}</span> - The w-component of the vector field written as an equation of variables "x", "y", "z", and "w"
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{vec4field}</span> - A new Chalkboard vector field
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Defines the vector field F(x, y, z, w) = (x, y, z, w)
+let F = Chalkboard.vec4.field("x", "y", "z", "w");</code></pre>
+                        <h3><span class="faded">Chalkboard.vec4.</span>fromField(vec4field, vec4)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Calculates the vector of the vector field at a particular vector in space.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                vec4field <span class="faded">{vec4field}</span> - The vector field to evaluate<br>
+                                vec4 <span class="faded">{vec4}</span> - The vector to evaluate the vector field at
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{vec4}</span> - The vector field's vector at a particular vector
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the vector (-2, 1, -4, 3)
+let F = Chalkboard.vec3.field("-y", "x", "-w", "z");
+let v = Chalkboard.vec3.new(1, 2, 3, 4);
+let w = Chalkboard.vec3.fromField(F, v);</code></pre>
                         <h3><span class="faded">Chalkboard.vec4.</span>print(vec4)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Prints a vector in the console.</p>
@@ -5234,7 +5716,7 @@ let roundation = Chalkboard.matr.round(A);</code></pre>
 <pre class="javascript"><code>// Returns a matrix that scales a vector by 2 in the x-direction and 3 in the y-direction
 let v = Chalkboard.vec2.new(2, 3);
 let S = Chalkboard.matr.scaler(v);</code></pre>
-                        <h3><span class="faded">Chalkboard.matr.</span>translater(vec)</h3>
+                        <h3><span class="faded">Chalkboard.matr.</span>translator(vec)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Defines a <a href="https://en.wikipedia.org/wiki/Transformation_matrix">transformation matrix</a> that translates a vector when multiplied with it.</p>
                             <h4>PARAMETERS</h4>
@@ -5249,36 +5731,25 @@ let S = Chalkboard.matr.scaler(v);</code></pre>
 <pre class="javascript"><code>// Returns a matrix that translates a vector by 3 in the x-direction and 2 in the y-direction
 let v = Chalkboard.vec2.new(3, 2);
 let T = Chalkboard.matr.translater(v);</code></pre>
-                        <h3><span class="faded">Chalkboard.matr.</span>rotater2D(rad)</h3>
+                        <h3><span class="faded">Chalkboard.matr.</span>rotator(radx, rady, radz)</h3>
                             <h4>DESCRIPTION</h4>
-                            <p>Defines a <a href="https://en.wikipedia.org/wiki/Transformation_matrix">transformation matrix</a> that rotates a two-dimensional vector when multiplied with it.</p>
+                            <p>Defines a <a href="https://en.wikipedia.org/wiki/Transformation_matrix">transformation matrix</a> that rotates a two- or three-dimensional vector when multiplied with it.</p>
                             <h4>PARAMETERS</h4>
                             <p>
-                                rad <span class="faded">{number}</span> - Radians to rotate by
+                                radx <span class="faded">{number}</span> - Radians to rotate in the x-direction (or on the xy-plane if the other two parameters are left blank)<br>
+                                rady <span class="faded">{number}</span> - Radians to rotate in the y-direction<br>
+                                radz <span class="faded">{number}</span> - Radians to rotate in the z-direction
                             </p>
                             <h4>RETURNS</h4>
                             <p>
                                 <span class="faded">{matr}</span> - Rotating transformation matrix
                             </p>
                             <h4>EXAMPLE</h4>
-<pre class="javascript"><code>// Returns a matrix that rotates a vector by 45 degrees
-let R = Chalkboard.matr.rotater2D(Chalkboard.PI(1/4));</code></pre>
-                        <h3><span class="faded">Chalkboard.matr.</span>rotater3D(radx, rady, radz)</h3>
-                            <h4>DESCRIPTION</h4>
-                            <p>Defines a <a href="https://en.wikipedia.org/wiki/Transformation_matrix">transformation matrix</a> that rotates a three-dimensional vector when multiplied with it.</p>
-                            <h4>PARAMETERS</h4>
-                            <p>
-                                radx <span class="faded">{number}</span> - Radians to rotate by in the x-direction<br>
-                                rady <span class="faded">{number}</span> - Radians to rotate by in the y-direction<br>
-                                radz <span class="faded">{number}</span> - Radians to rotate by in the z-direction
-                            </p>
-                            <h4>RETURNS</h4>
-                            <p>
-                                <span class="faded">{matr}</span> - Rotating transformation matrix
-                            </p>
-                            <h4>EXAMPLE</h4>
-<pre class="javascript"><code>// Returns a matrix that rotates a vector by 45 degrees in the x-direction, 90 degrees in the y-direction, and 180 degrees in the z-direction
-let R = Chalkboard.matr.rotater3D(Chalkboard.PI(1/4), Chalkboard.PI(1/2), Chalkboard.PI());</code></pre>
+<pre class="javascript"><code>// Returns a matrix that rotates a vector by 45 degrees on the xy-plane
+let R2 = Chalkboard.matr.rotator(Chalkboard.PI(1/4));
+
+// Returns a matrix that rotates a vector by 45 degrees in the x-direction, 90 degrees in the y-direction, and 180 degrees in the z-direction
+let R3 = Chalkboard.matr.rotater3D(Chalkboard.PI(1/4), Chalkboard.PI(1/2), Chalkboard.PI());</code></pre>
                         <h3><span class="faded">Chalkboard.matr.</span>add(matr_1, matr_2)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Calculates the addition of two matrices.</p>
@@ -5409,24 +5880,26 @@ let B = Chalkboard.matr.new([2],
                             [31],
                             [13]);
 let x = Chalkboard.matr.solve(A, B);</code></pre>
-                        <h3><span class="faded">Chalkboard.matr.</span>toVector(matr, vec, type)</h3>
+                        <h3><span class="faded">Chalkboard.matr.</span>toVector(matr, vec, type, rowORcol)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Converts a matrix to a <a href="https://en.wikipedia.org/wiki/Vector_(mathematics_and_physics)">vector</a>.</p>
                             <h4>PARAMETERS</h4>
                             <p>
                                 matr <span class="faded">{matr}</span> - Matrix<br>
                                 vec <span class="faded">{string}</span> - Type of vector, so either "vec2", "vec3", or "vec4"
-                                type <span class="faded">{string} (default = col)</span> - Where in the matrix to get the values of the vector for, which can either be "row" for the first row of the matrix or "col" for the first column of the matrix
+                                type <span class="faded">{string} (default = col)</span> - Where in the matrix to get the values of the vector for, which can either be "row" for the first row of the matrix or "col" for the first column of the matrix<br>
+                                rowORcol <span class="faded">{number} (default = 1)</span> - Which row or column of the matrix to convert to a vector
                             </p>
                             <h4>RETURNS</h4>
                             <p>
                                 <span class="faded">{vec2|vec3|vec4}</span> - Matrix converted to a vector
                             </p>
                             <h4>EXAMPLE</h4>
-<pre class="javascript"><code>// Returns the vector v = (1, 2)
+<pre class="javascript"><code>// Returns the vector v = (1, 2) and the vector w = (2, 4)
 let A = Chalkboard.matr.new([1, 2],
                             [3, 4]);
-let v = Chalkboard.matr.toVector(A, "vec2", "row");</code></pre>
+let v = Chalkboard.matr.toVector(A, "vec2", "row");
+let w = Chalkboard.matr.toVector(A, "vec2", "col", 2);</code></pre>
                         <h3><span class="faded">Chalkboard.matr.</span>toArray(matr)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Converts a matrix to an array.</p>
@@ -5528,12 +6001,181 @@ let limf = Chalkboard.calc.lim(f, Infinity);</code></pre>
                             </p>
                             <h4>RETURNS</h4>
                             <p>
-                                <span class="faded">{number}</span> - The derivative of a Chalkboard function at a particular value
+                                <span class="faded">{number|vec2|vec3}</span> - The derivative of a Chalkboard function at a particular value
                             </p>
                             <h4>EXAMPLE</h4>
 <pre class="javascript"><code>// Returns 6
-let f = Chalkboard.real.function("-x * x");
+let f = Chalkboard.real.function("x * x");
 let dfdx = Chalkboard.calc.dfdx(f, 3);</code></pre>
+                        <h3><span class="faded">Chalkboard.calc.</span>d2fdx2(func, val)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Second_derivative">second derivative</a> of a Chalkboard function at a particular value.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                func <span class="faded">{func}</span> - The Chalkboard function to evaluate<br>
+                                val <span class="faded">{number}</span> - The value to calculate the second derivative of the Chalkboard function at
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{number|vec2|vec3}</span> - The second derivative of a Chalkboard function at a particular value
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns 2
+let f = Chalkboard.real.function("x * x");
+let d2fdx2 = Chalkboard.calc.d2fdx2(f, 3);</code></pre>
+                        <h3><span class="faded">Chalkboard.calc.</span>tangent(func, val)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Tangent_vector">unit tangent vector</a> of a Chalkboard function at a particular value. Note that the Chalkboard function must have the property "type" of "curv" (it must be a parametric curve).</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                func <span class="faded">{func}</span> - The Chalkboard function to evaluate<br>
+                                val <span class="faded">{number}</span> - The value to calculate the unit tangent vector of the Chalkboard function at
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{vec2|vec3}</span> - The unit tangent vector of a Chalkboard function at a particular value
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the vector (0.1644, 0.9864)
+let r = Chalkboard.real.function(["t", "t * t"], "curv");
+let tangent = Chalkboard.calc.tangent(r, 3);</code></pre>
+                        <h3><span class="faded">Chalkboard.calc.</span>normal(func, val)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Normal_(geometry)">unit normal vector</a> of a Chalkboard function at a particular value. Note that the Chalkboard function must have the property "type" of "curv" (it must be a parametric curve).</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                func <span class="faded">{func}</span> - The Chalkboard function to evaluate<br>
+                                val <span class="faded">{number}</span> - The value to calculate the unit normal vector of the Chalkboard function at
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{vec2|vec3}</span> - The unit normal vector of a Chalkboard function at a particular value
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the vector (0, 1)
+let r = Chalkboard.real.function(["t", "t * t"], "curv");
+let normal = Chalkboard.calc.normal(r, 3);</code></pre>
+                        <h3><span class="faded">Chalkboard.calc.</span>binormal(func, val)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Frenet%E2%80%93Serret_formulas">binormal vector</a> of a Chalkboard function at a particular value. Note that the Chalkboard function must have the property "type" of "curv" (it must be a parametric curve).</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                func <span class="faded">{func}</span> - The Chalkboard function to evaluate<br>
+                                val <span class="faded">{number}</span> - The value to calculate the binormal vector of the Chalkboard function at
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{vec2|vec3}</span> - The binormal vector of a Chalkboard function at a particular value
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the vector (0, 0)
+let r = Chalkboard.real.function(["t", "t * t"], "curv");
+let binormal = Chalkboard.calc.binormal(r, 3);</code></pre>
+                        <h3><span class="faded">Chalkboard.calc.</span>dfdv(func, vec2_pos, vec2_dir)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Directional_derivative">directional derivative</a> of a Chalkboard function at a particular vector in a particular direction. Note that the Chalkboard function must have the property "type" of "mult" (it must be a multivariable function).</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                func <span class="faded">{func}</span> - The Chalkboard function to evaluate<br>
+                                vec2_pos <span class="faded">{vec2}</span> - The vector to calculate the directional derivative of the Chalkboard function at<br>
+                                vec2_dir <span class="faded">{vec2}</span> - The vector to calculate the directional derivative of the Chalkboard function in the direction of
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{number}</span> - The directional derivative of a Chalkboard function
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns √8
+let f = Chalkboard.real.function("x * x + y * y", "mult");
+let u = Chalkboard.vec2.new(1, 1);
+let v = Chalkboard.vec2.new(1, 1);
+let dfdv = Chalkboard.calc.dfdv(f, u, v);</code></pre>
+                        <h3><span class="faded">Chalkboard.calc.</span>dfrdt(func_1, func_2, val)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Chain_rule">multivariable chain rule</a> of a multivariable Chalkboard function on a parametric curve Chalkboard function at a particular value.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                func_1 <span class="faded">{func}</span> - The multivariable Chalkboard function to evaluate<br>
+                                func_2 <span class="faded">{func}</span> - The parametric curve Chalkboard function to evaluate<br>
+                                val <span class="faded">{number}</span> - The value to calculate the multivariable chain rule at
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{number}</span> - The multivariable chain rule
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns 10
+let f = Chalkboard.real.function("x * x * y", "mult");
+let r = Chalkboard.real.function(["t * t * t", "t * t * t * t"], "curv");
+let dfrdt = Chalkboard.calc.dfrdt(f, r, 1);</code></pre>
+                        <h3><span class="faded">Chalkboard.calc.</span>grad(funcORvecfield, vec)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Gradient">gradient</a> of a multivariable Chalkboard function, a parametric surface Chalkboard function, or a vector field at a particular vector.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                funcORvecfield <span class="faded">{func|vec2field|vec3field|vec4field}</span> - The Chalkboard function or vector field to evaluate<br>
+                                vec <span class="faded">{vec2|vec3|vec4}</span> - The vector to calculate the gradient at
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{vec2|matr}</span> - The gradient at a particular vector
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the vector (2, 2)
+let f = Chalkboard.real.function("x * x + y * y", "mult");
+let v = Chalkboard.vec2.new(1, 1);
+let grad = Chalkboard.calc.grad(f, v);</code></pre>
+                        <h3><span class="faded">Chalkboard.calc.</span>grad2(funcORvecfield, vec)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Hessian_matrix">second gradient</a> (matrix of second partial derivatives) of a multivariable Chalkboard function, a parametric surface Chalkboard function, or a vector field at a particular vector.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                funcORvecfield <span class="faded">{func|vec2field|vec3field|vec4field}</span> - The Chalkboard function or vector field to evaluate<br>
+                                vec <span class="faded">{vec2|vec3|vec4}</span> - The vector to calculate the second gradient at
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{matr}</span> - The second gradient at a particular vector
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the matrix [[2, 0], [0, 2]]
+let f = Chalkboard.real.function("x * x + y * y", "mult");
+let v = Chalkboard.vec2.new(1, 1);
+let grad2 = Chalkboard.calc.grad2(f, v);</code></pre>
+                        <h3><span class="faded">Chalkboard.calc.</span>div(vecfield, vec)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Divergence">divergence</a> of a vector field at a particular vector.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                vecfield <span class="faded">{vec2field|vec3field|vec4field}</span> - The vector field to evaluate<br>
+                                vec <span class="faded">{vec2|vec3|vec4}</span> - The vector to calculate the divergence at
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{number}</span> - The divergence at a particular vector
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns 2
+let F = Chalkboard.vec2.field("x", "y");
+let v = Chalkboard.vec2.new(1, 1);
+let div = Chalkboard.calc.div(F, v);</code></pre>
+                        <h3><span class="faded">Chalkboard.calc.</span>curl(vecfield, vec)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Curl_(mathematics)">curl</a> of a vector field at a particular vector.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                vecfield <span class="faded">{vec2field|vec3field}</span> - The vector field to evaluate<br>
+                                vec <span class="faded">{vec2|vec3}</span> - The vector to calculate the curl at
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{vec3}</span> - The curl at a particular vector
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the vector (0, 0, 2)
+let F = Chalkboard.vec2.field("-y", "x");
+let v = Chalkboard.vec2.new(1, 1);
+let curl = Chalkboard.calc.curl(F, v);</code></pre>
                         <h3><span class="faded">Chalkboard.calc.</span>fxdx(func, a, b)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Calculates the <a href="https://en.wikipedia.org/wiki/Integral">antiderivative</a> of a Chalkboard function within a particular interval.</p>
@@ -5545,12 +6187,90 @@ let dfdx = Chalkboard.calc.dfdx(f, 3);</code></pre>
                             </p>
                             <h4>RETURNS</h4>
                             <p>
-                                <span class="faded">{number}</span> - The antiderivative of a Chalkboard function within a particular interval
+                                <span class="faded">{number|vec2|vec3}</span> - The antiderivative of a Chalkboard function within a particular interval
                             </p>
                             <h4>EXAMPLE</h4>
 <pre class="javascript"><code>// Returns 9
 let f = Chalkboard.real.function("x * x");
 let fxdx = Chalkboard.calc.fxdx(f, 0, 3);</code></pre>
+                        <h3><span class="faded">Chalkboard.calc.</span>fxydxdy(func, a, b, c, d)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Multiple_integral">antiderivative</a> of a multivariable Chalkboard function within particular intervals.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                func <span class="faded">{func}</span> - The multivariable Chalkboard function to evaluate<br>
+                                a <span class="faded">{number}</span> - The lower bound of the x-interval<br>
+                                b <span class="faded">{number}</span> - The upper bound of the x-interval<br>
+                                c <span class="faded">{number}</span> - The lower bound of the y-interval<br>
+                                d <span class="faded">{number}</span> - The upper bound of the y-interval
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{number}</span> - The antiderivative of a multivariable Chalkboard function within particular intervals
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns 8/3
+let f = Chalkboard.real.function("x * x + y * y", "mult");
+let fxydxdy = Chalkboard.calc.fxydxdy(f, -1, 1, -1, 1);</code></pre>
+                        <h3><span class="faded">Chalkboard.calc.</span>frdt(funcORvecfield, func, a, b)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Line_integral">line integral</a> of a multivariable Chalkboard function or a vector field over a parametric curve Chalkboard function within a particular interval.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                funcORvecfield <span class="faded">{func|vec2field}</span> - The multivariable Chalkboard function or vector field to integrate<br>
+                                func <span class="faded">{func}</span> - The parametric curve Chalkboard function to integrate on<br>
+                                a <span class="faded">{number}</span> - The lower bound of the integration interval<br>
+                                b <span class="faded">{number}</span> - The upper bound of the integration interval
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{number}</span> - The line integral
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns 2π
+let F = Chalkboard.vec2.field("-y", "x");
+let r = Chalkboard.real.function(["Math.cos(t)", "Math.sin(t)"], "curv");
+let frdt = Chalkboard.calc.frdt(F, r, 0, Chalkboard.PI(2));</code></pre>
+                        <h3><span class="faded">Chalkboard.calc.</span>fds(func, a, b, c, d)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Arc_length">curve length</a> or <a href="https://en.wikipedia.org/wiki/Surface_integral">surface area</a> of a parametric curve or surface Chalkboard function within particular intervals.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                func <span class="faded">{func}</span> - The parametric curve or surface Chalkboard function to integrate on<br>
+                                a <span class="faded">{number}</span> - The lower bound of the t-interval<br>
+                                b <span class="faded">{number}</span> - The upper bound of the t-interval<br>
+                                c <span class="faded">{number}</span> - The lower bound of the s-interval<br>
+                                d <span class="faded">{number}</span> - The upper bound of the s-interval
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{number}</span> - The arc length or surface area
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns 4π
+let r = Chalkboard.real.function(["Math.cos(s) * Math.cos(t)", "Math.cos(s) * Math.sin(t)", "Math.sin(s)"], "surf");
+let fds = Chalkboard.calc.fds(r, 0, Chalkboard.PI(2), Chalkboard.PI(-1/2), Chalkboard.PI(1/2));</code></pre>
+                        <h3><span class="faded">Chalkboard.calc.</span>fnds(vecfield, func, a, b, c, d)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Flux">flux</a> of a vector field through a parametric curve Chalkboard function or a parametric surface Chalkboard function within particular intervals.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                vecfield <span class="faded">{vec2field|vec3field}</span> - The vector field to integrate<br>
+                                func <span class="faded">{func}</span> - The parametric curve or parametric surface Chalkboard function to integrate on<br>
+                                a <span class="faded">{number}</span> - The lower bound of the t-interval<br>
+                                b <span class="faded">{number}</span> - The upper bound of the t-interval<br>
+                                c <span class="faded">{number}</span> - The lower bound of the s-interval<br>
+                                d <span class="faded">{number}</span> - The upper bound of the s-interval
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{number}</span> - The flux
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns 2π
+let F = Chalkboard.vec2.field("x", "y");
+let r = Chalkboard.real.function(["Math.cos(t)", "Math.sin(t)"], "curv");
+let fnds = Chalkboard.calc.fnds(F, r, 0, Chalkboard.PI(2));</code></pre>
                         <h3><span class="faded">Chalkboard.calc.</span>extrema(func, domain)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Finds the <a href="https://en.wikipedia.org/wiki/Maximum_and_minimum">extrema</a> of a Chalkboard function within a particular interval.</p>
@@ -5567,23 +6287,39 @@ let fxdx = Chalkboard.calc.fxdx(f, 0, 3);</code></pre>
 <pre class="javascript"><code>// Returns 0
 let f = Chalkboard.real.function("x * x");
 let fmin = Chalkboard.calc.extrema(f, [-10, 10]);</code></pre>
-                        <h3><span class="faded">Chalkboard.calc.</span>average(func, a, b)</h3>
+                        <h3><span class="faded">Chalkboard.calc.</span>mean(func, a, b)</h3>
                             <h4>DESCRIPTION</h4>
-                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Mean_of_a_function">average value</a> of a Chalkboard function within a particular interval.</p>
+                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Mean_of_a_function">mean value</a> of a Chalkboard function within a particular interval.</p>
                             <h4>PARAMETERS</h4>
                             <p>
-                                func <span class="faded">{func}</span> - The Chalkboard function to find the average of (note: it must be an explicit function)<br>
-                                a <span class="faded">{number}</span> - The beginning of the interval to calculate the average of the Chalkboard function within<br>
-                                b <span class="faded">{number}</span> - The end of the interval to calculate the average of the Chalkboard function within
+                                func <span class="faded">{func}</span> - The Chalkboard function to find the mean of (note: it must be an explicit function)<br>
+                                a <span class="faded">{number}</span> - The beginning of the interval to calculate the mean of the Chalkboard function within<br>
+                                b <span class="faded">{number}</span> - The end of the interval to calculate the mean of the Chalkboard function within
                             </p>
                             <h4>RETURNS</h4>
                             <p>
-                                <span class="faded">{number}</span> - The average of a Chalkboard function within a particular interval
+                                <span class="faded">{number}</span> - The mean value of a Chalkboard function within a particular interval
                             </p>
                             <h4>EXAMPLE</h4>
 <pre class="javascript"><code>// Returns 0
 let f = Chalkboard.real.function("Math.sin(x)");
-let faverage = Chalkboard.calc.average(f, 0, Chalkboard.PI(2));</code></pre>
+let mean = Chalkboard.calc.mean(f, 0, Chalkboard.PI(2));</code></pre>
+                        <h3><span class="faded">Chalkboard.calc.</span>curvature(func, val)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Curvature">curvature</a> of a parametric curve Chalkboard function at a particular value.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                func <span class="faded">{func}</span> - The parametric curve Chalkboard function to find the curvature of<br>
+                                val <span class="faded">{number}</span> - The value to calculate the curvature at
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{number}</span> - The curvature
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns 1
+let r = Chalkboard.real.function(["Math.cos(t)", "Math.sin(t)"], "curv");
+let curvature = Chalkboard.calc.curvature(r, 0);</code></pre>
                         <h3><span class="faded">Chalkboard.calc.</span>convolution(func_1, func_2, val)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Calculates the <a href="https://en.wikipedia.org/wiki/Convolution">convolution</a> of two Chalkboard functions at a particular value.</p>
