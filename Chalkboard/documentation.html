@@ -2108,10 +2108,10 @@ Chalkboard.plot.matr(A, 2, [255, 0, 0]);</code></pre>
                                 <span class="faded">{string}</span> - A message that tells which function's derivative was drawn, where it was drawn, and which color it was drawn with.
                             </p>
                             <h4>EXAMPLE</h4>
-<pre class="javascript"><code>// Draws the derivative of the function f(x) = x^2 with a scale of 2 colored green at the top-center of the canvas
+<pre class="javascript"><code>// Draws the derivative of the function f(x) = x^2 with a scale of 2 colored green with x-values from -10 to 10.
 const ctx = document.getElementById("canvas").getContext("2d");
 let f = Chalkboard.real.function("x * x");
-Chalkboard.plot.dfdx(f, 2, [0, 255, 0], [canvas.width / 2, canvas.height / 4]);</code></pre>
+Chalkboard.plot.dfdx(f, 2, [0, 255, 0], [-10, 10]);</code></pre>
                         <h3><span class="faded">Chalkboard.plot.</span>d2fdx2(func, scl, rgba, domain, origin, weight, res, context)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Draws the <a href="https://en.wikipedia.org/wiki/Second_derivative">second derivative</a> of a Chalkboard function.</p>
@@ -2131,10 +2131,10 @@ Chalkboard.plot.dfdx(f, 2, [0, 255, 0], [canvas.width / 2, canvas.height / 4]);<
                                 <span class="faded">{string}</span> - A message that tells which function's derivative was drawn, where it was drawn, and which color it was drawn with.
                             </p>
                             <h4>EXAMPLE</h4>
-<pre class="javascript"><code>// Draws the derivative of the function f(x) = x^2 with a scale of 2 colored green at the top-center of the canvas
+<pre class="javascript"><code>// Draws the derivative of the function f(x) = x^2 with a scale of 2 colored green with x-values from -10 to 10.
 const ctx = document.getElementById("canvas").getContext("2d");
 let f = Chalkboard.real.function("x * x");
-Chalkboard.plot.dfdx(f, 2, [0, 255, 0], [canvas.width / 2, canvas.height / 4]);</code></pre>
+Chalkboard.plot.dfdx(f, 2, [0, 255, 0], [-10, 10]);</code></pre>
                         <h3><span class="faded">Chalkboard.plot.</span>fxdx(func, scl, rgba, domain, origin, weight, res, context)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Draws the <a href="https://en.wikipedia.org/wiki/Antiderivative">antiderivative</a> of a Chalkboard function.</p>
@@ -2154,10 +2154,10 @@ Chalkboard.plot.dfdx(f, 2, [0, 255, 0], [canvas.width / 2, canvas.height / 4]);<
                                 <span class="faded">{string}</span> - A message that tells which function's antiderivative was drawn, where it was drawn, and which color it was drawn with.
                             </p>
                             <h4>EXAMPLE</h4>
-<pre class="javascript"><code>// Draws the antiderivative of the function f(x) = x^2 with a scale of 2 colored blue at the bottom-center of the canvas
+<pre class="javascript"><code>// Draws the antiderivative of the function f(x) = x^2 with a scale of 2 colored blue with x-values from -10 to 10
 const ctx = document.getElementById("canvas").getContext("2d");
 let f = Chalkboard.real.function("x * x");
-Chalkboard.plot.fxdx(f, 2, [0, 0, 255], [canvas.width / 2, 3 * canvas.height / 4]);</code></pre>
+Chalkboard.plot.fxdx(f, 2, [0, 0, 255], [-10, 10]);</code></pre>
                         <h3><span class="faded">Chalkboard.plot.</span>convolution(func_1, func_2, scl, rgba, domain, origin, weight, res, context)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Draws the <a href="https://en.wikipedia.org/wiki/Convolution">convolution</a> of two Chalkboard functions.</p>
