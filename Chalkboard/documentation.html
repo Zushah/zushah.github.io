@@ -2131,7 +2131,7 @@ Chalkboard.plot.dfdx(f, 2, [0, 255, 0], [-10, 10]);</code></pre>
                                 <span class="faded">{string}</span> - A message that tells which function's derivative was drawn, where it was drawn, and which color it was drawn with.
                             </p>
                             <h4>EXAMPLE</h4>
-<pre class="javascript"><code>// Draws the derivative of the function f(x) = x^2 with a scale of 2 colored green with x-values from -10 to 10.
+<pre class="javascript"><code>// Draws the second derivative of the function f(x) = x^2 with a scale of 2 colored green with x-values from -10 to 10.
 const ctx = document.getElementById("canvas").getContext("2d");
 let f = Chalkboard.real.function("x * x");
 Chalkboard.plot.d2fdx2(f, 2, [0, 255, 0], [-10, 10]);</code></pre>
