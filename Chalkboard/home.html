@@ -9,7 +9,7 @@ Zushah (https://www.github.com/Zushah)
 ==================================================================
 Released on Khan Academy: 11/06/2023
 Released on GitHub: 11/06/2023
-Last updated: 12/09/2023
+Last updated: 12/16/2023
 ==================================================================
 -->
 <html>
@@ -18,7 +18,7 @@ Last updated: 12/09/2023
         <title>Chalkboard</title>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto+Mono&family=Material+Icons" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/atom-one-dark.min.css" rel="stylesheet">
-        <link href="./resources/logo.png" rel="icon" type="image/x-icon">
+        <link href="./assets/logo.png" rel="icon" type="image/x-icon">
         <link href="./style.css" rel="stylesheet">
     </head>
     <body>
@@ -26,7 +26,7 @@ Last updated: 12/09/2023
             <div class="closecontain"><p class="material-icons close" onclick="hidenavbar()">close</p></div>
             <hr>
             <a class="nav active" href="./home.html">Home</a>
-            <a class="nav" href="./information.html">Information</a>
+            <a class="nav" href="./about.html">About</a>
             <a class="nav" href="./installation.html">Installation</a>
             <a class="nav" href="./documentation.html">Documentation</a>
             <a class="nav" href="./examples.html">Examples</a>
@@ -52,14 +52,55 @@ Last updated: 12/09/2023
                 <li>Multidimensional matrices</li>
                 <li>Single- and multi-variable calculus operations</li>
             </ul>
-            <p>And it's all packed into a single namespace written in a single 0.1 megabyte (0.05 megabyte minified) file.</p>
+            <p>And it's all packed into a single namespace written in a 0.1 megabyte (0.05 megabyte minified) file.</p>
+            <p>After installing Chalkboard into your program, you can immediately get started with using it. Every Chalkboard command begins with typing "Chalkboard" followed by a period, then the name of the category of the command (all categories are listed in the documentation page) with another period, and lastly the desired command itself.</p>
+<pre class="javascript"><code>Chalkboard.category.command(parameters);</code></pre>
+            <p>Here is some code that shows off only a few basic features of Chalkboard:</p>
+<pre class="javascript"><code>const cb = Chalkboard; // Chalkboard is a nice name but it's also long
+
+let f = cb.real.function("Math.cos(2 * x)"); // f(x) = cos(2x)
+let dfdx = cb.calc.dfdx(f, 2); // Derivative of f at x = 0
+let fxdx = cb.calc.fxdx(f, 0, 2); // Antiderivative of f from x = 0 to x = 2
+let fourier = cb.calc.Fourier(f, 2); // Fourier transform of f at x = 2
+
+let f = cb.vec3.field("x", "y", "z"); // f(x, y, z) = (x, y, z)
+let r = cb.real.function(["Math.cos(s) * Math.cos(t)", "Math.sin(s) * Math.cos(t)", "Math.sin(t)"], "surf"); // r(s, t) = (cos(s)cos(t), sin(s)cos(t), sin(t))
+let fnds = cb.calc.fnds(f, r, cb.PI(-1/2), cb.PI(1/2), 0, cb.PI(2)); // Flux of the radial vector field through the unit sphere
+
+let primes = cb.numb.primeArr(0, 100); // Array of prime numbers between 0 and 100
+let midPrime = cb.stat.median(primes); // Median number in the primes array
+cb.plot.barplot(primes, cb.stat.array(0, 100, 11), 5, [[0, 0, 0], [0, 0, 255]]); // Barplot of the primes array with a bin size of 10, a scale of 2, a stroke color of black, and a fill color of blue
+
+let z = cb.comp.new(1, 1); // z = 1 + i
+let zsqsqrt = cb.comp.sqrt(cb.comp.sq(z)); // The square root of z squared
+
+let r = cb.real.function(["Math.cos(t)", "Math.sin(t)"], "curv"); // r(t) = (cos(t), sin(t))
+cb.plot.xyplane(2); // Draws the Cartesian coordinate plane
+cb.plot.function(r, 2, [0, cb.PI(1/2)]); // Plots r(t) from t = 0 to t = π/2
+
+let a = cb.vec3.new(1, 2, 3); // Vector a = (1, 2, 3)
+let b = cb.vec3.new(4, 5, 6); // Vector b = (4, 5, 6)
+let c = cb.vec3.new(7, 8, 9); // Vector c = (7, 8, 9)
+let axbxc = cb.vec3.vectorTriple(a, b, c); // Triple cross product between a, b, and c
+cb.vec3.print(axbxc); // Prints axbxc in the console
+
+let m = cb.matr.new([0, 1, 1, 1, 1],  // m is a 5x5 matrix
+                    [1, 0, 1, 1, 1],
+                    [1, 1, 0, 1, 1],
+                    [1, 1, 1, 0, 1],
+                    [1, 1, 1, 1, 0]);
+let mi = cb.matr.invert(m); // mi is the inverse of m
+let mmi = cb.matr.mul(m, mi); // mmi is the product of m and mi
+cb.matr.print(mmi); // Prints mmi in the console</code></pre>
+            <p>More examples that are more interesting can be seen in the examples page.</p>
+            <p>Chalkboard is made possible by users like you. Thank you!</p>
             <div class="quote">
                 <p>"Mathemaics is the language with which God has written the universe."</p>
                 <p>- Galileo Galilei</p>
             </div>
         </div>
         <footer>
-            <p>Zushah 2023 - Chalkboard v1.3.1</p>
+            <p>Zushah 2023 - Chalkboard v1.4.0</p>
         </footer>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
         <script type="text/javascript" src="./script.js"></script>

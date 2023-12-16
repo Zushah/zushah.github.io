@@ -9,7 +9,7 @@ Zushah (https://www.github.com/Zushah)
 ==================================================================
 Released on Khan Academy: 11/06/2023
 Released on GitHub: 11/06/2023
-Last updated: 12/09/2023
+Last updated: 12/16/2023
 ==================================================================
 -->
 <html>
@@ -18,7 +18,7 @@ Last updated: 12/09/2023
         <title>Chalkboard - Documentation</title>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto+Mono&family=Material+Icons" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/atom-one-dark.min.css" rel="stylesheet">
-        <link href="./resources/logo.png" rel="icon" type="image/x-icon">
+        <link href="./assets/logo.png" rel="icon" type="image/x-icon">
         <link href="./style.css" rel="stylesheet">
     </head>
     <body>
@@ -26,7 +26,7 @@ Last updated: 12/09/2023
             <div class="closecontain"><p class="material-icons close" onclick="hidenavbar()">close</p></div>
             <hr>
             <a class="nav" href="./home.html">Home</a>
-            <a class="nav" href="./information.html">Information</a>
+            <a class="nav" href="./about.html">About</a>
             <a class="nav" href="./installation.html">Installation</a>
             <a class="nav active" href="./documentation.html">Documentation</a>
             <a class="nav" href="./examples.html">Examples</a>
@@ -37,38 +37,38 @@ Last updated: 12/09/2023
         </header>
         <div class="page">
             <h2>Documentation</h2>
-            <p>This page has all the information you need to successfully operate the Chalkboard library. If you have any questions, feel free to contact <a href="https://www.github.com/Zushah">Zushah</a>.</p>
+            <p>This page has all the information you need to successfully operate the Chalkboard library. If you have any questions, feel free to contact <a href="https://github.com/Zushah">Zushah</a>.</p>
             <p>Click on a category below to view the documentation for each of its commands.</p>
-            <p>The source code for the <a href="https://github.com/Zushah/Chalkboard/releases/tag/v1.3.1">latest release</a> can be found <a href="https://github.com/Zushah/Chalkboard/blob/v1.3.1/src/Chalkboard.js">here</a>.</p>
+            <p>The source code for the <a href="https://github.com/Zushah/Chalkboard/releases/tag/v1.4.0">latest release</a> can be found <a href="https://github.com/Zushah/Chalkboard/blob/v1.4.0/src/Chalkboard.js">here</a>.</p>
             <div id="docs">
 <!--
-                    <div>
-                        <h2 id="category" class="dropdown-button" onclick="dropdown(this)">Category</h2>
-                        <div class="dropdown hidden">
-                            <h3><span class="faded">Chalkboard.</span>Command(parameters)</h3>
-                                <h4>DESCRIPTION</h4>
-                                <p>Stuff.</p>
-                                <h4>PARAMETERS</h4>
-                                <p>
-                                    Name <span class="faded">{type}</span> - Description
-                                </p>
-                                <h4>RETURNS</h4>
-                                <p>
-                                    <span class="faded">{type}</span> - Description
-                                </p>
-                                <h4>EXAMPLE</h4>
-    <pre class="javascript"><code>code
-    more code</code></pre>
-                            
-                        </div>
+                <div>
+                    <h2 id="category" class="dropdown-button" onclick="dropdown(this)">Category</h2>
+                    <div class="dropdown hidden">
+                        <h3><span class="faded">Chalkboard.category.</span>command(parameters)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Stuff.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                Name <span class="faded">{type}</span> - Description
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{type}</span> - Description
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>code
+more code</code></pre>
+                        
                     </div>
+                </div>
 -->
 
                 <br>
 
-                <!-- Types -->
+                <!-- Data Types -->
                 <div>
-                    <h2 id="types" class="dropdown-button" onclick="dropdown(this)">Types</h2>
+                    <h2 id="types" class="dropdown-button" onclick="dropdown(this)">Data Types</h2>
                     <div class="dropdown hidden">
                         <h3>func</h3>
                             <h4>DESCRIPTION</h4>
@@ -220,7 +220,7 @@ let A = Chalkboard.matr.new([1, 2, 3],
 <pre class="javascript"><code>Chalkboard.README();</code></pre>
                         <h3 id="globals-logo"><span class="faded">Chalkboard.</span>LOGO(x, y, s, context)</h3>
                             <h4>DESCRIPTION</h4>
-                            <p>Draws the Chalkboard logo.</p>
+                            <p>Plots the Chalkboard logo.</p>
                             <h4>PARAMETERS</h4>
                             <p>
                                 x <span class="faded">{number} (default = canvas.width/2)</span> - The x-coordinate of the logo<br>
@@ -233,7 +233,7 @@ let A = Chalkboard.matr.new([1, 2, 3],
                                 <span class="faded">{void}</span> - Nothing
                             </p>
                             <h4>EXAMPLE</h4>
-<pre class="javascript"><code>// Draws the logo at (200, 300) scaled by a factor of 2
+<pre class="javascript"><code>// Plots the logo at (200, 300) scaled by a factor of 2
 Chalkboard.LOGO(200, 300, 2);</code></pre>
                         <h3 id="globals-pi"><span class="faded">Chalkboard.</span>PI(coefficient)</h3>
                             <h4>DESCRIPTION</h4>
@@ -306,7 +306,7 @@ let n = Chalkboard.numb.random(0, 1000);</code></pre>
 Chalkboard.numb.factorial(5);</code></pre>
                         <h3><span class="faded">Chalkboard.numb.</span>gcd(a, b)</h3>
                             <h4>DESCRIPTION</h4>
-                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Greatest_common_divisor">greatest common divisor</a> between two numbers.</p>
+                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Greatest_common_divisor">greatest common divisor</a> of two numbers.</p>
                             <h4>PARAMETERS</h4>
                             <p>
                                 a <span class="faded">{number}</span> - The first number to find the GCD of<br>
@@ -321,7 +321,7 @@ Chalkboard.numb.factorial(5);</code></pre>
 Chalkboard.numb.gcd(68, 119);</code></pre>
                         <h3><span class="faded">Chalkboard.numb.</span>lcm(a, b)</h3>
                             <h4>DESCRIPTION</h4>
-                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Least_common_multiple">least common multiple</a> between two numbers.</p>
+                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Least_common_multiple">least common multiple</a> of two numbers.</p>
                             <h4>PARAMETERS</h4>
                             <p>
                                 a <span class="faded">{number}</span> - The first number to find the LCM of<br>
@@ -334,6 +334,38 @@ Chalkboard.numb.gcd(68, 119);</code></pre>
                             <h4>EXAMPLE</h4>
 <pre class="javascript"><code>// Returns 12
 Chalkboard.numb.lcm(4, 6);</code></pre>
+                        <h3><span class="faded">Chalkboard.numb.</span>sum(formula, inf, sup)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Summation">summation</a> of a sequence.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                formula <span class="faded">{string}</span> - The formula of the sequence to sum, written like a Chalkboard function with the variable "n"<br>
+                                inf <span class="faded">{number}</span> - The lower bound of the summation<br>
+                                sup <span class="faded">{number}</span> - The upper bound of the summation
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{number}</span> - The summation
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns almost π²/6
+let sum = Chalkboard.numb.sum("1 / (n * n)", 0, 1000);</code></pre>
+                        <h3><span class="faded">Chalkboard.numb.</span>mul(formula, inf, sup)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Product_(mathematics)">product</a> (multiplication) of a sequence.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                formula <span class="faded">{string}</span> - The formula of the sequence to multiply, written like a Chalkboard function with the variable "n"<br>
+                                inf <span class="faded">{number}</span> - The lower bound of the product<br>
+                                sup <span class="faded">{number}</span> - The upper bound of the product
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{number}</span> - The product
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns 120
+let mul = Chalkboard.numb.mul("n + 1", 0, 5);</code></pre>
                         <h3><span class="faded">Chalkboard.numb.</span>combination(n, r)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Calculates the <a href="https://en.wikipedia.org/wiki/Combination">combination</a> of two numbers.</p>
@@ -575,8 +607,8 @@ Chalkboard.numb.change(1, 2);</code></pre>
                             <h4>PARAMETERS</h4>
                             <p>
                                 num <span class="faded">{number}</span> - The number to map<br>
-                                range1 <span class="faded">{Array}</span> - The range the number is currently within<br>
-                                range2 <span class="faded">{Array}</span> - The range the number is desired to be within
+                                range1 <span class="faded">{number[]}</span> - The range the number is currently within<br>
+                                range2 <span class="faded">{number[]}</span> - The range the number is desired to be within
                             </p>
                             <h4>RETURNS</h4>
                             <p>
@@ -585,6 +617,33 @@ Chalkboard.numb.change(1, 2);</code></pre>
                             <h4>EXAMPLE</h4>
 <pre class="javascript"><code>// Returns 0.92
 Chalkboard.numb.map(23, [0, 25], [0, 1]);</code></pre>
+                        <h3><span class="faded">Chalkboard.numb.</span>constrain(num, range)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Constrains a number within a range.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                num <span class="faded">{number}</span> - The number to constrain<br>
+                                range <span class="faded">{number[]} (default = [0, 1])</span> - The range to constrain the number within
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{number}</span> - The constrained number
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns 1
+Chalkboard.numb.constrain(2, [0, 1]);
+
+// Returns 1
+Chalkboard.numb.constrain(1, [0, 1]);
+
+// Returns 0.5
+Chalkboard.numb.constrain(0.5, [0, 1]);
+
+// Returns 0
+Chalkboard.numb.constrain(0, [0, 1]);
+
+// Returns 0
+Chalkboard.numb.constrain(-1, [0, 1]);</code></pre>
                         <h3><span class="faded">Chalkboard.numb.</span>binomial(n, k)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Calculates a <a href="https://en.wikipedia.org/wiki/Binomial_coefficient">binomial coefficient</a>.</p>
@@ -799,12 +858,14 @@ Chalkboard.real.nrt(8, 3);</code></pre>
                             <h4>EXAMPLE</h4>
 <pre class="javascript"><code>// Returns 65536
 Chalkboard.real.tetration(2, 4);</code></pre>
-                        <h3><span class="faded">Chalkboard.real.</span>Heaviside(num)</h3>
+                        <h3><span class="faded">Chalkboard.real.</span>Heaviside(num, edge, scl)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Evaluates the <a href="https://en.wikipedia.org/wiki/Heaviside_step_function">Heaviside step function</a> at a particular value.</p>
                             <h4>PARAMETERS</h4>
                             <p>
-                                num <span class="faded">{number}</span> - The value to evaluate the function at
+                                num <span class="faded">{number}</span> - The value to evaluate the function at<br>
+                                edge <span class="faded">{number} (default = 0)</span> - The horizontal positioning of the function<br>
+                                scl <span class="faded">{number} (default = 1)</span> - The height of the function
                             </p>
                             <h4>RETURNS</h4>
                             <p>
@@ -816,27 +877,31 @@ Chalkboard.real.Heaviside(-10);
 
 // Returns 1
 Chalkboard.real.Heaviside(10);</code></pre>
-                        <h3><span class="faded">Chalkboard.real.</span>Dirac(num)</h3>
+                        <h3><span class="faded">Chalkboard.real.</span>Dirac(num, edge, scl)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Evaluates the <a href="https://en.wikipedia.org/wiki/Dirac_delta_function">Dirac delta function</a> at a particular value.</p>
                             <h4>PARAMETERS</h4>
                             <h4>PARAMETERS</h4>
                             <p>
-                                num <span class="faded">{number}</span> - The value to evaluate the function at
+                                num <span class="faded">{number}</span> - The value to evaluate the function at<br>
+                                edge <span class="faded">{number} (default = 0)</span> - The horizontal positioning of the function<br>
+                                scl <span class="faded">{number} (default = 1)</span> - The height of the function
                             </p>
                             <h4>RETURNS</h4>
                             <p>
                                 <span class="faded">{number}</span> - The value of the function
                             </p>
                             <h4>EXAMPLE</h4>
-<pre class="javascript"><code>// Returns infinity
+<pre class="javascript"><code>// Returns 1
 Chalkboard.real.Dirac(0);</code></pre>
-                        <h3><span class="faded">Chalkboard.real.</span>ramp(num)</h3>
+                        <h3><span class="faded">Chalkboard.real.</span>ramp(num, edge, scl)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Evaluates the <a href="https://en.wikipedia.org/wiki/Ramp_function">ramp function</a> at a particular value.</p>
                             <h4>PARAMETERS</h4>
                             <p>
-                                num <span class="faded">{number}</span> - The value to evaluate the function at
+                                num <span class="faded">{number}</span> - The value to evaluate the function at<br>
+                                edge <span class="faded">{number} (default = 0)</span> - The horizontal positioning of the function<br>
+                                scl <span class="faded">{number} (default = 1)</span> - The slope of the function
                             </p>
                             <h4>RETURNS</h4>
                             <p>
@@ -848,13 +913,15 @@ Chalkboard.real.ramp(-10);
 
 // Returns 10
 Chalkboard.real.ramp(10);</code></pre>
-                        <h3><span class="faded">Chalkboard.real.</span>rect(num, scl)</h3>
+                        <h3><span class="faded">Chalkboard.real.</span>rect(num, center, width, scl)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Evaluates the <a href="https://en.wikipedia.org/wiki/Rectangular_function">rectangular function</a> at a particular value.</p>
                             <h4>PARAMETERS</h4>
                             <p>
                                 num <span class="faded">{number}</span> - The value to evaluate the function at<br>
-                                scl <span class="faded">{number} (default = 2)</span> The width of the function
+                                center <span class="faded">{number} (default = 0)</span> - The horizontal positioning of the function<br>
+                                width <span class="faded">{number} (default = 2)</span> - The width of the function
+                                scl <span class="faded">{number} (default = 1)</span> The height of the function
                             </p>
                             <h4>RETURNS</h4>
                             <p>
@@ -866,6 +933,37 @@ Chalkboard.real.rect(1);
 
 // Returns 0
 Chalkboard.real.rect(1.1);</code></pre>
+                        <h3><span class="faded">Chalkboard.real.</span>pingpong(num, edge, scl)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Evaluates the ping-pong function, or the function that linearly oscillates a variable, at a particular value.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                num <span class="faded">{number}</span> - The value to evaluate the function at<br>
+                                edge <span class="faded">{number} (default = 0)</span> - The horizontal positioning of the function<br>
+                                scl <span class="faded">{number} (default = 1)</span> The width of the function
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{number}</span> - The value of the function
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns 0.5
+Chalkboard.real.pingpong(0.5);
+
+// Returns 1
+Chalkboard.real.pingpong(1);
+
+// Returns 0.5
+Chalkboard.real.pingpong(1.5);
+
+// Returns 0
+Chalkboard.real.pingpong(2);
+
+// Returns 0.5
+Chalkboard.real.pingpong(2.5);
+
+// Returns 1
+Chalkboard.real.pingpong(3);</code></pre>
                         <h3><span class="faded">Chalkboard.real.</span>slope(x1, y1, x2, y2)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Calculates the <a href="https://en.wikipedia.org/wiki/Slope">slope</a> of a line.</p>
@@ -1341,22 +1439,72 @@ let zrotated = Chalkboard.comp.rotate(z, Chalkboard.PI(1/2));</code></pre>
 <pre class="javascript"><code>// Returns the complex number 1 - 2i
 let z = Chalkboard.comp.new(1, 2);
 let zconjugate = Chalkboard.comp.conjugate(z);</code></pre>
+                        <h3><span class="faded">Chalkboard.comp.</span>dist(comp_1, comp_2)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Euclidean_distance">distance</a> between two complex numbers.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                comp_1 <span class="faded">{comp}</span> - The first complex number<br>
+                                comp_2 <span class="faded">{comp}</span> - The second complex number
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{number}</span> - The distance between two complex numbers
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns 2.8284
+let w = Chalkboard.comp.new(1, 2);
+let z = Chalkboard.comp.new(3, 4);
+let wzdist = Chalkboard.comp.dist(w, z);</code></pre>
+                        <h3><span class="faded">Chalkboard.comp.</span>distsq(comp_1, comp_2)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Calculates the square of the <a href="https://en.wikipedia.org/wiki/Euclidean_distance">distance</a> between two complex numbers.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                comp_1 <span class="faded">{comp}</span> - The first complex number<br>
+                                comp_2 <span class="faded">{comp}</span> - The second complex number
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{number}</span> - The squared distance between two complex numbers
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns 8
+let w = Chalkboard.comp.new(1, 2);
+let z = Chalkboard.comp.new(3, 4);
+let wzdistsq = Chalkboard.comp.distsq(w, z);</code></pre>
                         <h3><span class="faded">Chalkboard.comp.</span>scl(comp, num)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Multiplies the components of a complex number by a real number.</p>
                             <h4>PARAMETERS</h4>
                             <p>
-                                comp <span class="faded">{comp}</span> - A complex number to scale<br>
-                                num <span class="faded">{num}</span> - A number to scale by
+                                comp <span class="faded">{comp}</span> - The complex number to scale<br>
+                                num <span class="faded">{num}</span> - The number to scale by
                             </p>
                             <h4>RETURNS</h4>
                             <p>
-                                <span class="faded">{comp}</span> - A scaled complex number
+                                <span class="faded">{comp}</span> - The scaled complex number
                             </p>
                             <h4>EXAMPLE</h4>
 <pre class="javascript"><code>// Returns the complex number 3 + 6i
 let z = Chalkboard.comp.new(1, 2);
 let zscl = Chalkboard.comp.scl(z, 3);</code></pre>
+                        <h3><span class="faded">Chalkboard.comp.</span>constrain(comp, range)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Constrains a complex number within a range.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                comp <span class="faded">{comp}</span> - The complex number to constrain<br>
+                                range <span class="faded">{number[]} (default = [0, 1])</span> - The range to constrain within
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{comp}</span> - The constrained complex number
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the complex number 1 + 2i
+let z = Chalkboard.comp.new(0, 3);
+let zconstrain = Chalkboard.comp.constrain(z, [1, 2]);</code></pre>
                         <h3><span class="faded">Chalkboard.comp.</span>add(comp_1, comp_2)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Calculates the addition of two complex numbers.</p>
@@ -1744,17 +1892,33 @@ let qrdistsq = Chalkboard.quat.distsq(q, r);</code></pre>
                             <p>Multiplies the components of a quaternion by a real number.</p>
                             <h4>PARAMETERS</h4>
                             <p>
-                                quat <span class="faded">{quat}</span> - A quaternion to scale<br>
-                                num <span class="faded">{num}</span> - A number to scale by
+                                quat <span class="faded">{quat}</span> - The quaternion to scale<br>
+                                num <span class="faded">{num}</span> - The number to scale by
                             </p>
                             <h4>RETURNS</h4>
                             <p>
-                                <span class="faded">{quat}</span> - A scaled quaternion
+                                <span class="faded">{quat}</span> - The scaled quaternion
                             </p>
                             <h4>EXAMPLE</h4>
 <pre class="javascript"><code>// Returns the quaternion 3 + 6i + 9j + 12k
 let q = Chalkboard.quat.new(1, 2, 3, 4);
 let qscl = Chalkboard.quat.scl(q, 3);</code></pre>
+                        <h3><span class="faded">Chalkboard.quat.</span>constrain(quat, range)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Constrains a quaternion within a range.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                quat <span class="faded">{quat}</span> - The quaternion to constrain<br>
+                                range <span class="faded">{number[]} (default = [0, 1])</span> - The range to constrain within
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{comp}</span> - The constrained quaternion
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the quaternion 1 + 2i + 2j + k
+let q = Chalkboard.quat.new(0, 3, 2, -1);
+let qconstrain = Chalkboard.quat.constrain(q, [1, 2]);</code></pre>
                         <h3><span class="faded">Chalkboard.quat.</span>add(quat_1, quat_2)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Calculates the addition of two quaternions.</p>
@@ -1923,7 +2087,7 @@ Chalkboard.quat.print(q);</code></pre>
                     <div class="dropdown hidden">
                         <h3><span class="faded">Chalkboard.plot.</span>xyplane(scl, rgba, origin, weight, context)</h3>
                             <h4>DESCRIPTION</h4>
-                            <p>Draws the <a href="https://en.wikipedia.org/wiki/Cartesian_coordinate_system">Cartesian plane</a>.</p>
+                            <p>Plots the <a href="https://en.wikipedia.org/wiki/Cartesian_coordinate_system">Cartesian plane</a>.</p>
                             <h4>PARAMETERS</h4>
                             <p>
                                 scl <span class="faded">{number} (default = 1)</span> - The scale of the plane<br>
@@ -1937,12 +2101,12 @@ Chalkboard.quat.print(q);</code></pre>
                                 <span class="faded">{void}</span> - Nothing
                             </p>
                             <h4>EXAMPLE</h4>
-<pre class="javascript"><code>// Draws the Cartesian plane with a scale of 2 colored black at the center of the canvas
+<pre class="javascript"><code>// Plots the Cartesian plane with a scale of 2 colored black at the center of the canvas
 const ctx = document.getElementById("canvas").getContext("2d");
 Chalkboard.plot.xyplane(2);</code></pre>
                         <h3><span class="faded">Chalkboard.plot.</span>rOplane(scl, rgba, origin, weight, context)</h3>
                             <h4>DESCRIPTION</h4>
-                            <p>Draws the <a href="https://en.wikipedia.org/wiki/Polar_coordinate_system">polar plane</a>.</p>
+                            <p>Plots the <a href="https://en.wikipedia.org/wiki/Polar_coordinate_system">polar plane</a>.</p>
                             <h4>PARAMETERS</h4>
                             <p>
                                 scl <span class="faded">{number} (default = 1)</span> - The scale of the plane<br>
@@ -1956,148 +2120,217 @@ Chalkboard.plot.xyplane(2);</code></pre>
                                 <span class="faded">{void}</span> - Nothing
                             </p>
                             <h4>EXAMPLE</h4>
-<pre class="javascript"><code>// Draws the polar plane with a scale of 2 colored black at the center of the canvas
+<pre class="javascript"><code>// Plots the polar plane with a scale of 2 colored black at the center of the canvas
 const ctx = document.getElementById("canvas").getContext("2d");
 Chalkboard.plot.rOplane(2);</code></pre>
                         <h3><span class="faded">Chalkboard.plot.</span>function(func, scl, rgba, domain, origin, weight, context)</h3>
                             <h4>DESCRIPTION</h4>
-                            <p>Draws a Chalkboard function.</p>
+                            <p>Plots a Chalkboard function.</p>
                             <h4>PARAMETERS</h4>
                             <p>
                                 func <span class="faded">{func}</span> - The function to draw<br>
                                 scl <span class="faded">{number} (default = 1)</span> - The scale of the function<br>
                                 rgba <span class="faded">{number[]} (default = [0, 0, 0])</span> - The color of the function expressed as RGB values (or RGBA values which includes opacity) in an array<br>
-                                domain <span class="faded">{number[]} (default = [-10, 10])</span> - The domain of the function, or the range of x-values where the function is drawn, expressed as an array of the lower bound and upper bound<br>
+                                domain <span class="faded">{number[]} (default = [-10, 10])</span> - The domain of the function, or the range of x-values where the function is plotted, expressed as an array of the lower bound and upper bound<br>
                                 origin <span class="faded">{number[]} (default = [canvas.width / 2, canvas.height / 2])</span> - The origin of the function (where x = 0) on the canvas expressed as a point of the canvas in an array<br>
                                 weight <span class="faded">{number} (default = 2)</span> - The stroke weight or line width of the function<br>
                                 context <span class="faded">{CanvasRenderingContext2D} (default = ctx)</span> - The JavaScript Canvas 2D API rendering context of the function
                             </p>
                             <h4>RETURNS</h4>
                             <p>
-                                <span class="faded">{string}</span> - A message that tells which function was drawn, where it was drawn, and which color it was drawn with.
+                                <span class="faded">{number[]}</span> - An array of arrays containing the ordered pairs of all of the plotted points
                             </p>
                             <h4>EXAMPLE</h4>
-<pre class="javascript"><code>// Draws the function f(x) = x^2 with a scale of 2 colored red at the center of the canvas
+<pre class="javascript"><code>// Plots the function f(x) = x^2 with a scale of 2 colored black at the center of the canvas
 const ctx = document.getElementById("canvas").getContext("2d");
 let f = Chalkboard.real.function("x * x");
-Chalkboard.plot.function(f, 2, [255, 0, 0]);</code></pre>
-                        <h3><span class="faded">Chalkboard.plot.</span>comp(comp, scl, rgba, origin, weight, context)</h3>
+Chalkboard.plot.function(f, 2);</code></pre>
+                        <h3><span class="faded">Chalkboard.plot.</span>barplot(arr, bins, scl, rgba, origin, weight, context)</h3>
                             <h4>DESCRIPTION</h4>
-                            <p>Draws a complex number on the canvas.</p>
+                            <p>Plots a <a href="https://en.wikipedia.org/wiki/Histogram">histogram</a>.</p>
                             <h4>PARAMETERS</h4>
                             <p>
-                                comp <span class="faded">{comp}</span> - A complex number to draw<br>
-                                scl <span class="faded">{number} (default = 1)</span> - The scale of the drawn complex number<br>
-                                rgba <span class="faded">{number[]} (default = [0, 0, 0])</span> - The color of the complex number expressed as RGB values (or RGBA values which includes opacity) in an array<br>
-                                origin <span class="faded">{number[]} (default = [canvas.width / 2, canvas.height / 2])</span> - The origin (starting point) of the drawn complex number on the canvas expressed as a point of the canvas in an array<br>
-                                weight <span class="faded">{number} (default = 5)</span> - The stroke weight or line width of the drawn complex number<br>
-                                context <span class="faded">{CanvasRenderingContext2D} (default = ctx)</span> - The JavaScript Canvas 2D API rendering context of the drawn complex number
+                                arr <span class="faded">{number[]}</span> - The data to plot<br>
+                                bins <span class="faded">{number[]}</span> - The bins of the data<br>
+                                scl <span class="faded">{number} (default = 1)</span> - The scale of the plot<br>
+                                rgba <span class="faded">{number[]} (default = [[0, 0, 0], [255, 255, 255]])</span> - The color of the plot expressed as RGB values (or RGBA values which includes opacity) in an array of arrays, where the first array is the stroke color and the second array is the fill color<br>
+                                origin <span class="faded">{number[]} (default = [canvas.width / 2, canvas.height / 2])</span> - The origin (the center) of the plot on the canvas expressed as a point of the canvas in an array<br>
+                                weight <span class="faded">{number} (default = 2)</span> - The stroke weight or line width of the plot<br>
+                                context <span class="faded">{CanvasRenderingContext2D} (default = ctx)</span> - The JavaScript Canvas 2D API rendering context of the plot
                             </p>
                             <h4>RETURNS</h4>
                             <p>
-                                <span class="faded">{string}</span> - A message that tells which complex number was drawn, where it was drawn, and which color it was drawn with.
+                                <span class="faded">{number[]}</span> - An array of arrays containing the data in each bin
                             </p>
                             <h4>EXAMPLE</h4>
-<pre class="javascript"><code>// Draws the complex number 1 + 2i at the center of the canvas scaled by two with an RGB color of (255, 0, 0) or red
+<pre class="javascript"><code>// Plots an array with a scale of 3 colored red at the center of the canvas
+const ctx = document.getElementById("canvas").getContext("2d");
+let arr = Chalkboard.stat.random(0, 10, 10);
+let bins = [2, 4, 6, 8, 10];
+Chalkboard.plot.barplot(arr, bins, 3, [[0, 0, 0], [255, 0, 0]]);</code></pre>
+                        <h3><span class="faded">Chalkboard.plot.</span>lineplot(arr, bins, scl, rgba, origin, weight, context)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Plots a <a href="https://en.wikipedia.org/wiki/Line_chart">line chart</a>.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                arr <span class="faded">{number[]}</span> - The data to plot<br>
+                                bins <span class="faded">{number[]}</span> - The bins of the data<br>
+                                scl <span class="faded">{number} (default = 1)</span> - The scale of the plot<br>
+                                rgba <span class="faded">{number[]} (default = [0, 0, 0])</span> - The color of the plot expressed as RGB values (or RGBA values which includes opacity) in an array<br>
+                                origin <span class="faded">{number[]} (default = [canvas.width / 2, canvas.height / 2])</span> - The origin (the center) of the plot on the canvas expressed as a point of the canvas in an array<br>
+                                weight <span class="faded">{number} (default = 2)</span> - The stroke weight or line width of the plot<br>
+                                context <span class="faded">{CanvasRenderingContext2D} (default = ctx)</span> - The JavaScript Canvas 2D API rendering context of the plot
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{number[]}</span> - An array of arrays containing the data in each bin
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Plots an array with a scale of 3 colored blue at the center of the canvas
+const ctx = document.getElementById("canvas").getContext("2d");
+let arr = Chalkboard.stat.random(0, 10, 10);
+let bins = [2, 4, 6, 8, 10];
+Chalkboard.plot.lineplot(arr, bins, 3, [0, 255, 0]);</code></pre>
+                        <h3><span class="faded">Chalkboard.plot.</span>scatterplot(arr1, arr2, scl, rgba, origin, weight, context)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Plots a <a href="https://en.wikipedia.org/wiki/Scatter_plot">scatter plot</a>.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                arr1 <span class="faded">{number[]}</span> - The x-values of the data to plot<br>
+                                arr2 <span class="faded">{number[]}</span> - The y-values of the data to plot<br>
+                                scl <span class="faded">{number} (default = 1)</span> - The scale of the plot<br>
+                                rgba <span class="faded">{number[]} (default = [0, 0, 0])</span> - The color of the plot expressed as RGB values (or RGBA values which includes opacity) in an array<br>
+                                origin <span class="faded">{number[]} (default = [canvas.width / 2, canvas.height / 2])</span> - The origin (the center) of the plot on the canvas expressed as a point of the canvas in an array<br>
+                                weight <span class="faded">{number} (default = 5)</span> - The stroke weight or line width of the plot<br>
+                                context <span class="faded">{CanvasRenderingContext2D} (default = ctx)</span> - The JavaScript Canvas 2D API rendering context of the plot
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{number[]}</span> - An array of arrays containing the ordered pairs of all of the plotted data points
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Plots an array with a scale of 1 colored black at the center of the canvas
+const ctx = document.getElementById("canvas").getContext("2d");
+let arr1 = Chalkboard.stat.random(0, 10, 10);
+let arr2 = Chalkboard.stat.random(0, 10, 10);
+Chalkboard.plot.lineplot(arr1, arr2);</code></pre>
+                        <h3><span class="faded">Chalkboard.plot.</span>comp(comp, scl, rgba, origin, weight, context)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Plots a complex number on the canvas.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                comp <span class="faded">{comp}</span> - A complex number to draw<br>
+                                scl <span class="faded">{number} (default = 1)</span> - The scale of the plotted complex number<br>
+                                rgba <span class="faded">{number[]} (default = [0, 0, 0])</span> - The color of the complex number expressed as RGB values (or RGBA values which includes opacity) in an array<br>
+                                origin <span class="faded">{number[]} (default = [canvas.width / 2, canvas.height / 2])</span> - The origin (starting point) of the plotted complex number on the canvas expressed as a point of the canvas in an array<br>
+                                weight <span class="faded">{number} (default = 5)</span> - The stroke weight or line width of the plotted complex number<br>
+                                context <span class="faded">{CanvasRenderingContext2D} (default = ctx)</span> - The JavaScript Canvas 2D API rendering context of the plotted complex number
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{number[]}</span> - An array of arrays containing the components of the complex number
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Plots the complex number 1 + 2i at the center of the canvas scaled by two with an RGB color of (255, 0, 0) or red
 const ctx = document.getElementById("canvas").getContext("2d");
 let z = Chalkboard.comp.new(1, 2);
 Chalkboard.plot.comp(z, 2, [255, 0, 0]);</code></pre>
                         <h3><span class="faded">Chalkboard.plot.</span>vec2(vec2, scl, rgba, origin, weight, context)</h3>
                             <h4>DESCRIPTION</h4>
-                            <p>Draws a two-dimensional vector on the canvas.</p>
+                            <p>Plots a two-dimensional vector on the canvas.</p>
                             <h4>PARAMETERS</h4>
                             <p>
                                 vec2 <span class="faded">{vec2}</span> - A vector to draw<br>
-                                scl <span class="faded">{number} (default = 1)</span> - The scale of the drawn vector<br>
+                                scl <span class="faded">{number} (default = 1)</span> - The scale of the plotted vector<br>
                                 rgba <span class="faded">{number[]} (default = [0, 0, 0])</span> - The color of the vector expressed as RGB values (or RGBA values which includes opacity) in an array<br>
-                                origin <span class="faded">{number[]} (default = [canvas.width / 2, canvas.height / 2])</span> - The origin (starting point) of the drawn vector on the canvas expressed as a point of the canvas in an array<br>
-                                weight <span class="faded">{number} (default = 5)</span> - The stroke weight or line width of the drawn vector<br>
-                                context <span class="faded">{CanvasRenderingContext2D} (default = ctx)</span> - The JavaScript Canvas 2D API rendering context of the drawn vector
+                                origin <span class="faded">{number[]} (default = [canvas.width / 2, canvas.height / 2])</span> - The origin (starting point) of the plotted vector on the canvas expressed as a point of the canvas in an array<br>
+                                weight <span class="faded">{number} (default = 5)</span> - The stroke weight or line width of the plotted vector<br>
+                                context <span class="faded">{CanvasRenderingContext2D} (default = ctx)</span> - The JavaScript Canvas 2D API rendering context of the plotted vector
                             </p>
                             <h4>RETURNS</h4>
                             <p>
-                                <span class="faded">{string}</span> - A message that tells which vector was drawn, where it was drawn, and which color it was drawn with.
+                                <span class="faded">{number[]}</span> - An array of arrays containing the components of the vector
                             </p>
                             <h4>EXAMPLE</h4>
-<pre class="javascript"><code>// Draws the vector (1, 2) at the center of the canvas scaled by two with an RGB color of (255, 0, 0) or red
+<pre class="javascript"><code>// Plots the vector (1, 2) at the center of the canvas scaled by two with an RGB color of (255, 0, 0) or red
 const ctx = document.getElementById("canvas").getContext("2d");
 let v = Chalkboard.vec2.new(1, 2);
 Chalkboard.plot.vec2(v, 2, [255, 0, 0]);</code></pre>
                         <h3><span class="faded">Chalkboard.plot.</span>field(vec2field, scl, rgba, domain, origin, weight, res, context)</h3>
                             <h4>DESCRIPTION</h4>
-                            <p>Draws a two-dimensional vector field on the canvas.</p>
+                            <p>Plots a two-dimensional vector field on the canvas.</p>
                             <h4>PARAMETERS</h4>
                             <p>
                                 vec2field <span class="faded">{vec2field}</span> - A vector field to draw<br>
-                                scl <span class="faded">{number} (default = 1)</span> - The scale of the drawn vector field<br>
+                                scl <span class="faded">{number} (default = 1)</span> - The scale of the plotted vector field<br>
                                 rgba <span class="faded">{number[]} (default = [0, 0, 0])</span> - The color of the vector field expressed as RGB values (or RGBA values which includes opacity) in an array<br>
-                                domain <span class="faded">{number[][]} (default = [[-10, 10], [-10, 10]])</span> - The domain of the vector field, or the range of x- and y-values where the function is drawn, expressed as an array of the arrays of the lower bounds and upper bounds<br>
-                                origin <span class="faded">{number[]} (default = [canvas.width / 2, canvas.height / 2])</span> - The origin (center) of the drawn vector field on the canvas expressed as a point of the canvas in an array<br>
-                                weight <span class="faded">{number} (default = 5)</span> - The stroke weight or line width of the drawn vector field<br>
+                                domain <span class="faded">{number[][]} (default = [[-10, 10], [-10, 10]])</span> - The domain of the vector field, or the range of x- and y-values where the function is plotted, expressed as an array of the arrays of the lower bounds and upper bounds<br>
+                                origin <span class="faded">{number[]} (default = [canvas.width / 2, canvas.height / 2])</span> - The origin (center) of the plotted vector field on the canvas expressed as a point of the canvas in an array<br>
+                                weight <span class="faded">{number} (default = 5)</span> - The stroke weight or line width of the plotted vector field<br>
                                 res <span class="faded">{number} (default = 25)</span> - The resolution of the vector field (the gap in pixels of when the vector field's vector is computed)<br>
-                                context <span class="faded">{CanvasRenderingContext2D} (default = ctx)</span> - The JavaScript Canvas 2D API rendering context of the drawn vector field
+                                context <span class="faded">{CanvasRenderingContext2D} (default = ctx)</span> - The JavaScript Canvas 2D API rendering context of the plotted vector field
                             </p>
                             <h4>RETURNS</h4>
                             <p>
-                                <span class="faded">{string}</span> - A message that tells which vector field was drawn, where it was drawn, and which color it was drawn with.
+                                <span class="faded">{number[]}</span> - An array of arrays containing the ordered pairs of all of the plotted vectors
                             </p>
                             <h4>EXAMPLE</h4>
-<pre class="javascript"><code>// Draws the vector field F(x, y) = (-y, x) at the center of the canvas scaled by two with an RGB color of (0, 0, 255) or blue
+<pre class="javascript"><code>// Plots the vector field F(x, y) = (-y, x) at the center of the canvas scaled by two with an RGB color of (0, 0, 255) or blue
 const ctx = document.getElementById("canvas").getContext("2d");
 let F = Chalkboard.vec2.field("-y", "x");
 Chalkboard.plot.field(F, 2, [0, 0, 255]);</code></pre>
                         <h3><span class="faded">Chalkboard.plot.</span>vec3(vec3, scl, rgba, origin, weight, context)</h3>
                             <h4>DESCRIPTION</h4>
-                            <p>Draws a three-dimensional vector on the canvas.</p>
+                            <p>Plots a three-dimensional vector on the canvas.</p>
                             <h4>PARAMETERS</h4>
                             <p>
                                 vec3 <span class="faded">{vec3}</span> - A vector to draw<br>
-                                scl <span class="faded">{number} (default = 1)</span> - The scale of the drawn vector<br>
+                                scl <span class="faded">{number} (default = 1)</span> - The scale of the plotted vector<br>
                                 rgba <span class="faded">{number[]} (default = [0, 0, 0])</span> - The color of the vector expressed as RGB values (or RGBA values which includes opacity) in an array<br>
-                                origin <span class="faded">{number[]} (default = [canvas.width / 2, canvas.height / 2])</span> - The origin (starting point) of the drawn vector on the canvas expressed as a point of the canvas in an array<br>
-                                weight <span class="faded">{number} (default = 5)</span> - The stroke weight or line width of the drawn vector<br>
-                                context <span class="faded">{CanvasRenderingContext2D} (default = ctx)</span> - The JavaScript Canvas 2D API rendering context of the drawn vector
+                                origin <span class="faded">{number[]} (default = [canvas.width / 2, canvas.height / 2])</span> - The origin (starting point) of the plotted vector on the canvas expressed as a point of the canvas in an array<br>
+                                weight <span class="faded">{number} (default = 5)</span> - The stroke weight or line width of the plotted vector<br>
+                                context <span class="faded">{CanvasRenderingContext2D} (default = ctx)</span> - The JavaScript Canvas 2D API rendering context of the plotted vector
                             </p>
                             <h4>RETURNS</h4>
                             <p>
-                                <span class="faded">{string}</span> - A message that tells which vector was drawn, where it was drawn, and which color it was drawn with.
+                                <span class="faded">{number[]}</span> - An array of arrays containing the components of the vector
                             </p>
                             <h4>EXAMPLE</h4>
-<pre class="javascript"><code>// Draws the vector (1, 2, 3) at the center of the canvas scaled by two with an RGB color of (255, 0, 0) or red
+<pre class="javascript"><code>// Plots the vector (1, 2, 3) at the center of the canvas scaled by two with an RGB color of (255, 0, 0) or red
 const ctx = document.getElementById("canvas").getContext("2d");
 let v = Chalkboard.vec3.new(1, 2, 3);
 Chalkboard.plot.vec3(v, 2, [255, 0, 0]);</code></pre>
                         <h3><span class="faded">Chalkboard.plot.</span>matr(matr, scl, rgba, origin, weight, context)</h3>
                             <h4>DESCRIPTION</h4>
-                            <p>Draws a 2x2 matrix on the canvas (note: the matrix must be a 2x2 matrix, or a square matrix with the size of 2).</p>
+                            <p>Plots a 2x2 matrix on the canvas (note: the matrix must be a 2x2 matrix, or a square matrix with the size of 2).</p>
                             <h4>PARAMETERS</h4>
                             <p>
                                 matr <span class="faded">{matr}</span> - Matrix<br>
-                                scl <span class="faded">{number} (default = 1)</span> - The scale of the drawn matrix<br>
+                                scl <span class="faded">{number} (default = 1)</span> - The scale of the plotted matrix<br>
                                 rgba <span class="faded">{number[]} (default = [0, 0, 0])</span> - The color of the matrix expressed as RGB values (or RGBA values which includes opacity) in an array<br>
-                                origin <span class="faded">{number[]} (default = [canvas.width / 2, canvas.height / 2])</span> - The origin (center) of the drawn matrix on the canvas expressed as a point of the canvas in an array<br>
-                                weight <span class="faded">{number} (default = 5)</span> - The stroke weight or line width of the drawn matrix<br>
-                                context <span class="faded">{CanvasRenderingContext2D} (default = ctx)</span> - The JavaScript Canvas 2D API rendering context of the drawn matrix
+                                origin <span class="faded">{number[]} (default = [canvas.width / 2, canvas.height / 2])</span> - The origin (center) of the plotted matrix on the canvas expressed as a point of the canvas in an array<br>
+                                weight <span class="faded">{number} (default = 5)</span> - The stroke weight or line width of the plotted matrix<br>
+                                context <span class="faded">{CanvasRenderingContext2D} (default = ctx)</span> - The JavaScript Canvas 2D API rendering context of the plotted matrix
                             </p>
                             <h4>RETURNS</h4>
                             <p>
-                                <span class="faded">{string}</span> - A message that tells which matrix was drawn, where it was drawn, and which color it was drawn with.
+                                <span class="faded">{matr}</span> - The matrix that was plotted
                             </p>
                             <h4>EXAMPLE</h4>
-<pre class="javascript"><code>// Draws the matrix at the center of the canvas scaled by two with an RGB color of (255, 0, 0) or red
+<pre class="javascript"><code>// Plots the matrix at the center of the canvas scaled by two with an RGB color of (255, 0, 0) or red
 const ctx = document.getElementById("canvas").getContext("2d");
 let A = Chalkboard.matr.new([1, 2],
                             [3, 4]);
 Chalkboard.plot.matr(A, 2, [255, 0, 0]);</code></pre>
                         <h3><span class="faded">Chalkboard.plot.</span>dfdx(func, scl, rgba, domain, origin, weight, res, context)</h3>
                             <h4>DESCRIPTION</h4>
-                            <p>Draws the <a href="https://en.wikipedia.org/wiki/Derivative">derivative</a> of a Chalkboard function.</p>
+                            <p>Plots the <a href="https://en.wikipedia.org/wiki/Derivative">derivative</a> of a Chalkboard function.</p>
                             <h4>PARAMETERS</h4>
                             <p>
                                 func <span class="faded">{func}</span> - The function to draw the derivative of<br>
                                 scl <span class="faded">{number} (default = 1)</span> - The scale of the derivative<br>
                                 rgba <span class="faded">{number[]} (default = [0, 0, 0])</span> - The color of the derivative expressed as RGB values (or RGBA values which includes opacity) in an array<br>
-                                domain <span class="faded">{number[]} (default = [-10, 10])</span> - The domain of the function, or the range of x-values where the derivative is drawn, expressed as an array of the lower bound and upper bound<br>
+                                domain <span class="faded">{number[]} (default = [-10, 10])</span> - The domain of the function, or the range of x-values where the derivative is plotted, expressed as an array of the lower bound and upper bound<br>
                                 origin <span class="faded">{number[]} (default = [canvas.width / 2, canvas.height / 2])</span> - The origin of the derivative (where x = 0) on the canvas expressed as a point of the canvas in an array<br>
                                 weight <span class="faded">{number} (default = 2)</span> - The stroke weight or line width of the derivative<br>
                                 res <span class="faded">{number} (default = 25)</span> - The resolution of the derivative (the gap in pixels of when the function's derivative is computed)<br>
@@ -2105,22 +2338,22 @@ Chalkboard.plot.matr(A, 2, [255, 0, 0]);</code></pre>
                             </p>
                             <h4>RETURNS</h4>
                             <p>
-                                <span class="faded">{string}</span> - A message that tells which function's derivative was drawn, where it was drawn, and which color it was drawn with.
+                                <span class="faded">{number[]}</span> - An array of arrays containing the ordered pairs of all of the plotted points
                             </p>
                             <h4>EXAMPLE</h4>
-<pre class="javascript"><code>// Draws the derivative of the function f(x) = x^2 with a scale of 2 colored green with x-values from -10 to 10.
+<pre class="javascript"><code>// Plots the derivative of the function f(x) = x^2 with a scale of 2 colored red
 const ctx = document.getElementById("canvas").getContext("2d");
 let f = Chalkboard.real.function("x * x");
-Chalkboard.plot.dfdx(f, 2, [0, 255, 0], [-10, 10]);</code></pre>
+Chalkboard.plot.dfdx(f, 2, [255, 0, 0]);</code></pre>
                         <h3><span class="faded">Chalkboard.plot.</span>d2fdx2(func, scl, rgba, domain, origin, weight, res, context)</h3>
                             <h4>DESCRIPTION</h4>
-                            <p>Draws the <a href="https://en.wikipedia.org/wiki/Second_derivative">second derivative</a> of a Chalkboard function.</p>
+                            <p>Plots the <a href="https://en.wikipedia.org/wiki/Second_derivative">second derivative</a> of a Chalkboard function.</p>
                             <h4>PARAMETERS</h4>
                             <p>
                                 func <span class="faded">{func}</span> - The function to draw the second derivative of<br>
                                 scl <span class="faded">{number} (default = 1)</span> - The scale of the second derivative<br>
                                 rgba <span class="faded">{number[]} (default = [0, 0, 0])</span> - The color of the second derivative expressed as RGB values (or RGBA values which includes opacity) in an array<br>
-                                domain <span class="faded">{number[]} (default = [-10, 10])</span> - The domain of the function, or the range of x-values where the second derivative is drawn, expressed as an array of the lower bound and upper bound<br>
+                                domain <span class="faded">{number[]} (default = [-10, 10])</span> - The domain of the function, or the range of x-values where the second derivative is plotted, expressed as an array of the lower bound and upper bound<br>
                                 origin <span class="faded">{number[]} (default = [canvas.width / 2, canvas.height / 2])</span> - The origin of the second derivative (where x = 0) on the canvas expressed as a point of the canvas in an array<br>
                                 weight <span class="faded">{number} (default = 2)</span> - The stroke weight or line width of the second derivative<br>
                                 res <span class="faded">{number} (default = 25)</span> - The resolution of the second derivative (the gap in pixels of when the function's second derivative is computed)<br>
@@ -2128,22 +2361,22 @@ Chalkboard.plot.dfdx(f, 2, [0, 255, 0], [-10, 10]);</code></pre>
                             </p>
                             <h4>RETURNS</h4>
                             <p>
-                                <span class="faded">{string}</span> - A message that tells which function's second derivative was drawn, where it was drawn, and which color it was drawn with.
+                                <span class="faded">{number[]}</span> - An array of arrays containing the ordered pairs of all of the plotted points
                             </p>
                             <h4>EXAMPLE</h4>
-<pre class="javascript"><code>// Draws the second derivative of the function f(x) = x^2 with a scale of 2 colored green with x-values from -10 to 10.
+<pre class="javascript"><code>// Plots the second derivative of the function f(x) = x^2 with a scale of 2 colored green
 const ctx = document.getElementById("canvas").getContext("2d");
 let f = Chalkboard.real.function("x * x");
-Chalkboard.plot.d2fdx2(f, 2, [0, 255, 0], [-10, 10]);</code></pre>
+Chalkboard.plot.d2fdx2(f, 2, [0, 255, 0]);</code></pre>
                         <h3><span class="faded">Chalkboard.plot.</span>fxdx(func, scl, rgba, domain, origin, weight, res, context)</h3>
                             <h4>DESCRIPTION</h4>
-                            <p>Draws the <a href="https://en.wikipedia.org/wiki/Antiderivative">antiderivative</a> of a Chalkboard function.</p>
+                            <p>Plots the <a href="https://en.wikipedia.org/wiki/Antiderivative">antiderivative</a> of a Chalkboard function.</p>
                             <h4>PARAMETERS</h4>
                             <p>
                                 func <span class="faded">{func}</span> - The function to draw the antiderivative of<br>
                                 scl <span class="faded">{number} (default = 1)</span> - The scale of the antiderivative<br>
                                 rgba <span class="faded">{number[]} (default = [0, 0, 0])</span> - The color of the antiderivative expressed as RGB values (or RGBA values which includes opacity) in an array<br>
-                                domain <span class="faded">{number[]} (default = [-10, 10])</span> - The domain of the function, or the range of x-values where the antiderivative is drawn, expressed as an array of the lower bound and upper bound<br>
+                                domain <span class="faded">{number[]} (default = [-10, 10])</span> - The domain of the function, or the range of x-values where the antiderivative is plotted, expressed as an array of the lower bound and upper bound<br>
                                 origin <span class="faded">{number[]} (default = [canvas.width / 2, canvas.height / 2])</span> - The origin of the antiderivative (where x = 0) on the canvas expressed as a point of the canvas in an array<br>
                                 weight <span class="faded">{number} (default = 2)</span> - The stroke weight or line width of the antiderivative<br>
                                 res <span class="faded">{number} (default = 25)</span> - The resolution of the antiderivative (the gap in pixels of when the function's antiderivative is computed)<br>
@@ -2151,23 +2384,23 @@ Chalkboard.plot.d2fdx2(f, 2, [0, 255, 0], [-10, 10]);</code></pre>
                             </p>
                             <h4>RETURNS</h4>
                             <p>
-                                <span class="faded">{string}</span> - A message that tells which function's antiderivative was drawn, where it was drawn, and which color it was drawn with.
+                                <span class="faded">{number[]}</span> - An array of arrays containing the ordered pairs of all of the plotted points
                             </p>
                             <h4>EXAMPLE</h4>
-<pre class="javascript"><code>// Draws the antiderivative of the function f(x) = x^2 with a scale of 2 colored blue with x-values from -10 to 10
+<pre class="javascript"><code>// Plots the antiderivative of the function f(x) = x^2 with a scale of 2 colored blue
 const ctx = document.getElementById("canvas").getContext("2d");
 let f = Chalkboard.real.function("x * x");
-Chalkboard.plot.fxdx(f, 2, [0, 0, 255], [-10, 10]);</code></pre>
+Chalkboard.plot.fxdx(f, 2, [0, 0, 255]);</code></pre>
                         <h3><span class="faded">Chalkboard.plot.</span>convolution(func_1, func_2, scl, rgba, domain, origin, weight, res, context)</h3>
                             <h4>DESCRIPTION</h4>
-                            <p>Draws the <a href="https://en.wikipedia.org/wiki/Convolution">convolution</a> of two Chalkboard functions.</p>
+                            <p>Plots the <a href="https://en.wikipedia.org/wiki/Convolution">convolution</a> of two Chalkboard functions.</p>
                             <h4>PARAMETERS</h4>
                             <p>
                                 func_1 <span class="faded">{func}</span> - The first function to convolve<br>
                                 func_2 <span class="faded">{func}</span> - The second function to convolve<br>
                                 scl <span class="faded">{number} (default = 1)</span> - The scale of the convolution<br>
                                 rgba <span class="faded">{number[]} (default = [0, 0, 0])</span> - The color of the convolution expressed as RGB values (or RGBA values which includes opacity) in an array<br>
-                                domain <span class="faded">{number[]} (default = [-10, 10])</span> - The domain of the function, or the range of x-values where the convolution is drawn, expressed as an array of the lower bound and upper bound<br>
+                                domain <span class="faded">{number[]} (default = [-10, 10])</span> - The domain of the function, or the range of x-values where the convolution is plotted, expressed as an array of the lower bound and upper bound<br>
                                 origin <span class="faded">{number[]} (default = [canvas.width / 2, canvas.height / 2])</span> - The origin of the convolution (where x = 0) on the canvas expressed as a point of the canvas in an array<br>
                                 weight <span class="faded">{number} (default = 2)</span> - The stroke weight or line width of the convolution<br>
                                 res <span class="faded">{number} (default = 25)</span> - The resolution of the convolution (the gap in pixels of when the two functions' convolution is computed)<br>
@@ -2175,24 +2408,24 @@ Chalkboard.plot.fxdx(f, 2, [0, 0, 255], [-10, 10]);</code></pre>
                             </p>
                             <h4>RETURNS</h4>
                             <p>
-                                <span class="faded">{string}</span> - A message that tells which two functions' convolution was drawn, where it was drawn, and which color it was drawn with.
+                                <span class="faded">{number[]}</span> - An array of arrays containing the ordered pairs of all of the plotted points
                             </p>
                             <h4>EXAMPLE</h4>
-<pre class="javascript"><code>// Draws the convolution of the functions f(x) = cos(x) and g(x) = x with a scale of 1 colored black at the center of the canvas
+<pre class="javascript"><code>// Plots the convolution of the functions f(x) = cos(x) and g(x) = x with a scale of 1 colored black at the center of the canvas
 const ctx = document.getElementById("canvas").getContext("2d");
 let f = Chalkboard.real.function("Math.cos(x)");
 let g = Chalkboard.real.function("x");
 Chalkboard.plot.convolution(f, g);</code></pre>
                         <h3><span class="faded">Chalkboard.plot.</span>correlation(func_1, func_2, scl, rgba, domain, origin, weight, res, context)</h3>
                             <h4>DESCRIPTION</h4>
-                            <p>Draws the <a href="https://en.wikipedia.org/wiki/Cross-correlation">cross-correlation</a> of two Chalkboard functions.</p>
+                            <p>Plots the <a href="https://en.wikipedia.org/wiki/Cross-correlation">cross-correlation</a> of two Chalkboard functions.</p>
                             <h4>PARAMETERS</h4>
                             <p>
                                 func_1 <span class="faded">{func}</span> - The first function to cross-correlate<br>
                                 func_2 <span class="faded">{func}</span> - The second function to cross-correlate<br>
                                 scl <span class="faded">{number} (default = 1)</span> - The scale of the cross-correlation<br>
                                 rgba <span class="faded">{number[]} (default = [0, 0, 0])</span> - The color of the cross-correlation expressed as RGB values (or RGBA values which includes opacity) in an array<br>
-                                domain <span class="faded">{number[]} (default = [-10, 10])</span> - The domain of the function, or the range of x-values where the cross-correlation is drawn, expressed as an array of the lower bound and upper bound<br>
+                                domain <span class="faded">{number[]} (default = [-10, 10])</span> - The domain of the function, or the range of x-values where the cross-correlation is plotted, expressed as an array of the lower bound and upper bound<br>
                                 origin <span class="faded">{number[]} (default = [canvas.width / 2, canvas.height / 2])</span> - The origin of the cross-correlation (where x = 0) on the canvas expressed as a point of the canvas in an array<br>
                                 weight <span class="faded">{number} (default = 2)</span> - The stroke weight or line width of the cross-correlation<br>
                                 res <span class="faded">{number} (default = 25)</span> - The resolution of the cross-correlation (the gap in pixels of when the two functions' cross-correlation is computed)<br>
@@ -2200,23 +2433,23 @@ Chalkboard.plot.convolution(f, g);</code></pre>
                             </p>
                             <h4>RETURNS</h4>
                             <p>
-                                <span class="faded">{string}</span> - A message that tells which two functions' cross-correlation was drawn, where it was drawn, and which color it was drawn with.
+                                <span class="faded">{number[]}</span> - An array of arrays containing the ordered pairs of all of the plotted points
                             </p>
                             <h4>EXAMPLE</h4>
-<pre class="javascript"><code>// Draws the cross-correlation of the functions f(x) = cos(x) and g(x) = x with a scale of 1 colored black at the center of the canvas
+<pre class="javascript"><code>// Plots the cross-correlation of the functions f(x) = cos(x) and g(x) = x with a scale of 1 colored black at the center of the canvas
 const ctx = document.getElementById("canvas").getContext("2d");
 let f = Chalkboard.real.function("Math.cos(x)");
 let g = Chalkboard.real.function("x");
 Chalkboard.plot.correlation(f, g);</code></pre>
                         <h3><span class="faded">Chalkboard.plot.</span>autocorrelation(func, scl, rgba, domain, origin, weight, res, context)</h3>
                             <h4>DESCRIPTION</h4>
-                            <p>Draws the <a href="https://en.wikipedia.org/wiki/Autocorrelation">autocorrelation</a> of a Chalkboard function.</p>
+                            <p>Plots the <a href="https://en.wikipedia.org/wiki/Autocorrelation">autocorrelation</a> of a Chalkboard function.</p>
                             <h4>PARAMETERS</h4>
                             <p>
                                 func <span class="faded">{func}</span> - The function to autocorrelate<br>
                                 scl <span class="faded">{number} (default = 1)</span> - The scale of the autocorrelation<br>
                                 rgba <span class="faded">{number[]} (default = [0, 0, 0])</span> - The color of the autocorrelation expressed as RGB values (or RGBA values which includes opacity) in an array<br>
-                                domain <span class="faded">{number[]} (default = [-10, 10])</span> - The domain of the function, or the range of x-values where the autocorrelation is drawn, expressed as an array of the lower bound and upper bound<br>
+                                domain <span class="faded">{number[]} (default = [-10, 10])</span> - The domain of the function, or the range of x-values where the autocorrelation is plotted, expressed as an array of the lower bound and upper bound<br>
                                 origin <span class="faded">{number[]} (default = [canvas.width / 2, canvas.height / 2])</span> - The origin of the autocorrelation (where x = 0) on the canvas expressed as a point of the canvas in an array<br>
                                 weight <span class="faded">{number} (default = 2)</span> - The stroke weight or line width of the autocorrelation<br>
                                 res <span class="faded">{number} (default = 25)</span> - The resolution of the autocorrelation (the gap in pixels of when the function's autocorrelation is computed)<br>
@@ -2224,22 +2457,22 @@ Chalkboard.plot.correlation(f, g);</code></pre>
                             </p>
                             <h4>RETURNS</h4>
                             <p>
-                                <span class="faded">{string}</span> - A message that tells which function's autocorrelation was drawn, where it was drawn, and which color it was drawn with.
+                                <span class="faded">{number[]}</span> - An array of arrays containing the ordered pairs of all of the plotted points
                             </p>
                             <h4>EXAMPLE</h4>
-<pre class="javascript"><code>// Draws the autocorrelation of the function f(x) = cos(x) with a scale of 1 colored black at the center of the canvas
+<pre class="javascript"><code>// Plots the autocorrelation of the function f(x) = cos(x) with a scale of 1 colored black at the center of the canvas
 const ctx = document.getElementById("canvas").getContext("2d");
 let f = Chalkboard.real.function("Math.cos(x)");
 Chalkboard.plot.autocorrelation(f);</code></pre>
                         <h3><span class="faded">Chalkboard.plot.</span>Laplace(func, scl, rgba, domain, origin, weight, res, context)</h3>
                             <h4>DESCRIPTION</h4>
-                            <p>Draws the <a href="https://en.wikipedia.org/wiki/Laplace_transform">Laplace transform</a> of a Chalkboard function.</p>
+                            <p>Plots the <a href="https://en.wikipedia.org/wiki/Laplace_transform">Laplace transform</a> of a Chalkboard function.</p>
                             <h4>PARAMETERS</h4>
                             <p>
                                 func <span class="faded">{func}</span> - The function to draw the Laplace transform of<br>
                                 scl <span class="faded">{number} (default = 1)</span> - The scale of the Laplace transform<br>
                                 rgba <span class="faded">{number[]} (default = [0, 0, 0])</span> - The color of the Laplace transform expressed as RGB values (or RGBA values which includes opacity) in an array<br>
-                                domain <span class="faded">{number[]} (default = [-10, 10])</span> - The domain of the function, or the range of x-values where the Laplace transform is drawn, expressed as an array of the lower bound and upper bound<br>
+                                domain <span class="faded">{number[]} (default = [-10, 10])</span> - The domain of the function, or the range of x-values where the Laplace transform is plotted, expressed as an array of the lower bound and upper bound<br>
                                 origin <span class="faded">{number[]} (default = [canvas.width / 2, canvas.height / 2])</span> - The origin of the Laplace transform (where x = 0) on the canvas expressed as a point of the canvas in an array<br>
                                 weight <span class="faded">{number} (default = 2)</span> - The stroke weight or line width of the Laplace transform<br>
                                 res <span class="faded">{number} (default = 25)</span> - The resolution of the Laplace transform (the gap in pixels of when the function's Laplace transform is computed)<br>
@@ -2247,22 +2480,22 @@ Chalkboard.plot.autocorrelation(f);</code></pre>
                             </p>
                             <h4>RETURNS</h4>
                             <p>
-                                <span class="faded">{string}</span> - A message that tells which function's Laplace transform was drawn, where it was drawn, and which color it was drawn with.
+                                <span class="faded">{number[]}</span> - An array of arrays containing the ordered pairs of all of the plotted points
                             </p>
                             <h4>EXAMPLE</h4>
-<pre class="javascript"><code>// Draws the Laplace transform of the function f(x) = sin(x) with a scale of 1 colored black at the center of the canvas
+<pre class="javascript"><code>// Plots the Laplace transform of the function f(x) = sin(x) with a scale of 1 colored black at the center of the canvas
 const ctx = document.getElementById("canvas").getContext("2d");
 let f = Chalkboard.real.function("Math.sin(x)");
 Chalkboard.plot.Laplace(f);</code></pre>
                         <h3><span class="faded">Chalkboard.plot.</span>Fourier(func, scl, rgba, domain, origin, weight, res, context)</h3>
                             <h4>DESCRIPTION</h4>
-                            <p>Draws the <a href="https://en.wikipedia.org/wiki/Fourier_transform">Fourier transform</a> of a Chalkboard function.</p>
+                            <p>Plots the <a href="https://en.wikipedia.org/wiki/Fourier_transform">Fourier transform</a> of a Chalkboard function.</p>
                             <h4>PARAMETERS</h4>
                             <p>
                                 func <span class="faded">{func}</span> - The function to draw the Fourier transform of<br>
                                 scl <span class="faded">{number} (default = 1)</span> - The scale of the Fourier transform<br>
                                 rgba <span class="faded">{number[]} (default = [0, 0, 0])</span> - The color of the Fourier transform expressed as RGB values (or RGBA values which includes opacity) in an array<br>
-                                domain <span class="faded">{number[]} (default = [-10, 10])</span> - The domain of the function, or the range of x-values where the Fourier transform is drawn, expressed as an array of the lower bound and upper bound<br>
+                                domain <span class="faded">{number[]} (default = [-10, 10])</span> - The domain of the function, or the range of x-values where the Fourier transform is plotted, expressed as an array of the lower bound and upper bound<br>
                                 origin <span class="faded">{number[]} (default = [canvas.width / 2, canvas.height / 2])</span> - The origin of the Fourier transform (where x = 0) on the canvas expressed as a point of the canvas in an array<br>
                                 weight <span class="faded">{number} (default = 2)</span> - The stroke weight or line width of the Fourier transform<br>
                                 res <span class="faded">{number} (default = 25)</span> - The resolution of the Fourier transform (the gap in pixels of when the function's Fourier transform is computed)<br>
@@ -2270,10 +2503,10 @@ Chalkboard.plot.Laplace(f);</code></pre>
                             </p>
                             <h4>RETURNS</h4>
                             <p>
-                                <span class="faded">{string}</span> - A message that tells which function's Fouriert ransform was drawn, where it was drawn, and which color it was drawn with.
+                                <span class="faded">{number[]}</span> - An array of arrays containing the ordered pairs of all of the plotted points
                             </p>
                             <h4>EXAMPLE</h4>
-<pre class="javascript"><code>// Draws the Fourier transform of the function f(x) = cos(2x) with a scale of 2 colored black at the center of the canvas
+<pre class="javascript"><code>// Plots the Fourier transform of the function f(x) = cos(2x) with a scale of 2 colored black at the center of the canvas
 const ctx = document.getElementById("canvas").getContext("2d");
 let f = Chalkboard.real.function("Math.cos(2 * x)");
 Chalkboard.plot.Fourier(f, 2);</code></pre>
@@ -2365,6 +2598,23 @@ let dist = Chalkboard.geom.dist(p1, p2);</code></pre>
 let p1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 let p2 = [11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
 let distsq = Chalkboard.geom.distsq(p1, p2);</code></pre>
+                        <h3><span class="faded">Chalkboard.geom.</span>mid(p1, p2)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Midpoint">midpoint</a> between two points of any (but equal) dimensions.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                p1 <span class="faded">{number[]}</span> - First point<br>
+                                p2 <span class="faded">{number[]}</span> - Second point
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{number[]}</span> - Midpoint
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns [6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+let p1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+let p2 = [11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+let mid = Chalkboard.geom.mid(p1, p2);</code></pre>
                         <h3><span class="faded">Chalkboard.geom.</span>circleP(r)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Calculates the circumference of a circle.</p>
@@ -2806,7 +3056,7 @@ let A = Chalkboard.geom.triangularprismA(1, 1, 1, 1);</code></pre>
 let V = Chalkboard.geom.triangularprismV(1, 1, 1, 1);</code></pre>
                         <h3><span class="faded">Chalkboard.geom.</span>line3D(x1, y1, z1, x2, y2, z2, context)</h3>
                             <h4>DESCRIPTION</h4>
-                            <p>Draws a three-dimensional line.</p>
+                            <p>Plots a three-dimensional line.</p>
                             <h4>PARAMETERS</h4>
                             <p>
                                 x1 <span class="faded">{number}</span> - First point's x-coordinate<br>
@@ -2822,7 +3072,7 @@ let V = Chalkboard.geom.triangularprismV(1, 1, 1, 1);</code></pre>
                                 <span class="faded">{void}</span> - Nothing
                             </p>
                             <h4>EXAMPLE</h4>
-<pre class="javascript"><code>// Draws a line between (1, 2, 3) and (4, 5, 6)
+<pre class="javascript"><code>// Plots a line between (1, 2, 3) and (4, 5, 6)
 const ctx = document.getElementById("canvas").getContext("2d");
 Chalkboard.geom.line3D(1, 2, 3, 4, 5, 6);</code></pre>
                         
@@ -3085,6 +3335,21 @@ let arccos = Chalkboard.trig.arccos(1);</code></pre>
                             <h4>EXAMPLE</h4>
 <pre class="javascript"><code>// Returns π/4
 let arctan = Chalkboard.trig.arctan(1);</code></pre>
+                        <h3><span class="faded">Chalkboard.trig.</span>arctan2(y, x)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Atan2">two-argument inverse tangent</a> of a point.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                y <span class="faded">{number}</span> - The y-coordinate of the point<br>
+                                x <span class="faded">{number}</span> - The x-coordinate of the point
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{number}</span> - The angle between the point and the positive x-axis in radians
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns 3π/4
+let arctan2 = Chalkboard.trig.arctan2(-1, 1);</code></pre>
                         <h3><span class="faded">Chalkboard.trig.</span>arccsc(rad)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Calculates the <a href="https://en.wikipedia.org/wiki/Inverse_trigonometric_functions">inverse cosecant</a> of an angle.</p>
@@ -3235,6 +3500,222 @@ let arctanh = Chalkboard.trig.arctanh(0);</code></pre>
                             <h4>EXAMPLE</h4>
 <pre class="javascript"><code>// Returns the array [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 let arr = Chalkboard.stat.array(0, 9, 10);</code></pre>
+                        <h3><span class="faded">Chalkboard.stat.</span>random(inf, sup, length)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Creates an array with random numbers.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                inf <span class="faded">{number}</span> - Lower bound of the random numbers<br>
+                                sup <span class="faded">{number}</span> - Upper bound of the random numbers<br>
+                                length <span class="faded">{number}</span> - Number of elements in the array
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{number[]}</span> - Array of random numbers
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns an array that's 10 elements long with random numbers between -1 and 1
+let arr = Chalkboard.stat.random(-1, 1, 10);</code></pre>
+                        <h3><span class="faded">Chalkboard.stat.</span>norm(arr, type)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Calculates different types of the <a href="https://en.wikipedia.org/wiki/Norm_(mathematics)">norm</a> of an array.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                arr <span class="faded">{number[]}</span> - The array<br>
+                                type <span class="faded">{string} (default = "L2")</span> - Type of norm to calculate, which can be either "L0", "L1", "L2", or "LInfinity"
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{number}</span> - The norm
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>let arr = [1, 2, 3, 4, 5];
+
+// Returns √55 by calculating the L2 norm (or the Euclidean norm, or the magnitude of the array)
+let L2 = Chalkboard.stat.norm(arr);
+
+// Returns 5 by calculating the L0 norm (or the amount of non-zero elements in the array)
+let L0 = Chalkboard.stat.norm(arr, "L0");
+
+// Returns 15 by calculating the L1 norm (or the Manhatten distance, or the sum of the elements in the array)
+let L1 = Chalkboard.stat.norm(arr, "L1");
+
+// Returns 5 by calculating the LInfinity norm (or the maximum element in the array)
+let LInfinity = Chalkboard.stat.norm(arr, "LInfinity");</code></pre>
+                        <h3><span class="faded">Chalkboard.stat.</span>normsq(arr, type)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Calculates different types of the squared <a href="https://en.wikipedia.org/wiki/Norm_(mathematics)">norm</a> of an array.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                arr <span class="faded">{number[]}</span> - The array<br>
+                                type <span class="faded">{string} (default = "L2")</span> - Type of norm to calculate, which can be either "L0", "L1", "L2", or "LInfinity"
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{number}</span> - The squared norm
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>let arr = [1, 2, 3, 4, 5];
+
+// Returns 55 by calculating the squared L2 norm (or the squared Euclidean norm, or the squared magnitude of the array)
+let L2sq = Chalkboard.stat.normsq(arr);
+
+// Returns 25 by calculating the squared L0 norm (or the squared amount of non-zero elements in the array)
+let L0sq = Chalkboard.stat.norm(arr, "L0");
+
+// Returns 225 by calculating the squared L1 norm (or the squared Manhatten distance, or the square of sum of the elements in the array)
+let L1sq = Chalkboard.stat.norm(arr, "L1");
+
+// Returns 25 by calculating the squared LInfinity norm (or the squared maximum element in the array)
+let LInfinitysq = Chalkboard.stat.norm(arr, "LInfinity");</code></pre>
+                        <h3><span class="faded">Chalkboard.stat.</span>normalize(arr, type)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Calculates different types of the <a href="https://en.wikipedia.org/wiki/Unit_vector">normalization</a> of an array.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                arr <span class="faded">{number[]}</span> - The array<br>
+                                type <span class="faded">{string} (default = "L2")</span> - Type of norm to normalize by, which can be either "L0", "L1", "L2", or "LInfinity"
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{number[]}</span> - The normalized array
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>let arr = [1, 2, 3, 4, 5];
+
+// Returns the array divided by √55 by normalizing with the L2 norm
+let L2normalization = Chalkboard.stat.normalize(arr);
+
+// Returns the array divided by 5 by normalizing with the L0 norm
+let L0normalization = Chalkboard.stat.normalize(arr, "L0");
+
+// Returns the array divided by 15 by normalizing with the L1 norm
+let L1normalization = Chalkboard.stat.normalize(arr, "L1");
+
+// Returns the array divided by 5 by normalizing with the LInfinity norm
+let LInfinitynormalization = Chalkboard.stat.normalize(arr, "LInfinity");</code></pre>
+                        <h3><span class="faded">Chalkboard.stat.</span>constrain(arr, range)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Constrains an array within a range.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                arr <span class="faded">{number[]}</span> - The array to constrain<br>
+                                range <span class="faded">{number[]} (default = [0, 1])</span> - The range to constrain within
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{number[]}</span> - The constrained array
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the array [1, 2, 1, 2, 1]
+let arr = [0, 3, -1, 4, -2];
+let constrain = Chalkboard.stat.constrain(arr, [1, 2]);</code></pre>
+                        <h3><span class="faded">Chalkboard.stat.</span>eq(arr, arrOrnum)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Tests if the elements of an array are equal to the elements of another array or another number, and then returns an array with the valid elements.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                arr <span class="faded">{number[]}</span> - The array to test<br>
+                                arrORnum <span class="faded">{number[]|number}</span> - The array or number to test with
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{number[]}</span> - The tested array
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the array [2, 4]
+let arr1 = [1, 2, 3, 4, 5];
+let arr2 = [0, 2, 4, 6, 8];
+let eq = Chalkboard.stat.eq(arr1, arr2);</code></pre>
+                        <h3><span class="faded">Chalkboard.stat.</span>ineq(arr, inf, sup, includeInf, includeSup)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Tests if the elements of an array are less than, greater than, less than or equal to, or greater than or equal to the elements of another array or another number, and then returns an array with the valid elements.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                arr <span class="faded">{number[]}</span> - The array to test<br>
+                                inf <span class="faded">{number[]|number}</span> - The array or number to test the "less than" or "less than or equal to" conditional<br>
+                                sup <span class="faded">{number[]|number}</span> - The array or number to test the "greater than" or "greater than or equal to" conditional<br>
+                                includeInf <span class="faded">{boolean} (default = false)</span> - Whether the "less than" conditional should be "less than" (input false) or "less than or equal to" (input true)<br>
+                                includeSup <span class="faded">{boolean} (default = false)</span> - Whether the "greater than" conditional should be "greater than" (input false) or "greater than or equal to" (input true)
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{number[]}</span> - The tested array
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the array [1, 2]
+let arr = [1, 2, 3, 4, 5];
+let inf = [0, 2, 4, 6, 8];
+let sup = [1, 3, 5, 7, 9];
+let ineq = Chalkboard.stat.ineq(arr, inf, sup, true, true);</code></pre>
+                        <h3><span class="faded">Chalkboard.stat.</span>gt(arr, arrOrnum)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Tests if the elements of an array are greater than the elements of another array or another number, and then returns an array with the valid elements.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                arr <span class="faded">{number[]}</span> - The array to test<br>
+                                arrORnum <span class="faded">{number[]|number}</span> - The array or number to test with
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{number[]}</span> - The tested array
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the array [1]
+let arr1 = [1, 2, 3, 4, 5];
+let arr2 = [0, 2, 4, 6, 8];
+let gt = Chalkboard.stat.gt(arr1, arr2);</code></pre>
+                        <h3><span class="faded">Chalkboard.stat.</span>gte(arr, arrOrnum)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Tests if the elements of an array are greater than or equal to the elements of another array or another number, and then returns an array with the valid elements.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                arr <span class="faded">{number[]}</span> - The array to test<br>
+                                arrORnum <span class="faded">{number[]|number}</span> - The array or number to test with
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{number[]}</span> - The tested array
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the array [1, 2]
+let arr1 = [1, 2, 3, 4, 5];
+let arr2 = [0, 2, 4, 6, 8];
+let gte = Chalkboard.stat.gte(arr1, arr2);</code></pre>
+                        <h3><span class="faded">Chalkboard.stat.</span>lt(arr, arrOrnum)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Tests if the elements of an array are less than the elements of another array or another number, and then returns an array with the valid elements.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                arr <span class="faded">{number[]}</span> - The array to test<br>
+                                arrORnum <span class="faded">{number[]|number}</span> - The array or number to test with
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{number[]}</span> - The tested array
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the array [3, 4, 5]
+let arr1 = [1, 2, 3, 4, 5];
+let arr2 = [0, 2, 4, 6, 8];
+let lt = Chalkboard.stat.lt(arr1, arr2);</code></pre>
+                        <h3><span class="faded">Chalkboard.stat.</span>lte(arr, arrOrnum)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Tests if the elements of an array are less than or equal to the elements of another array or another number, and then returns an array with the valid elements.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                arr <span class="faded">{number[]}</span> - The array to test<br>
+                                arrORnum <span class="faded">{number[]|number}</span> - The array or number to test with
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{number[]}</span> - The tested array
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the array [2, 3, 4, 5]
+let arr1 = [1, 2, 3, 4, 5];
+let arr2 = [0, 2, 4, 6, 8];
+let lte = Chalkboard.stat.lte(arr1, arr2);</code></pre>
                         <h3><span class="faded">Chalkboard.stat.</span>max(arr)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Returns the maximum number in an array.</p>
@@ -3388,6 +3869,36 @@ let mad = Chalkboard.stat.mad(arr);</code></pre>
 <pre class="javascript"><code>// Returns 0.6325
 let arr = [4, 2, 1, 5, 3];
 let error = Chalkboard.stat.error(arr);</code></pre>
+                        <h3><span class="faded">Chalkboard.stat.</span>skewness(arr)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Skewness">skewness</a> of an array.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                arr <span class="faded">{number[]}</span> - Array
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{number}</span> - Skewness
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns 1.875
+let arr = [0, 0, 0, 0, 1];
+let skewness = Chalkboard.stat.skewness(arr);</code></pre>
+                        <h3><span class="faded">Chalkboard.stat.</span>kurtosis(arr)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Kurtosis">kurtosis</a> of an array.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                arr <span class="faded">{number[]}</span> - Array
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{number}</span> - Kurtosis
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns 13.25
+let arr = [0, 0, 0, 0, 1];
+let kurtosis = Chalkboard.stat.kurtosis(arr);</code></pre>
                         <h3><span class="faded">Chalkboard.stat.</span>confidenceInterval(arr)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Calculates the <a href="https://en.wikipedia.org/wiki/Confidence_interval">confidence interval</a> of an array.</p>
@@ -3403,24 +3914,6 @@ let error = Chalkboard.stat.error(arr);</code></pre>
 <pre class="javascript"><code>// Returns [1.7604, 4.2396]
 let arr = [4, 2, 1, 5, 3];
 let confidenceInterval = Chalkboard.stat.confidenceInterval(arr);</code></pre>
-                        <h3><span class="faded">Chalkboard.stat.</span>change(initialArr, finalArr)</h3>
-                            <h4>DESCRIPTION</h4>
-                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Relative_change">change</a> between two arrays that are of equal size.</p>
-                            <h4>PARAMETERS</h4>
-                            <p>
-                                initialArr <span class="faded">{number[]}</span> - Array of initial numbers<br>
-                                finalArr <span class="faded">{number[]}</span> - Array of final numbers
-                            </p>
-                            <h4>RETURNS</h4>
-                            <p>
-                                <span class="faded">{number[]}</span> - Array of change
-                            </p>
-                            <h4>EXAMPLE</h4>
-<pre class="javascript"><code>// Returns [1, 0.5, 0.3333, 0.25, 0.2]
-// which can be interpreted as [100%, 50%, 33.3333%, 25%, 20%]
-let init = [1, 2, 3, 4, 5];
-let finl = [2, 3, 4, 5, 6];
-let change = Chalkboard.stat.change(init, finl);</code></pre>
                         <h3><span class="faded">Chalkboard.stat.</span>percentile(arr, num)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Calculates the <a href="https://en.wikipedia.org/wiki/Percentile">percentile</a> of a number in an array.</p>
@@ -3437,6 +3930,29 @@ let change = Chalkboard.stat.change(init, finl);</code></pre>
 <pre class="javascript"><code>// Returns 60%
 let arr = [1, 2, 3, 4, 5];
 let percentile = Chalkboard.stat.percentile(arr, 3.5);</code></pre>
+                        <h3><span class="faded">Chalkboard.stat.</span>quartile(arr, type)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Calculates the different <a href="https://en.wikipedia.org/wiki/Quartile">quartiles</a> of an array.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                arr <span class="faded">{number[]}</span> - Array<br>
+                                type <span class="faded">{string}</span> - Type of quartile, either "Q1", "Q2", or "Q3"
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{number}</span> - Quartile
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>let arr = [4, 2, 1, 5, 3];
+
+// Returns 1.5
+let Q1 = Chalkboard.stat.quartile(arr, "Q1");
+
+// Returns 3 (the median)
+let Q2 = Chalkboard.stat.quartile(arr, "Q2");
+
+// Returns 4.5
+let Q3 = Chalkboard.stat.quartile(arr, "Q3");</code></pre>
                         <h3><span class="faded">Chalkboard.stat.</span>convolution(arr1, arr2)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Calculates the <a href="https://en.wikipedia.org/wiki/Convolution">convolution</a> of two arrays.</p>
@@ -3486,6 +4002,24 @@ let correlation = Chalkboard.stat.correlation(arr1, arr2);</code></pre>
 <pre class="javascript"><code>// Returns [5, 14, 26, 40, 55, 40, 26, 14, 5]
 let arr = [1, 2, 3, 4, 5];
 let autocorrelation = Chalkboard.stat.autocorrelation(arr);</code></pre>
+                        <h3><span class="faded">Chalkboard.stat.</span>change(initialArr, finalArr)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Relative_change">change</a> between two arrays that are of equal size.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                initialArr <span class="faded">{number[]}</span> - Array of initial numbers<br>
+                                finalArr <span class="faded">{number[]}</span> - Array of final numbers
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{number[]}</span> - Array of change
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns [1, 0.5, 0.3333, 0.25, 0.2]
+// which can be interpreted as [100%, 50%, 33.3333%, 25%, 20%]
+let init = [1, 2, 3, 4, 5];
+let finl = [2, 3, 4, 5, 6];
+let change = Chalkboard.stat.change(init, finl);</code></pre>
                         <h3><span class="faded">Chalkboard.stat.</span>chiSquared(observedArr, expectedArr)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Calculates the <a href="https://en.wikipedia.org/wiki/Chi-squared_test">chi-squared test</a> for arrays of observed and expected numbers.</p>
@@ -3519,6 +4053,84 @@ let chiSquared = Chalkboard.stat.chiSquared(obs, exp);</code></pre>
                             <h4>EXAMPLE</h4>
 <pre class="javascript"><code>// Returns f(x) = e^(-(x^2)/2)
 let f = Chalkboard.stat.Gaussian(1, 0, 1);</code></pre>
+                        <h3><span class="faded">Chalkboard.stat.</span>toVector(arr, type)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Converts an array to a vector.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                arr <span class="faded">{number[]}</span> - Array<br>
+                                type <span class="faded">{string}</span> - Which type of vector to convert to, either "vec2", "vec3", or "vec4"
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{vec2|vec3|vec4}</span> - Vector
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the vector (4, 2, 1)
+let arr = [4, 2, 1, 5, 3];
+let vec3 = Chalkboard.stat.toVector(arr, "vec3");</code></pre>
+                        <h3><span class="faded">Chalkboard.stat.</span>toMatrix(arr, rows, cols)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Converts an array to a matrix.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                arr <span class="faded">{number[]}</span> - Array<br>
+                                rows <span class="faded">{number}</span> - The number of rows of the matrix<br>
+                                cols <span class="faded">{number}</span> - The number of columns of the matrix
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{matr}</span> - Matrix
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the matrix [[4, 2, 1], [5, 3, 0], [0, 0, 0]]
+let arr = [4, 2, 1, 5, 3];
+let matr = Chalkboard.stat.toMatrix(arr, 3, 3);</code></pre>
+                        <h3><span class="faded">Chalkboard.stat.</span>toObject(arr)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Converts an array to an object.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                arr <span class="faded">{number[]}</span> - Array
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{object}</span> - Object
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the object {_4: 4, _2: 2, _1: 1, _5: 5, _3: 3}
+let arr = [4, 2, 1, 5, 3];
+let obj = Chalkboard.stat.toObject(arr);</code></pre>
+                        <h3><span class="faded">Chalkboard.stat.</span>toString(arr)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Converts an array to a string.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                arr <span class="faded">{number[]}</span> - Array
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{string}</span> - String
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the string "[4, 2, 1, 5, 3]"
+let arr = [4, 2, 1, 5, 3];
+let str = Chalkboard.stat.toString(arr);</code></pre>
+                        <h3><span class="faded">Chalkboard.stat.</span>print(arr)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Prints an array in the console.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                arr <span class="faded">{number[]}</span> - Array
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{void}</span> - Nothing
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Prints "[4, 2, 1, 5, 3]" in the console
+let arr = [4, 2, 1, 5, 3];
+let print = Chalkboard.stat.print(arr);</code></pre>
                     </div>
                 </div>
 
@@ -3822,6 +4434,22 @@ let vwang = Chalkboard.vec2.angBtwn(v, w);</code></pre>
 <pre class="javascript"><code>// Returns the vector (2, 4)
 let v = Chalkboard.vec2.new(1, 2);
 let vtimes2 = Chalkboard.vec2.scl(v, 2);</code></pre>
+                        <h3><span class="faded">Chalkboard.vec2.</span>constrain(vec2, range)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Constrains a vector within a range.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                vec2 <span class="faded">{vec2}</span> - The vector to constrain<br>
+                                range <span class="faded">{number[]} (default = [0, 1])</span> - The range to constrain within
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{vec2}</span> - The constrained vector
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the vector (1, 2)
+let v = Chalkboard.vec2.new(0, 3);
+let vconstrain = Chalkboard.vec2.constrain(v, [1, 2]);</code></pre>
                         <h3><span class="faded">Chalkboard.vec2.</span>add(vec2_1, vec2_2)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Calculates the addition of two vectors.</p>
@@ -3941,6 +4569,42 @@ let projvw = Chalkboard.vec2.proj(v, w);</code></pre>
 let v = Chalkboard.vec2.new(1, 2);
 let w = Chalkboard.vec2.new(3, 4);
 let oprojvw = Chalkboard.vec2.oproj(v, w);</code></pre>
+                        <h3><span class="faded">Chalkboard.vec2.</span>reflect(vec2_1, vec2_2)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Reflection_(mathematics)">reflection vector</a> of the first vector (the incident vector) on the second vector (the surface normal vector).</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                vec2_1 <span class="faded">{vec2}</span> - The first vector<br>
+                                vec2_2 <span class="faded">{vec2}</span> - The second vector
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{vec2}</span> - The reflection vector of the first vector on the second vector
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the vector (-1, 2)
+let v = Chalkboard.vec2.new(1, 2);
+let w = Chalkboard.vec2.new(1, 0);
+let reflectvw = Chalkboard.vec2.reflect(v, w);</code></pre>
+                        <h3><span class="faded">Chalkboard.vec2.</span>refract(vec2_1, vec2_2, refractiveIndex)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Refraction">refraction vector</a> of the first vector on the second vector through a medium with a specified refractive index.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                vec2_1 <span class="faded">{vec2}</span> - The first vector<br>
+                                vec2_2 <span class="faded">{vec2}</span> - The second vector<br>
+                                refractiveIndex <span class="faded">{number}</span> - The refractive index of the medium the vectors are in
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{vec2}</span> - The refraction vector of the first vector on the second vector through the refractive medium
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the vector (-1, 2.66)
+let v = Chalkboard.vec2.new(1, 2);
+let w = Chalkboard.vec2.new(1, 0);
+let reflectvw = Chalkboard.vec2.refract(v, w, 1.33);
+// 1.33 is the refractive index of water</code></pre>
                         <h3><span class="faded">Chalkboard.vec2.</span>fromAngle(rad)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Defines a vector with an angle.</p>
@@ -4427,6 +5091,22 @@ let vwang = Chalkboard.vec3.angBtwn(v, w);</code></pre>
 <pre class="javascript"><code>// Returns the vector (2, 4, 6)
 let v = Chalkboard.vec3.new(1, 2, 3);
 let vtimes2 = Chalkboard.vec3.scl(v, 2);</code></pre>
+                        <h3><span class="faded">Chalkboard.vec3.</span>constrain(vec3, range)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Constrains a vector within a range.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                vec3 <span class="faded">{vec3}</span> - The vector to constrain<br>
+                                range <span class="faded">{number[]} (default = [0, 1])</span> - The range to constrain within
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{vec3}</span> - The constrained vector
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the vector (1, 2, 2)
+let v = Chalkboard.vec3.new(0, 3, 2);
+let vconstrain = Chalkboard.vec3.constrain(v, [1, 2]);</code></pre>
                         <h3><span class="faded">Chalkboard.vec3.</span>add(vec3_1, vec3_2)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Calculates the addition of two vectors.</p>
@@ -4584,6 +5264,42 @@ let projvw = Chalkboard.vec3.proj(v, w);</code></pre>
 let v = Chalkboard.vec3.new(1, 2, 3);
 let w = Chalkboard.vec3.new(4, 5, 6);
 let oprojvw = Chalkboard.vec3.oproj(v, w);</code></pre>
+                        <h3><span class="faded">Chalkboard.vec3.</span>reflect(vec3_1, vec3_2)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Reflection_(mathematics)">reflection vector</a> of the first vector (the incident vector) on the second vector (the surface normal vector).</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                vec3_1 <span class="faded">{vec3}</span> - The first vector<br>
+                                vec3_2 <span class="faded">{vec3}</span> - The second vector
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{vec3}</span> - The reflection vector of the first vector on the second vector
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the vector (-1, 2, 0)
+let v = Chalkboard.vec3.new(1, 2, 0);
+let w = Chalkboard.vec3.new(1, 0, 0);
+let reflectvw = Chalkboard.vec3.reflect(v, w);</code></pre>
+                        <h3><span class="faded">Chalkboard.vec3.</span>refract(vec3_1, vec3_2, refractiveIndex)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Refraction">refraction vector</a> of the first vector on the second vector through a medium with a specified refractive index.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                vec3_1 <span class="faded">{vec3}</span> - The first vector<br>
+                                vec3_2 <span class="faded">{vec3}</span> - The second vector<br>
+                                refractiveIndex <span class="faded">{number}</span> - The refractive index of the medium the vectors are in
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{vec3}</span> - The refraction vector of the first vector on the second vector through the refractive medium
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the vector (-1, 2.66, 0)
+let v = Chalkboard.vec3.new(1, 2, 0);
+let w = Chalkboard.vec3.new(1, 0, 0);
+let reflectvw = Chalkboard.vec3.refract(v, w, 1.33);
+// 1.33 is the refractive index of water</code></pre>
                         <h3><span class="faded">Chalkboard.vec3.</span>fromAngles(rad1, rad2)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Defines a vector with two angles.</p>
@@ -5047,17 +5763,33 @@ let vwang = Chalkboard.vec4.angBtwn(v, w);</code></pre>
                             <p>Calculates the multiplication of a vector by a number.</p>
                             <h4>PARAMETERS</h4>
                             <p>
-                                vec4 <span class="faded">{vec4}</span> - A vector<br>
+                                vec4 <span class="faded">{vec4}</span> - The vector<br>
                                 num <span class="faded">{number}</span> - The number to multiply by
                             </p>
                             <h4>RETURNS</h4>
                             <p>
-                                <span class="faded">{vec4}</span> - A vector mulitipled by a number
+                                <span class="faded">{vec4}</span> - The vector mulitipled by a number
                             </p>
                             <h4>EXAMPLE</h4>
 <pre class="javascript"><code>// Returns the vector (2, 4, 6, 8)
 let v = Chalkboard.vec4.new(1, 2, 3, 4);
 let vtimes2 = Chalkboard.vec4.scl(v, 2);</code></pre>
+                        <h3><span class="faded">Chalkboard.vec4.</span>constrain(vec4, range)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Constrains a vector within a range.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                vec4 <span class="faded">{vec4}</span> - The vector to constrain<br>
+                                range <span class="faded">{number[]} (default = [0, 1])</span> - The range to constrain within
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{vec4}</span> - The constrained vector
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the vector (1, 2, 2, 1)
+let v = Chalkboard.vec4.new(0, 3, 2, -1);
+let vconstrain = Chalkboard.vec4.constrain(v, [1, 2]);</code></pre>
                         <h3><span class="faded">Chalkboard.vec4.</span>add(vec4_1, vec4_2)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Calculates the addition of two vectors.</p>
@@ -5160,6 +5892,42 @@ let projvw = Chalkboard.vec4.proj(v, w);</code></pre>
 let v = Chalkboard.vec4.new(1, 2, 3, 4);
 let w = Chalkboard.vec4.new(5, 6, 7, 8);
 let oprojvw = Chalkboard.vec4.oproj(v, w);</code></pre>
+                        <h3><span class="faded">Chalkboard.vec4.</span>reflect(vec4_1, vec4_2)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Reflection_(mathematics)">reflection vector</a> of the first vector (the incident vector) on the second vector (the surface normal vector).</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                vec4_1 <span class="faded">{vec4}</span> - The first vector<br>
+                                vec4_2 <span class="faded">{vec4}</span> - The second vector
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{vec4}</span> - The reflection vector of the first vector on the second vector
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the vector (-1, 2, 0, 0)
+let v = Chalkboard.vec4.new(1, 2, 0, 0);
+let w = Chalkboard.vec4.new(1, 0, 0, 0);
+let reflectvw = Chalkboard.vec4.reflect(v, w);</code></pre>
+                        <h3><span class="faded">Chalkboard.vec4.</span>refract(vec4_1, vec4_2, refractiveIndex)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Refraction">refraction vector</a> of the first vector on the second vector through a medium with a specified refractive index.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                vec4_1 <span class="faded">{vec4}</span> - The first vector<br>
+                                vec4_2 <span class="faded">{vec4}</span> - The second vector<br>
+                                refractiveIndex <span class="faded">{number}</span> - The refractive index of the medium the vectors are in
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{vec4}</span> - The refraction vector of the first vector on the second vector through the refractive medium
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the vector (-1, 2.66, 0. 0)
+let v = Chalkboard.vec4.new(1, 2, 0, 0);
+let w = Chalkboard.vec4.new(1, 0, 0, 0);
+let reflectvw = Chalkboard.vec4.refract(v, w, 1.33);
+// 1.33 is the refractive index of water</code></pre>
                         <h3><span class="faded">Chalkboard.vec4.</span>fromVector(vec3)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Defines a <a href="https://en.wikipedia.org/wiki/4D_vector">four-dimensional vector</a> from a <a href="https://en.wikipedia.org/wiki/Euclidean_vector">three-dimensional vector</a>.</p>
@@ -5749,7 +6517,43 @@ let T = Chalkboard.matr.translater(v);</code></pre>
 let R2 = Chalkboard.matr.rotator(Chalkboard.PI(1/4));
 
 // Returns a matrix that rotates a vector by 45 degrees in the x-direction, 90 degrees in the y-direction, and 180 degrees in the z-direction
-let R3 = Chalkboard.matr.rotater3D(Chalkboard.PI(1/4), Chalkboard.PI(1/2), Chalkboard.PI());</code></pre>
+let R3 = Chalkboard.matr.rotator(Chalkboard.PI(1/4), Chalkboard.PI(1/2), Chalkboard.PI());</code></pre>
+                        <h3><span class="faded">Chalkboard.matr.</span>scl(matr, num)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Calculates the multiplication of a matrix by a number.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                matr <span class="faded">{matr}</span> - Matrix<br>
+                                num <span class="faded">{number}</span> - Number
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{matr}</span> - Matrix mulitipled by a number
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the matrix with all elements multiplied by 2
+let A = Chalkboard.matr.new([1, 2, 3],
+                            [4, 5, 6],
+                            [7, 8, 9]);
+let Atimes2 = Chalkboard.matr.scl(A, 2);</code></pre>
+                        <h3><span class="faded">Chalkboard.matr.</span>constrain(matr, range)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Constrains a matrix within a range.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                matr <span class="faded">{matr}</span> - The matrix to constrain<br>
+                                range <span class="faded">{number[]} (default = [0, 1])</span> - The range to constrain within
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{matr}</span> - The constrained matrix
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the matrix with all elements equal to 1
+let A = Chalkboard.matr.new([-1, -2, -3],
+                            [-4, -5, -6],
+                            [-7, -8, -9]);
+let Aconstrain = Chalkboard.matr.constrain(A, [1, 2]);</code></pre>
                         <h3><span class="faded">Chalkboard.matr.</span>add(matr_1, matr_2)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Calculates the addition of two matrices.</p>
@@ -5806,24 +6610,6 @@ let A = Chalkboard.matr.new([1, 2],
                             [3, 4]);
 let Ai = Chalkboard.matr.invert(A);
 let AtimesAi = Chalkboard.matr.mul(A, Ai);</code></pre>
-                        <h3><span class="faded">Chalkboard.matr.</span>scl(matr, num)</h3>
-                            <h4>DESCRIPTION</h4>
-                            <p>Calculates the multiplication of a matrix by a number.</p>
-                            <h4>PARAMETERS</h4>
-                            <p>
-                                matr <span class="faded">{matr}</span> - Matrix<br>
-                                num <span class="faded">{number}</span> - Number
-                            </p>
-                            <h4>RETURNS</h4>
-                            <p>
-                                <span class="faded">{matr}</span> - Matrix mulitipled by a number
-                            </p>
-                            <h4>EXAMPLE</h4>
-<pre class="javascript"><code>// Returns the matrix with all elements multiplied by 2
-let A = Chalkboard.matr.new([1, 2, 3],
-                            [4, 5, 6],
-                            [7, 8, 9]);
-let Atimes2 = Chalkboard.matr.scl(A, 2);</code></pre>
                         <h3><span class="faded">Chalkboard.matr.</span>pow(matr, num)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Calculates the exponentiation of a matrix by a number.</p>
@@ -6430,7 +7216,7 @@ let solution = Chalkboard.calc.Newton(f, [-5, 5]);</code></pre>
             </div>
         </div>
         <footer>
-            <p>Zushah 2023 - Chalkboard v1.3.1</p>
+            <p>Zushah 2023 - Chalkboard v1.4.0</p>
         </footer>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
         <script type="text/javascript" src="script.js"></script>
