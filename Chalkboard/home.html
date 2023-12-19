@@ -9,7 +9,7 @@ Zushah (https://www.github.com/Zushah)
 ==================================================================
 Released on Khan Academy: 11/06/2023
 Released on GitHub: 11/06/2023
-Last updated: 12/16/2023
+Last updated: 12/19/2023
 ==================================================================
 -->
 <html>
@@ -42,9 +42,9 @@ Last updated: 12/16/2023
             <h2>Features</h2>
             <ul>
                 <li>Number-theory-related operations</li>
-                <li>Real-valued function operations</li>
-                <li>Complex number and quaternion operations</li>
-                <li>Plotting functions, vectors, and matrices</li>
+                <li>Real number and real function operations</li>
+                <li>Complex number and complex function operations</li>
+                <li>Plotting functions, complex numbers, vectors, matrices, and statistical graphs</li>
                 <li>Lots of geometric formulae</li>
                 <li>All 24 (both circular and hyperbolic) trigonometric functions</li>
                 <li>Many statistical operations on arrays</li>
@@ -53,10 +53,15 @@ Last updated: 12/16/2023
                 <li>Single- and multi-variable calculus operations</li>
             </ul>
             <p>And it's all packed into a single namespace written in a 0.1 megabyte (0.05 megabyte minified) file.</p>
-            <p>After installing Chalkboard into your program, you can immediately get started with using it. Every Chalkboard command begins with typing "Chalkboard" followed by a period, then the name of the category of the command (all categories are listed in the documentation page) with another period, and lastly the desired command itself.</p>
+            <p>After installing Chalkboard via <a href="https://www.jsdelivr.com/package/gh/Zushah/Chalkboard">jsDelivr</a> or <a href="https://www.npmjs.com/package/@zushah/chalkboard">npm</a>, you can immediately get started with using it. Every Chalkboard command begins with typing "Chalkboard" followed by a period, then the name of the category of the command (all categories are listed in the documentation page) with another period, and lastly the desired command itself.</p>
 <pre class="javascript"><code>Chalkboard.category.command(parameters);</code></pre>
             <p>Here is some code that shows off only a few basic features of Chalkboard:</p>
 <pre class="javascript"><code>const cb = Chalkboard; // Chalkboard is a nice name but it's also long
+/*
+Note that this code is written on the client-side
+You can write all the same code on the server-side, too, but you would have to replace the line above with:
+const cb = require("@zushah/chalkboard@1.5.0");
+*/
 
 let f = cb.real.function("Math.cos(2 * x)"); // f(x) = cos(2x)
 let dfdx = cb.calc.dfdx(f, 2); // Derivative of f at x = 0
@@ -72,11 +77,13 @@ let midPrime = cb.stat.median(primes); // Median number in the primes array
 cb.plot.barplot(primes, cb.stat.array(0, 100, 11), 5, [[0, 0, 0], [0, 0, 255]]); // Barplot of the primes array with a bin size of 10, a scale of 2, a stroke color of black, and a fill color of blue
 
 let z = cb.comp.new(1, 1); // z = 1 + i
-let zsqsqrt = cb.comp.sqrt(cb.comp.sq(z)); // The square root of z squared
+let zsqsqrt = cb.comp.sqrt(cb.comp.sq(z)); // The square root of z squared equals z
+let f = cb.comp.function("a*a - b*b + 1", "2*a*b"); // f(z) = z^2 + 1 for z = a + bi (a complex-valued function)
+cb.plot.function(f); // Plots the domain coloring of f
 
 let r = cb.real.function(["Math.cos(t)", "Math.sin(t)"], "curv"); // r(t) = (cos(t), sin(t))
 cb.plot.xyplane(2); // Draws the Cartesian coordinate plane
-cb.plot.function(r, 2, [0, cb.PI(1/2)]); // Plots r(t) from t = 0 to t = π/2
+cb.plot.function(r, 2, [255, 0, 0] [0, cb.PI(1/2)]); // Plots r(t) colored red from t = 0 to t = π/2
 
 let a = cb.vec3.new(1, 2, 3); // Vector a = (1, 2, 3)
 let b = cb.vec3.new(4, 5, 6); // Vector b = (4, 5, 6)
@@ -100,7 +107,8 @@ cb.matr.print(mmi); // Prints mmi in the console</code></pre>
             </div>
         </div>
         <footer>
-            <p>Zushah 2023 - Chalkboard v1.4.0</p>
+            <p>Zushah 2023 - Chalkboard v1.5.0</p>
+            <p><a href="https://github.com/Zushah/Chalkboard">GitHub</a> | <a href="https://www.khanacademy.org/cs/chalkboard/6708642430369792">Khan Academy</a> | <a href="https://www.jsdelivr.com/package/gh/Zushah/Chalkboard">jsDelivr</a> | <a href="https://www.npmjs.com/package/@zushah/chalkboard">npm</a></p>
         </footer>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
         <script type="text/javascript" src="./script.js"></script>

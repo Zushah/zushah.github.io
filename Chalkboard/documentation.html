@@ -9,7 +9,7 @@ Zushah (https://www.github.com/Zushah)
 ==================================================================
 Released on Khan Academy: 11/06/2023
 Released on GitHub: 11/06/2023
-Last updated: 12/16/2023
+Last updated: 12/19/2023
 ==================================================================
 -->
 <html>
@@ -39,7 +39,7 @@ Last updated: 12/16/2023
             <h2>Documentation</h2>
             <p>This page has all the information you need to successfully operate the Chalkboard library. If you have any questions, feel free to contact <a href="https://github.com/Zushah">Zushah</a>.</p>
             <p>Click on a category below to view the documentation for each of its commands.</p>
-            <p>The source code for the <a href="https://github.com/Zushah/Chalkboard/releases/tag/v1.4.0">latest release</a> can be found <a href="https://github.com/Zushah/Chalkboard/blob/v1.4.0/src/Chalkboard.js">here</a>.</p>
+            <p>The source code for the <a href="https://github.com/Zushah/Chalkboard/releases/tag/v1.5.0">latest release</a> can be found <a href="https://github.com/Zushah/Chalkboard/blob/v1.5.0/src/Chalkboard.js">here</a>.</p>
             <div id="docs">
 <!--
                 <div>
@@ -726,12 +726,13 @@ let r = Chalkboard.real.function(["Math.cos(s) * Math.cos(t)", "Math.cos(s) * Ma
 
 // Defines the explicit multivariable function f(x, y) = x^2 + y^2
 let f = Chalkboard.real.function("x * x + y * y", "mult");</code></pre>
-                        <h3><span class="faded">Chalkboard.real.</span>parse(str)</h3>
+                        <h3><span class="faded">Chalkboard.real.</span>parse(str, init)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Parses and executes a string of JavaScript code.</p>
                             <h4>PARAMETERS</h4>
                             <p>
-                                str <span class="faded">{string}</span> - A string of JavaScript code
+                                str <span class="faded">{string}</span> - A string of JavaScript code<br>
+                                init <span class="faded">{string} (default = "")</span> - An optional string to initialize the code with some other code
                             </p>
                             <h4>RETURNS</h4>
                             <p>
@@ -1123,36 +1124,91 @@ Chalkboard.real.qerp([2, 3], [3, 8], [4, 15], 5);</code></pre>
                             <h4>EXAMPLE</h4>
 <pre class="javascript"><code>// Defines the complex number z = 1 + 2i
 let z = Chalkboard.comp.new(1, 2);</code></pre>
-                        <h3><span class="faded">Chalkboard.comp.</span>Re(comp)</h3>
+                        <h3><span class="faded">Chalkboard.comp.</span>function(realDefinition, imagDefinition)</h3>
                             <h4>DESCRIPTION</h4>
-                            <p>Gives the real part of a complex number.</p>
+                            <p>Defines a <a href="https://en.wikipedia.org/wiki/Complex_analysis">complex function</a>.</p>
                             <h4>PARAMETERS</h4>
                             <p>
-                                comp <span class="faded">{comp}</span> - A complex number
+                                realDefinition <span class="faded">{string}</span> - The real part of the complex function<br>
+                                imagDefinition <span class="faded">{string}</span> - The imaginary part of the complex function
                             </p>
                             <h4>RETURNS</h4>
                             <p>
-                                <span class="faded">{number}</span> - The real part of a complex number
+                                <span class="faded">{func}</span> - A new Chalkboard complex function
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Defines the complex function f(z) = z^2 + 1
+let f = Chalkboard.comp.function("a*a - b*b + 1", "2*a*b");</code></pre>
+                        <h3><span class="faded">Chalkboard.comp.</span>parse(str, init)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Parses and executes a string of JavaScript code.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                str <span class="faded">{string}</span> - A string of JavaScript code<br>
+                                init <span class="faded">{string} (default = "")</span> - An optional string to initialize the code with some other code
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{Function}</span> - The inputted string is executed as a function
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns 4
+let four = Chalkboard.comp.parse("2 + 2");</code></pre>
+                        <h3><span class="faded">Chalkboard.comp.</span>val(func, comp)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Evaluates a <a href="https://en.wikipedia.org/wiki/Complex_analysis">complex function</a> at a particular complex number.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                func <span class="faded">{func}</span> - The complex function<br>
+                                comp <span class="faded">{comp}</span> - The complex number
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{comp}</span> - The evaluation of the complex function
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the complex number (1, 0)
+let f = Chalkboard.comp.function("a*a - b*b + 1", "2*a*b");
+let z = Chalkboard.comp.new(0, 0);
+let fz = Chalkboard.comp.val(f, z);</code></pre>
+                        <h3><span class="faded">Chalkboard.comp.</span>Re(funcORcomp)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Returns the real part of a complex number or a complex function.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                funcORcomp <span class="faded">{func|comp}</span> - A complex number or a complex function
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{string|number}</span> - The real part of a complex number or a complex function
                             </p>
                             <h4>EXAMPLE</h4>
 <pre class="javascript"><code>// Returns 1
 let z = Chalkboard.comp.new(1, 2);
-let Rez = Chalkboard.comp.Re(z);</code></pre>
-                        <h3><span class="faded">Chalkboard.comp.</span>Im(comp)</h3>
+let Rez = Chalkboard.comp.Re(z);
+
+// Returns a*a - b*b + 1
+let f = Chalkboard.comp.function("a*a - b*b + 1", "2*a*b");
+let Ref = Chalkboard.comp.Re(f);</code></pre>
+                        <h3><span class="faded">Chalkboard.comp.</span>Im(funcORcomp)</h3>
                             <h4>DESCRIPTION</h4>
-                            <p>Gives the imaginary part of a complex number.</p>
+                            <p>Returns the imaginary part of a complex number or a complex function.</p>
                             <h4>PARAMETERS</h4>
                             <p>
-                                comp <span class="faded">{comp}</span> - A complex number
+                                funcORcomp <span class="faded">{func|comp}</span> - A complex number or a complex function
                             </p>
                             <h4>RETURNS</h4>
                             <p>
-                                <span class="faded">{number}</span> - The imaginary part of a complex number
+                                <span class="faded">{string|number}</span> - The imaginary part of a complex number or a complex function
                             </p>
                             <h4>EXAMPLE</h4>
 <pre class="javascript"><code>// Returns 2
 let z = Chalkboard.comp.new(1, 2);
-let Imz = Chalkboard.comp.Im(z);</code></pre>
+let Imz = Chalkboard.comp.Im(z);
+
+// Returns 2*a*b
+let f = Chalkboard.comp.function("a*a - b*b + 1", "2*a*b");
+let Imf = Chalkboard.comp.Im(f);</code></pre>
                         <h3><span class="faded">Chalkboard.comp.</span>random(inf, sup)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Defines a random complex number.</p>
@@ -1168,35 +1224,6 @@ let Imz = Chalkboard.comp.Im(z);</code></pre>
                             <h4>EXAMPLE</h4>
 <pre class="javascript"><code>// Defines a complex number with randomly generated components between -1 and 1
 let z = Chalkboard.comp.random(-1, 1);</code></pre>
-                        <h3><span class="faded">Chalkboard.comp.</span>Euler(x)</h3>
-                            <h4>DESCRIPTION</h4>
-                            <p>Defines a complex number using <a href="https://en.wikipedia.org/wiki/Euler's_formula">Euler's formula</a>.</p>
-                            <h4>PARAMETERS</h4>
-                            <p>
-                                x <span class="faded">{number}</span> - The number to evaluate Euler's formula at
-                            </p>
-                            <h4>RETURNS</h4>
-                            <p>
-                                <span class="faded">{comp}</span> - A complex number defined by Euler's formula evaluated at a particular number
-                            </p>
-                            <h4>EXAMPLE</h4>
-<pre class="javascript"><code>// Returns the complex number -1 + 0i
-let z = Chalkboard.comp.Euler(Chalkboard.PI());</code></pre>
-                        <h3><span class="faded">Chalkboard.comp.</span>ln(comp)</h3>
-                            <h4>DESCRIPTION</h4>
-                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Complex_logarithm">complex logarithm</a> evaluated at a particular complex number.</p>
-                            <h4>PARAMETERS</h4>
-                            <p>
-                                comp <span class="faded">{comp}</span> - The complex number to evaluate the complex logarithm at
-                            </p>
-                            <h4>RETURNS</h4>
-                            <p>
-                                <span class="faded">{comp}</span> - The value of the complex logarithm evaluated at a particular complex number
-                            </p>
-                            <h4>EXAMPLE</h4>
-<pre class="javascript"><code>// Returns the complex number 0 + πi/2
-let z = Chalkboard.comp.new(0, 1);
-let lnz = Chalkboard.comp.ln(z);</code></pre>
                         <h3><span class="faded">Chalkboard.comp.</span>mag(comp)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Calculates the <a href="https://en.wikipedia.org/wiki/Magnitude_(mathematics)">magnitude</a> of a complex number.</p>
@@ -1378,6 +1405,51 @@ let zabsoluted = Chalkboard.comp.absolute(z);</code></pre>
 <pre class="javascript"><code>// Returns the complex number 1 + 2i
 let z = Chalkboard.comp.new(1.1, 2.2);
 let zrounded = Chalkboard.comp.round(z);</code></pre>
+                        <h3><span class="faded">Chalkboard.comp.</span>Euler(rad)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Defines a complex number using <a href="https://en.wikipedia.org/wiki/Euler's_formula">Euler's formula</a>.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                rad <span class="faded">{number}</span> - The number to evaluate Euler's formula at
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{comp}</span> - A complex number defined by Euler's formula evaluated at a particular number
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the complex number -1 + 0i
+let z = Chalkboard.comp.Euler(Chalkboard.PI());</code></pre>
+                        <h3><span class="faded">Chalkboard.comp.</span>pow(comp, num)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Calculates the exponentiation of a complex number by a real number.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                comp <span class="faded">{comp}</span> - The complex number<br>
+                                num <span class="faded">{number}</span> - The real number
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{comp}</span> - The complex number to the power of the real number
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the complex number 1 + 2i
+let z = Chalkboard.comp.new(1.2720, 0.7862);
+let zz = Chalkboard.comp.pow(z, 2);</code></pre>
+                        <h3><span class="faded">Chalkboard.comp.</span>ln(comp)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Complex_logarithm">complex logarithm</a> evaluated at a particular complex number.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                comp <span class="faded">{comp}</span> - The complex number to evaluate the complex logarithm at
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{comp}</span> - The value of the complex logarithm evaluated at a particular complex number
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the complex number 0 + πi/2
+let z = Chalkboard.comp.new(0, 1);
+let lnz = Chalkboard.comp.ln(z);</code></pre>
                         <h3><span class="faded">Chalkboard.comp.</span>sq(comp)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Calculates the square of a complex number.</p>
@@ -1424,6 +1496,21 @@ let zsqrt = Chalkboard.comp.sqrt(z);</code></pre>
 <pre class="javascript"><code>// Returns the complex number -2 + i
 let z = Chalkboard.comp.new(1, 2);
 let zrotated = Chalkboard.comp.rotate(z, Chalkboard.PI(1/2));</code></pre>
+                        <h3><span class="faded">Chalkboard.comp.</span>invert(comp)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Multiplicative_inverse">inverse</a> of a complex number.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                comp <span class="faded">{comp}</span> - The complex number
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{comp}</span> - The inverse of the complex number
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the complex number 0.2 - 0.4i
+let z = Chalkboard.comp.new(1, 2);
+let zinverse = Chalkboard.comp.invert(z);</code></pre>
                         <h3><span class="faded">Chalkboard.comp.</span>conjugate(comp)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Calculates the <a href="https://en.wikipedia.org/wiki/Complex_conjugate">conjugate</a> of a complex number.</p>
@@ -1439,6 +1526,22 @@ let zrotated = Chalkboard.comp.rotate(z, Chalkboard.PI(1/2));</code></pre>
 <pre class="javascript"><code>// Returns the complex number 1 - 2i
 let z = Chalkboard.comp.new(1, 2);
 let zconjugate = Chalkboard.comp.conjugate(z);</code></pre>
+                        <h3><span class="faded">Chalkboard.comp.</span>root(comp, n)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Root_of_unity">roots</a> of a complex number.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                comp <span class="faded">{comp}</span> - The complex number<br>
+                                n <span class="faded">{number}</span> - The number of roots
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{comp[]}</span> - The roots of the complex number
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the complex numbers 0.5 + 0.8660i, -0.5 + 0.8660i, and 0.5 - 0.8660i
+let z = Chalkboard.comp.new(1, 0);
+let z3roots = Chalkboard.comp.root(z, 3);</code></pre>
                         <h3><span class="faded">Chalkboard.comp.</span>dist(comp_1, comp_2)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Calculates the <a href="https://en.wikipedia.org/wiki/Euclidean_distance">distance</a> between two complex numbers.</p>
@@ -2128,10 +2231,10 @@ Chalkboard.plot.rOplane(2);</code></pre>
                             <p>Plots a Chalkboard function.</p>
                             <h4>PARAMETERS</h4>
                             <p>
-                                func <span class="faded">{func}</span> - The function to draw<br>
+                                func <span class="faded">{func}</span> - The function to plot<br>
                                 scl <span class="faded">{number} (default = 1)</span> - The scale of the function<br>
                                 rgba <span class="faded">{number[]} (default = [0, 0, 0])</span> - The color of the function expressed as RGB values (or RGBA values which includes opacity) in an array<br>
-                                domain <span class="faded">{number[]} (default = [-10, 10])</span> - The domain of the function, or the range of x-values where the function is plotted, expressed as an array of the lower bound and upper bound<br>
+                                domain <span class="faded">{number[]} (default = [-10, 10] or [[-10, 10], [-10, 10]])</span> - The domain of the function, or the range of x-values where the function is plotted, expressed as an array of the lower bound and upper bound, or (for complex functions) as an array of arrays of the lower bounds and upper bounds<br>
                                 origin <span class="faded">{number[]} (default = [canvas.width / 2, canvas.height / 2])</span> - The origin of the function (where x = 0) on the canvas expressed as a point of the canvas in an array<br>
                                 weight <span class="faded">{number} (default = 2)</span> - The stroke weight or line width of the function<br>
                                 context <span class="faded">{CanvasRenderingContext2D} (default = ctx)</span> - The JavaScript Canvas 2D API rendering context of the function
@@ -2141,7 +2244,7 @@ Chalkboard.plot.rOplane(2);</code></pre>
                                 <span class="faded">{number[]}</span> - An array of arrays containing the ordered pairs of all of the plotted points
                             </p>
                             <h4>EXAMPLE</h4>
-<pre class="javascript"><code>// Plots the function f(x) = x^2 with a scale of 2 colored black at the center of the canvas
+<pre class="javascript"><code>// Plots the real function f(x) = x^2 with a scale of 2 colored black at the center of the canvas
 const ctx = document.getElementById("canvas").getContext("2d");
 let f = Chalkboard.real.function("x * x");
 Chalkboard.plot.function(f, 2);</code></pre>
@@ -2464,6 +2567,31 @@ Chalkboard.plot.correlation(f, g);</code></pre>
 const ctx = document.getElementById("canvas").getContext("2d");
 let f = Chalkboard.real.function("Math.cos(x)");
 Chalkboard.plot.autocorrelation(f);</code></pre>
+                        <h3><span class="faded">Chalkboard.plot.</span>Taylor(func, n, a, scl, rgba, domain, origin, weight, res, context)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Plots the <a href="https://en.wikipedia.org/wiki/Taylor_series">Taylor series approximation</a> of a Chalkboard function.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                func <span class="faded">{func}</span> - The function to draw the Taylor series approximation of<br>
+                                n <span class="faded">{number}</span> - The degree of the Taylor series approximation (must be either 0, 1, or, 2)<br>
+                                a <span class="faded">{number}</span> - The point of evaluation of the Taylor series approximation<br>
+                                scl <span class="faded">{number} (default = 1)</span> - The scale of the Taylor series approximation<br>
+                                rgba <span class="faded">{number[]} (default = [0, 0, 0])</span> - The color of the Taylor series approximation expressed as RGB values (or RGBA values which includes opacity) in an array<br>
+                                domain <span class="faded">{number[]} (default = [-10, 10])</span> - The domain of the function, or the range of x-values where the Taylor series approximation is plotted, expressed as an array of the lower bound and upper bound<br>
+                                origin <span class="faded">{number[]} (default = [canvas.width / 2, canvas.height / 2])</span> - The origin of the Taylor series approximation (where x = 0) on the canvas expressed as a point of the canvas in an array<br>
+                                weight <span class="faded">{number} (default = 2)</span> - The stroke weight or line width of the Taylor series approximation<br>
+                                res <span class="faded">{number} (default = 25)</span> - The resolution of the Taylor series approximation (the gap in pixels of when the function's Taylor series approximation is computed)<br>
+                                context <span class="faded">{CanvasRenderingContext2D} (default = ctx)</span> - The JavaScript Canvas 2D API rendering context of the Taylor series approximation
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{number[]}</span> - An array of arrays containing the ordered pairs of all of the plotted points
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Plots the second-order Taylor series approximation of the function f(x) = sin(x) at x = 1 with a scale of 1 colored black at the center of the canvas
+const ctx = document.getElementById("canvas").getContext("2d");
+let f = Chalkboard.real.function("Math.sin(x)");
+Chalkboard.plot.Taylor(f, 2, 0);<code></pre>
                         <h3><span class="faded">Chalkboard.plot.</span>Laplace(func, scl, rgba, domain, origin, weight, res, context)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Plots the <a href="https://en.wikipedia.org/wiki/Laplace_transform">Laplace transform</a> of a Chalkboard function.</p>
@@ -3648,47 +3776,14 @@ let arr = [1, 2, 3, 4, 5];
 let inf = [0, 2, 4, 6, 8];
 let sup = [1, 3, 5, 7, 9];
 let ineq = Chalkboard.stat.ineq(arr, inf, sup, true, true);</code></pre>
-                        <h3><span class="faded">Chalkboard.stat.</span>gt(arr, arrOrnum)</h3>
+                        <h3><span class="faded">Chalkboard.stat.</span>lt(arr, arrOrnum, includeEnd)</h3>
                             <h4>DESCRIPTION</h4>
-                            <p>Tests if the elements of an array are greater than the elements of another array or another number, and then returns an array with the valid elements.</p>
+                            <p>Tests if the elements of an array are "less than" or "less than or equal to" the elements of another array or another number, and then returns an array with the valid elements.</p>
                             <h4>PARAMETERS</h4>
                             <p>
                                 arr <span class="faded">{number[]}</span> - The array to test<br>
-                                arrORnum <span class="faded">{number[]|number}</span> - The array or number to test with
-                            </p>
-                            <h4>RETURNS</h4>
-                            <p>
-                                <span class="faded">{number[]}</span> - The tested array
-                            </p>
-                            <h4>EXAMPLE</h4>
-<pre class="javascript"><code>// Returns the array [1]
-let arr1 = [1, 2, 3, 4, 5];
-let arr2 = [0, 2, 4, 6, 8];
-let gt = Chalkboard.stat.gt(arr1, arr2);</code></pre>
-                        <h3><span class="faded">Chalkboard.stat.</span>gte(arr, arrOrnum)</h3>
-                            <h4>DESCRIPTION</h4>
-                            <p>Tests if the elements of an array are greater than or equal to the elements of another array or another number, and then returns an array with the valid elements.</p>
-                            <h4>PARAMETERS</h4>
-                            <p>
-                                arr <span class="faded">{number[]}</span> - The array to test<br>
-                                arrORnum <span class="faded">{number[]|number}</span> - The array or number to test with
-                            </p>
-                            <h4>RETURNS</h4>
-                            <p>
-                                <span class="faded">{number[]}</span> - The tested array
-                            </p>
-                            <h4>EXAMPLE</h4>
-<pre class="javascript"><code>// Returns the array [1, 2]
-let arr1 = [1, 2, 3, 4, 5];
-let arr2 = [0, 2, 4, 6, 8];
-let gte = Chalkboard.stat.gte(arr1, arr2);</code></pre>
-                        <h3><span class="faded">Chalkboard.stat.</span>lt(arr, arrOrnum)</h3>
-                            <h4>DESCRIPTION</h4>
-                            <p>Tests if the elements of an array are less than the elements of another array or another number, and then returns an array with the valid elements.</p>
-                            <h4>PARAMETERS</h4>
-                            <p>
-                                arr <span class="faded">{number[]}</span> - The array to test<br>
-                                arrORnum <span class="faded">{number[]|number}</span> - The array or number to test with
+                                arrORnum <span class="faded">{number[]|number}</span> - The array or number to test with<br>
+                                includeEnd <span class="faded">{boolean} (default = false)</span> - Whether the "less than" conditional should be "less than" (input false) or "less than or equal to" (input true)<br>
                             </p>
                             <h4>RETURNS</h4>
                             <p>
@@ -3699,23 +3794,24 @@ let gte = Chalkboard.stat.gte(arr1, arr2);</code></pre>
 let arr1 = [1, 2, 3, 4, 5];
 let arr2 = [0, 2, 4, 6, 8];
 let lt = Chalkboard.stat.lt(arr1, arr2);</code></pre>
-                        <h3><span class="faded">Chalkboard.stat.</span>lte(arr, arrOrnum)</h3>
+                        <h3><span class="faded">Chalkboard.stat.</span>gt(arr, arrOrnum, includeEnd)</h3>
                             <h4>DESCRIPTION</h4>
-                            <p>Tests if the elements of an array are less than or equal to the elements of another array or another number, and then returns an array with the valid elements.</p>
+                            <p>Tests if the elements of an array are "greater than" or "greater than or equal to" the elements of another array or another number, and then returns an array with the valid elements.</p>
                             <h4>PARAMETERS</h4>
                             <p>
                                 arr <span class="faded">{number[]}</span> - The array to test<br>
-                                arrORnum <span class="faded">{number[]|number}</span> - The array or number to test with
+                                arrORnum <span class="faded">{number[]|number}</span> - The array or number to test with<br>
+                                includeEnd <span class="faded">{boolean} (default = false)</span> - Whether the "greater than" conditional should be "greater than" (input false) or "greater than or equal to" (input true)
                             </p>
                             <h4>RETURNS</h4>
                             <p>
                                 <span class="faded">{number[]}</span> - The tested array
                             </p>
                             <h4>EXAMPLE</h4>
-<pre class="javascript"><code>// Returns the array [2, 3, 4, 5]
+<pre class="javascript"><code>// Returns the array [1]
 let arr1 = [1, 2, 3, 4, 5];
 let arr2 = [0, 2, 4, 6, 8];
-let lte = Chalkboard.stat.lte(arr1, arr2);</code></pre>
+let gt = Chalkboard.stat.gt(arr1, arr2);</code></pre>
                         <h3><span class="faded">Chalkboard.stat.</span>max(arr)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Returns the maximum number in an array.</p>
@@ -4098,7 +4194,7 @@ let matr = Chalkboard.stat.toMatrix(arr, 3, 3);</code></pre>
                                 <span class="faded">{object}</span> - Object
                             </p>
                             <h4>EXAMPLE</h4>
-<pre class="javascript"><code>// Returns the object {_4: 4, _2: 2, _1: 1, _5: 5, _3: 3}
+<pre class="javascript"><code>// Returns the object {_1: 4, _2: 2, _3: 1, _4: 5, _5: 3}
 let arr = [4, 2, 1, 5, 3];
 let obj = Chalkboard.stat.toObject(arr);</code></pre>
                         <h3><span class="faded">Chalkboard.stat.</span>toString(arr)</h3>
@@ -6962,9 +7058,43 @@ let div = Chalkboard.calc.div(F, v);</code></pre>
 let F = Chalkboard.vec2.field("-y", "x");
 let v = Chalkboard.vec2.new(1, 1);
 let curl = Chalkboard.calc.curl(F, v);</code></pre>
+                        <h3><span class="faded">Chalkboard.calc.</span>dfdz(func, comp)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Complex_analysis">derivative</a> of a complex Chalkboard function at a particular value.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                func <span class="faded">{func}</span> - The complex Chalkboard function to evaluate<br>
+                                comp <span class="faded">{comp}</span> - The complex number to calculate the derivative of the complex Chalkboard function at
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{comp}</span> - The derivative of the complex Chalkboard function at a particular complex number
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the complex numbers 2 + 2i and -2 + 2i
+let f = Chalkboard.comp.function("a*a - b*b", "2*a*b");
+let z = Chalkboard.comp.new(1, 1);
+let dfdz = Chalkboard.calc.dfdz(f, z);</code></pre>
+                        <h3><span class="faded">Chalkboard.calc.</span>d2fdz2(func, comp)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Complex_analysis">second-order derivative</a> of a complex Chalkboard function at a particular value.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                func <span class="faded">{func}</span> - The complex Chalkboard function to evaluate<br>
+                                comp <span class="faded">{comp}</span> - The complex number to calculate the second-order derivative of the complex Chalkboard function at
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{comp}</span> - The second-order derivative of the complex Chalkboard function at a particular complex number
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns the complex numbers 2 + 0i and -2 + 0i
+let f = Chalkboard.comp.function("a*a - b*b", "2*a*b");
+let z = Chalkboard.comp.new(1, 1);
+let d2fdz2 = Chalkboard.calc.d2fdz2(f, z);</code></pre>
                         <h3><span class="faded">Chalkboard.calc.</span>fxdx(func, a, b)</h3>
                             <h4>DESCRIPTION</h4>
-                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Integral">antiderivative</a> of a Chalkboard function within a particular interval.</p>
+                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Integral">antiderivative</a> of a real function within a particular interval.</p>
                             <h4>PARAMETERS</h4>
                             <p>
                                 func <span class="faded">{func}</span> - The Chalkboard function to evaluate<br>
@@ -6981,7 +7111,7 @@ let f = Chalkboard.real.function("x * x");
 let fxdx = Chalkboard.calc.fxdx(f, 0, 3);</code></pre>
                         <h3><span class="faded">Chalkboard.calc.</span>fxydxdy(func, a, b, c, d)</h3>
                             <h4>DESCRIPTION</h4>
-                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Multiple_integral">antiderivative</a> of a multivariable Chalkboard function within particular intervals.</p>
+                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Multiple_integral">antiderivative</a> of a multivariable function within particular intervals.</p>
                             <h4>PARAMETERS</h4>
                             <p>
                                 func <span class="faded">{func}</span> - The multivariable Chalkboard function to evaluate<br>
@@ -6998,25 +7128,6 @@ let fxdx = Chalkboard.calc.fxdx(f, 0, 3);</code></pre>
 <pre class="javascript"><code>// Returns 8/3
 let f = Chalkboard.real.function("x * x + y * y", "mult");
 let fxydxdy = Chalkboard.calc.fxydxdy(f, -1, 1, -1, 1);</code></pre>
-                        <h3><span class="faded">Chalkboard.calc.</span>frdt(funcORvecfield, func, a, b)</h3>
-                            <h4>DESCRIPTION</h4>
-                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Line_integral">line integral</a> of a multivariable Chalkboard function or a vector field over a parametric curve Chalkboard function within a particular interval.</p>
-                            <h4>PARAMETERS</h4>
-                            <p>
-                                funcORvecfield <span class="faded">{func|vec2field}</span> - The multivariable Chalkboard function or vector field to integrate<br>
-                                func <span class="faded">{func}</span> - The parametric curve Chalkboard function to integrate on<br>
-                                a <span class="faded">{number}</span> - The lower bound of the integration interval<br>
-                                b <span class="faded">{number}</span> - The upper bound of the integration interval
-                            </p>
-                            <h4>RETURNS</h4>
-                            <p>
-                                <span class="faded">{number}</span> - The line integral
-                            </p>
-                            <h4>EXAMPLE</h4>
-<pre class="javascript"><code>// Returns 2π
-let F = Chalkboard.vec2.field("-y", "x");
-let r = Chalkboard.real.function(["Math.cos(t)", "Math.sin(t)"], "curv");
-let frdt = Chalkboard.calc.frdt(F, r, 0, Chalkboard.PI(2));</code></pre>
                         <h3><span class="faded">Chalkboard.calc.</span>fds(func, a, b, c, d)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Calculates the <a href="https://en.wikipedia.org/wiki/Arc_length">curve length</a> or <a href="https://en.wikipedia.org/wiki/Surface_integral">surface area</a> of a parametric curve or surface Chalkboard function within particular intervals.</p>
@@ -7036,6 +7147,25 @@ let frdt = Chalkboard.calc.frdt(F, r, 0, Chalkboard.PI(2));</code></pre>
 <pre class="javascript"><code>// Returns 4π
 let r = Chalkboard.real.function(["Math.cos(s) * Math.cos(t)", "Math.cos(s) * Math.sin(t)", "Math.sin(s)"], "surf");
 let fds = Chalkboard.calc.fds(r, 0, Chalkboard.PI(2), Chalkboard.PI(-1/2), Chalkboard.PI(1/2));</code></pre>
+                        <h3><span class="faded">Chalkboard.calc.</span>frds(funcORvecfield, func, a, b)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Line_integral">line integral</a> of a multivariable Chalkboard function or a vector field over a parametric curve Chalkboard function within a particular interval.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                funcORvecfield <span class="faded">{func|vec2field|vec3field}</span> - The multivariable Chalkboard function or vector field to integrate<br>
+                                func <span class="faded">{func}</span> - The parametric curve Chalkboard function to integrate on<br>
+                                a <span class="faded">{number}</span> - The lower bound of the integration interval<br>
+                                b <span class="faded">{number}</span> - The upper bound of the integration interval
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{number}</span> - The line integral
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns 2π
+let F = Chalkboard.vec2.field("-y", "x");
+let r = Chalkboard.real.function(["Math.cos(t)", "Math.sin(t)"], "curv");
+let frdt = Chalkboard.calc.frdt(F, r, 0, Chalkboard.PI(2));</code></pre>
                         <h3><span class="faded">Chalkboard.calc.</span>fnds(vecfield, func, a, b, c, d)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Calculates the <a href="https://en.wikipedia.org/wiki/Flux">flux</a> of a vector field through a parametric curve Chalkboard function or a parametric surface Chalkboard function within particular intervals.</p>
@@ -7057,6 +7187,25 @@ let fds = Chalkboard.calc.fds(r, 0, Chalkboard.PI(2), Chalkboard.PI(-1/2), Chalk
 let F = Chalkboard.vec2.field("x", "y");
 let r = Chalkboard.real.function(["Math.cos(t)", "Math.sin(t)"], "curv");
 let fnds = Chalkboard.calc.fnds(F, r, 0, Chalkboard.PI(2));</code></pre>
+                        <h3><span class="faded">Chalkboard.calc.</span>fzdz(func_1, func_2, a, b)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Contour_integration">antiderivative</a> of a complex function within a particular interval.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                func_1 <span class="faded">{func}</span> - The complex function to evaluate<br>
+                                func_2 <span class="faded">{func}</span> - The parametric curve function to evaluate on<br>
+                                a <span class="faded">{number}</span> - The lower bound of the integration interval<br>
+                                b <span class="faded">{number}</span> - The upper bound of the integration interval
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{comp}</span> - The antiderivative
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns 0 + 2πi
+let f = Chalkboard.real.function("a / (a*a + b*b)", "-b / (a*a + b*b)");
+let r = Chalkboard.real.function(["Math.cos(t)", "Math.sin(t)"], "curv");
+let fzdz = Chalkboard.calc.fzdz(f, r, 0, Chalkboard.PI(2));</code></pre>
                         <h3><span class="faded">Chalkboard.calc.</span>extrema(func, domain)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Finds the <a href="https://en.wikipedia.org/wiki/Maximum_and_minimum">extrema</a> of a Chalkboard function within a particular interval.</p>
@@ -7158,6 +7307,24 @@ let fg = Chalkboard.calc.correlation(f, g, 0);</code></pre>
 <pre class="javascript"><code>// Returns 99.5634
 let f = Chalkboard.real.function("Math.cos(x)");
 let ff = Chalkboard.calc.autocorrelation(f, 0);</code></pre>
+                        <h3><span class="faded">Chalkboard.calc.</span>Taylor(func, val, n, a)</h3>
+                            <h4>DESCRIPTION</h4>
+                            <p>Calculates the <a href="https://en.wikipedia.org/wiki/Taylor_series">Taylor series approximation</a> of a function at a particular value.</p>
+                            <h4>PARAMETERS</h4>
+                            <p>
+                                func <span class="faded">{func}</span> - The Chalkboard function to evaluate (note: it must be an explicit function)<br>
+                                val <span class="faded">{number}</span> - The value to calculate the Taylor series approximation of the Chalkboard function at<br>
+                                n <span class="faded">{number}</span> - The degree of the Taylor series approximation (must be either 0, 1, or 2)<br>
+                                a <span class="faded">{number}</span> - The point of evaluation of the Taylor series approximation
+                            </p>
+                            <h4>RETURNS</h4>
+                            <p>
+                                <span class="faded">{number}</span> - The Taylor series approximation of a Chalkboard function at a particular value
+                            </p>
+                            <h4>EXAMPLE</h4>
+<pre class="javascript"><code>// Returns 0
+let f = Chalkboard.real.function("Math.sin(x)");
+let p = Chalkboard.calc.Taylor(f, 0, 2, 0);</code></pre>
                         <h3><span class="faded">Chalkboard.calc.</span>Laplace(func, val)</h3>
                             <h4>DESCRIPTION</h4>
                             <p>Calculates the <a href="https://en.wikipedia.org/wiki/Laplace_transform">Laplace transform</a> of a function at a particular value.</p>
@@ -7216,7 +7383,8 @@ let solution = Chalkboard.calc.Newton(f, [-5, 5]);</code></pre>
             </div>
         </div>
         <footer>
-            <p>Zushah 2023 - Chalkboard v1.4.0</p>
+            <p>Zushah 2023 - Chalkboard v1.5.0</p>
+            <p><a href="https://github.com/Zushah/Chalkboard">GitHub</a> | <a href="https://www.khanacademy.org/cs/chalkboard/6708642430369792">Khan Academy</a> | <a href="https://www.jsdelivr.com/package/gh/Zushah/Chalkboard">jsDelivr</a> | <a href="https://www.npmjs.com/package/@zushah/chalkboard">npm</a></p>
         </footer>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
         <script type="text/javascript" src="script.js"></script>
