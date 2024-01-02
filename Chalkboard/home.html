@@ -9,7 +9,7 @@ Zushah (https://www.github.com/Zushah)
 ==================================================================
 Released on Khan Academy: 11/06/2023
 Released on GitHub: 11/06/2023
-Last updated: 12/20/2023
+Last updated: 01/01/2024
 ==================================================================
 -->
 <html>
@@ -56,12 +56,11 @@ Last updated: 12/20/2023
             <p>After installing Chalkboard via <a href="https://www.jsdelivr.com/package/gh/Zushah/Chalkboard">jsDelivr</a> or <a href="https://www.npmjs.com/package/@zushah/chalkboard">npm</a>, you can immediately get started with using it. Every Chalkboard command begins with typing "Chalkboard" followed by a period, then the name of the category of the command (all categories are listed in the documentation page) with another period, and lastly the desired command itself.</p>
 <pre class="javascript"><code>Chalkboard.category.command(parameters);</code></pre>
             <p>Here is some code that shows off only a few basic features of Chalkboard:</p>
-<pre class="javascript"><code>const cb = Chalkboard; // Chalkboard is a nice name but it's also long
-/*
-Note that this code is written on the client-side
-You can write all the same code on the server-side, too, but you would have to replace the line above with:
-const cb = require("@zushah/chalkboard@1.5.0");
-*/
+<pre class="javascript"><code>const cb = Chalkboard; // Initialize in a browser
+// or
+const cb = require("@zushah/chalkboard"); // Initialize in Node with CommonJS
+// or
+import cb from "@zushah/chalkboard"; // Initiialize in Node with ES Modules
 
 let f = cb.real.function("Math.cos(2 * x)"); // f(x) = cos(2x)
 let dfdx = cb.calc.dfdx(f, 2); // Derivative of f at x = 0
@@ -74,16 +73,16 @@ let fnds = cb.calc.fnds(f, r, cb.PI(-1/2), cb.PI(1/2), 0, cb.PI(2)); // Flux of 
 
 let primes = cb.numb.primeArr(0, 100); // Array of prime numbers between 0 and 100
 let midPrime = cb.stat.median(primes); // Median number in the primes array
-cb.plot.barplot(primes, cb.stat.array(0, 100, 11), 5, [[0, 0, 0], [0, 0, 255]]); // Barplot of the primes array with a bin size of 10, a scale of 2, a stroke color of black, and a fill color of blue
+cb.plot.barplot(primes, cb.stat.array(0, 100, 11), {size: 5, strokeStyle: "black", fillStyle: "blue"}); // Barplot of the primes array with a bin size of 10, a scale of 2, a stroke color of black, and a fill color of blue
 
 let z = cb.comp.new(1, 1); // z = 1 + i
 let zsqsqrt = cb.comp.sqrt(cb.comp.sq(z)); // The square root of z squared equals z
-let f = cb.comp.function("a*a - b*b + 1", "2*a*b"); // f(z) = z^2 + 1 for z = a + bi (a complex-valued function)
+let f = cb.comp.function("a*a - b*b + 1", "2*a*b"); // f(z) = z^2 + 1
 cb.plot.function(f); // Plots the domain coloring of f
 
 let r = cb.real.function(["Math.cos(t)", "Math.sin(t)"], "curv"); // r(t) = (cos(t), sin(t))
-cb.plot.xyplane(2); // Draws the Cartesian coordinate plane
-cb.plot.function(r, 2, [255, 0, 0] [0, cb.PI(1/2)]); // Plots r(t) colored red from t = 0 to t = π/2
+cb.plot.xyplane({size: 2}); // Draws the Cartesian coordinate plane scaled by 2
+cb.plot.function(r, {size: 2, strokeStyle: "rgb(255, 100, 100)", domain: [0, cb.PI(2)]}); // Plots r(t) scaled by 2 colored light red from t = 0 to t = π/2
 
 let a = cb.vec3.new(1, 2, 3); // Vector a = (1, 2, 3)
 let b = cb.vec3.new(4, 5, 6); // Vector b = (4, 5, 6)
@@ -98,7 +97,13 @@ let m = cb.matr.new([0, 1, 1, 1, 1],  // m is a 5x5 matrix
                     [1, 1, 1, 1, 0]);
 let mi = cb.matr.invert(m); // mi is the inverse of m
 let mmi = cb.matr.mul(m, mi); // mmi is the product of m and mi
-cb.matr.print(mmi); // Prints mmi in the console</code></pre>
+cb.matr.print(mmi); // Prints mmi in the console
+
+let t = cb.tens.new([[1, 2], [3, 4]],  // t is a 2x2x2 (rank-3) tensor
+                    [[5, 6], [7, 8]]);
+let tt = cb.tens.mul(t, t); // tt is a 2x2x2x2x2x2 (rank-6) tensor
+let ttm = cb.tens.resize(tt, 8, 8); // ttm is an 8x8 matrix (or rank-2 tensor)
+cb.tens.print(tt); // Prints tt in the console just to see what it looks like for fun</code></pre>
             <p>More examples that are more interesting can be seen in the examples page.</p>
             <p>Chalkboard is made possible by users like you. Thank you!</p>
             <div class="quote">
@@ -107,8 +112,8 @@ cb.matr.print(mmi); // Prints mmi in the console</code></pre>
             </div>
         </div>
         <footer>
-            <p>Zushah 2023 - Chalkboard v1.5.0</p>
-            <p><a href="https://github.com/Zushah/Chalkboard">GitHub</a> | <a href="https://www.khanacademy.org/cs/chalkboard/6708642430369792">Khan Academy</a> | <a href="https://www.jsdelivr.com/package/gh/Zushah/Chalkboard">jsDelivr</a> | <a href="https://www.npmjs.com/package/@zushah/chalkboard">npm</a></p>
+            <p>Zushah 2023-2024 | Chalkboard v1.7.0</p>
+            <p><a href="https://www.github.com/Zushah/Chalkboard">GitHub</a> | <a href="https://www.khanacademy.org/cs/chalkboard/6708642430369792">Khan Academy</a> | <a href="https://www.jsdelivr.com/package/gh/Zushah/Chalkboard">jsDelivr</a> | <a href="https://www.npmjs.com/package/@zushah/chalkboard">npm</a></p>
         </footer>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
         <script type="text/javascript" src="./script.js"></script>
