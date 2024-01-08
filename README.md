@@ -2,7 +2,7 @@
 [https://zushah.github.io](https://zushah.github.io)
 
 ### Featured Repositories
-- [Chalkboard](https://zushah.github.io/Chalkboard/home.html)
+- [Chalkboard](https://zushah.github.io/Chalkboard/index.html)
 - [Mandelfield](https://zushah.github.io/mandelfield/index.html)
 - [Multibrot](https://zushah.github.io/multibrot/index.html)
 - [Raytracing](https://zushah.github.io/raytracing/index.html)
