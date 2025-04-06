@@ -4,203 +4,150 @@
 Zushah's Webpage
 (https://www.github.com/Zushah/zushah.github.io)
 ==================================================================
-Zushah (https://www.github.com/Zushah)
-==================================================================
-Released on GitHub: 11/06/2023
-Last updated: 01/08/2024
-==================================================================
 -->
 <html>
     <head>
         <meta charset="utf-8">
         <title>Zushah</title>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Material+Icons" rel="stylesheet">
-        <link href="./logo.png" rel="icon" type="image/x-icon">
+        <link href="./assets/favicon.ico" rel="icon" type="image/x-icon">
         <link href="./style.css" rel="stylesheet">
     </head>
     <body>
-        <div id="navbar">
-            <div id="closecontain">
-                <p class="material-icons close" onclick="hidenavbar()">close</p>
-            </div>
-            <hr>
-            <a class="nav active" href="./index.html">Home</a>
-            <a class="nav" href="./Chalkboard/index.html" target="_blank">Chalkboard</a>
-            <a class="nav" href="./mandelfield/index.html" target="_blank">Mandelfield</a>
-            <a class="nav" href="./multibrot/index.html" target="_blank">Multibrot</a>
-            <a class="nav" href="./raytracing/index.html" target="_blank">Raytracing</a>
-            <a class="nav" href="./flow-field/index.html" target="_blank">Flow Field</a>
-            <a class="nav" href="./prime-space/index.html" target="_blank">Prime Space</a>
-        </div>
-        <header id="header">
-            <p class="material-icons" onclick="opennavbar()">menu</p>
-        </header>
         <div class="page">
-            <h2>Welcome</h2>
-            <p>Hello, I'm Zushah! A mathematics enjoyer, programming hobbyist, and a robot monkey with a face made of blueberry pizza.</p>
-            <h2>Skills</h2>
-            <p>I can program in HTML, CSS, and JavaScript quite well (that's how I made this webpage), and I also know Python, TypeScript, and GLSL. I'm an undergraduate mathematics major so you'll see a lot of mathematical things in many of my programs.</p>
-            <h2>Projects</h2>
-            <p>I've made a lot of things on <a href="https://www.khanacademy.org/profile/zushah77/projects" target="_blank">Khan Academy</a> but I only put the interesting and high-quality ones on <a href="https://github.com/Zushah?tab=repositories" target="_blank">GitHub</a>. I haven't actually made many repositories yet so here's just a list of all of them:</p>
-            <ul>
-                <li><a href="https://www.github.com/Zushah/zushah.github.io" target="_blank">This webpage</a></li>
-                <li><a href="https://www.github.com/Zushah/Chalkboard" target="_blank">The Chalkboard library</a></li>
-                <li><a href="https://www.github.com/Zushah/mandelfield" target="_blank">Mandelbrot set from a vector field</a></li>
-                <li><a href="https://www.github.com/Zushah/multibrot" target="_blank">Animated Multibrot set fractal</a></li>
-                <li><a href="https://www.github.com/Zushah/raytracing" target="_blank">Basic raytracing</a></li>
-                <li><a href="https://www.github.com/Zushah/flow-field" target="_blank">Flow field with Perlin noise</a></li>
-                <li><a href="https://www.github.com/Zushah/prime-space" target="_blank">Prime spiral that looks like a galaxy</a></li>
-            </ul>
-            <p>I've also contributed a bit to <a href="https://github.com/Willard21">Willard</a>'s <a href="https://www.github.com/Willard21/MineKhan" target="_blank">MineKhan</a>.</p>
-            <h2>Contact</h2>
-            <p>You can contact me on <a href="https://www.github.com/Zushah" target="_blank">GitHub</a>, <a href="https://www.khanacademy.org/profile/zushah77" target="_blank">Khan Academy</a>, or Discord <a href="#">@surfaceintegration</a>.</p>
+            <section class="section welcome-section">
+                <div class="section-content split">
+                    <div class="text">
+                        <h2>Welcome</h2>
+                        <p>Zushah is a mathematics major, programming enjoyer, and a robot monkey with a face made of blueberry pizza.</p>
+                    </div>
+                    <div class="image-box">
+                        <img src="./assets/logo.png" alt="Zushah">
+                    </div>
+                </div>
+            </section>
+            <div class="divider"></div>
+            <section class="section skills-section">
+                <div class="skills-container">
+                    <div class="skills-text">
+                        <h2>Skills</h2>
+                        <p>Proficient in HTML, CSS, JavaScript, TypeScript, Python, Java, and GLSL.</p>
+                        <p>Also studying undergraduate mathematics, so many projects are rather mathematical.</p>
+                    </div>
+                    <div class="carousel-wrapper">
+                        <div class="carousel-track"></div>
+                    </div>                    
+                </div>
+            </section>
+            <div class="divider"></div>
+            <section class="section projects-section">
+                <div class="section-content">
+                    <h2>Projects</h2>
+                    <p>There are a lot on <a href="https://www.khanacademy.org/profile/zushah77/projects/" target="_blank">Khan Academy</a>, but only the interesting and high-quality ones are on <a href="https://github.com/Zushah?tab=repositories" target="_blank">GitHub</a>. Here they are:</p>
+                    <div class="project-grid">
+                        <div class="project-item">
+                            <img src="./assets/Chalkboard.png" alt="Chalkboard" class="project-img">
+                            <div class="project-content">
+                                <h3>Chalkboard</h3>
+                                <p>Library for all of your mathematical fantasies.</p>
+                                <div class="project-btns">
+                                    <a class="project-btn" href="https://www.github.com/Zushah/Chalkboard/" target="_blank">Repo</a>
+                                    <a class="project-btn" href="https://zushah.github.io/Chalkboard/" target="_blank">Page</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-item">
+                            <img src="./assets/Metabolismastery.png" alt="Metabolismastery" class="project-img">
+                            <div class="project-content">
+                                <h3>Metabolismastery</h3>
+                                <p>Quiz app to help memorize metabolic pathways.</p>
+                                <div class="project-btns">
+                                    <a class="project-btn" href="https://www.github.com/Zushah/Metabolismastery/" target="_blank">Repo</a>
+                                    <a class="project-btn" href="https://zushah.github.io/Metabolismastery/" target="_blank">Page</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-item">
+                            <img src="./assets/mandelfield.png" alt="Mandelfield" class="project-img">
+                            <div class="project-content">
+                                <h3>Mandelfield</h3>
+                                <p>Mandelbrot drawn with an animated vector field.</p>
+                                <div class="project-btns">
+                                    <a class="project-btn" href="https://www.github.com/Zushah/mandelfield/" target="_blank">Repo</a>
+                                    <a class="project-btn" href="https://zushah.github.io/mandelfield/" target="_blank">Page</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-item">
+                            <img src="./assets/multibrot.png" alt="Multibrot" class="project-img">
+                            <div class="project-content">
+                                <h3>Multibrot</h3>
+                                <p>Multibrot set fractal animated in WebGL.</p>
+                                <div class="project-btns">
+                                    <a class="project-btn" href="https://www.github.com/Zushah/multibrot/" target="_blank">Repo</a>
+                                    <a class="project-btn" href="https://zushah.github.io/multibrot/" target="_blank">Page</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-item">
+                            <img src="./assets/raytracing.png" alt="Raytracing" class="project-img">
+                            <div class="project-content">
+                                <h3>Raytracing</h3>
+                                <p>Basic raytracing program which is a work in progress.</p>
+                                <div class="project-btns">
+                                    <a class="project-btn" href="https://www.github.com/Zushah/raytracing/" target="_blank">Repo</a>
+                                    <a class="project-btn" href="https://zushah.github.io/raytracing/" target="_blank">Page</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-item">
+                            <img src="./assets/flow-field.png" alt="Flow Field" class="project-img">
+                            <div class="project-content">
+                                <h3>Flow Field</h3>
+                                <p>Flow field made with Perlin noise on a vector field.</p>
+                                <div class="project-btns">
+                                    <a class="project-btn" href="https://www.github.com/Zushah/flow-field/" target="_blank">Repo</a>
+                                    <a class="project-btn" href="https://zushah.github.io/flow-field/" target="_blank">Page</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-item">
+                            <img src="./assets/prime-space.png" alt="Prime Space" class="project-img">
+                            <div class="project-content">
+                                <h3>Prime Space</h3>
+                                <p>Depiction of a galaxy using a polar prime spiral.</p>
+                                <div class="project-btns">
+                                    <a class="project-btn" href="https://www.github.com/Zushah/prime-space/" target="_blank">Repo</a>
+                                    <a class="project-btn" href="https://zushah.github.io/prime-space/" target="_blank">Page</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-item">
+                            <img src="./assets/logo.png" alt="zushah.github.io" class="project-img">
+                            <div class="project-content">
+                                <h3>zushah.github.io</h3>
+                                <p>Obviously, I made the webpage itself. Not too bad?</p>
+                                <div class="project-btns">
+                                    <a class="project-btn" href="https://www.github.com/Zushah/zushah.github.io/" target="_blank">Repo</a>
+                                    <a class="project-btn" href="https://zushah.github.io/" target="_blank">Page</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="divider"></div>
+            <section class="section contact-section">
+                <div class="section-content">
+                    <h2>Contact</h2>
+                    <p>
+                        GitHub: <a href="https://www.github.com/Zushah/" target="_blank">@Zushah</a><br>
+                        Khan Academy: <a href="https://www.khanacademy.org/profile/zushah77/" target="_blank">@zushah77</a><br>
+                        Discord: <a href="#">@surfaceintegration</a>
+                    </p>
+                </div>
+            </section>
         </div>
-        <footer>
-            <p>Zushah 2023-2024</p>
-        </footer>
         <script type="text/javascript" src="./script.js"></script>
     </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- All of these blank lines are to make sure that GitHub recognizes this as an HTML repo because there's a lot of CSS lol -->
