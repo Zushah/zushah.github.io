@@ -1,11 +1,14 @@
 const imgs = [
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/HTML5_Badge.svg/512px-HTML5_Badge.svg.png?20110131171049",
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/CSS3_logo.svg/512px-CSS3_logo.svg.png?20210705212817",
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/600px-JavaScript-logo.png?20120221235433",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/HTML5_Badge.svg/512px-HTML5_Badge.svg.png",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/CSS3_logo.svg/512px-CSS3_logo.svg.png",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/600px-JavaScript-logo.png",
     "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/512px-Typescript_logo_2020.svg.png",
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Python_logo_01.svg/600px-Python_logo_01.svg.png?20210503135843",
-    "https://upload.wikimedia.org/wikipedia/en/thumb/3/30/Java_programming_language_logo.svg/800px-Java_programming_language_logo.svg.png",
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Opengl-logo.svg/960px-Opengl-logo.svg.png?20230524144527"
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Python_logo_01.svg/600px-Python_logo_01.svg.png",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Duke_%28Java_mascot%29_waving.svg/250px-Duke_%28Java_mascot%29_waving.svg.png",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/WebGL_Logo.svg/330px-WebGL_Logo.svg.png",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/WebGPU_logo.svg/960px-WebGPU_logo.svg.png",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/WebAssembly_Logo.svg/960px-WebAssembly_Logo.svg.png",
+    "https://prev.rust-lang.org/logos/rust-logo-256x256.png"
 ];
 
 const imageHeight = 120;
