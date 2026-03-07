@@ -6,13 +6,13 @@
         <style>
             * { margin: 0; padding: 0; box-sizing: border-box; }
             body { background: #000; overflow: hidden; }
-            canvas { display: block; width: 100%; height: 100%; }
+            canvas { display: block; width: 100vw; height: 100vh; }
         </style>
     </head>
     <body>
         <canvas></canvas>
         <script type="module">
-            import { WasmGPU } from "https://cdn.jsdelivr.net/gh/Zushah/WasmGPU@0.5.0/dist/WasmGPU.min.js";
+            import { WasmGPU } from "https://cdn.jsdelivr.net/gh/Zushah/WasmGPU@0.6.0/dist/WasmGPU.min.js";
             const canvas = document.querySelector("canvas");
             const wgpu = await WasmGPU.create(canvas, {
                 powerPreference: "high-performance",
