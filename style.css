@@ -50,83 +50,11 @@ a:hover {
     color: #A0D0FF;
 }
 
-.split {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.split .text {
-    flex: 1;
-    min-width: 280px;
-}
-
-.split .image-box {
-    flex: 1;
-    min-width: 280px;
-    text-align: right;
-}
-
-.image-box img {
-    width: 50%;
-    border: 1px solid #333;
-    border-radius: 16px;
-    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2);
-    padding: 50px;
-}
-
 .divider {
     width: 100%;
     height: 2px;
     background: linear-gradient(to right, transparent, #444, transparent);
     margin: 50px 0;
-}
-
-.skills-container {
-    max-width: 1000px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.skills-text {
-    flex: 1;
-    min-width: 200px;
-}
-
-.carousel-wrapper {
-    width: 200px;
-    height: calc((120px + 30px) * 3 - 30px);
-    overflow: hidden;
-    background: rgba(0, 0, 0, 0.0);
-    border: 1px solid #333;
-    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2);
-    border-radius: 16px;
-    padding: 10px;
-    position: relative;
-}
-
-.carousel-track {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-}
-
-.carousel-item {
-    height: 120px;
-    object-fit: contain;
-    transform: scale(0.9);
-    filter: brightness(60%);
-    transition: transform 0.7s ease-in-out, filter 0.7s ease-in-out;
-}
-
-.carousel-item.focused {
-    transform: scale(1.1);
-    filter: brightness(100%);
 }
 
 .project-grid {
@@ -181,4 +109,10 @@ a:hover {
 
 .project-btn:hover {
     background-color: #444477;
+}
+
+.footer {
+    padding: 0px;
+    text-align: center;
+    font-size: 10px;
 }
