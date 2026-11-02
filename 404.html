@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!--
+
+https://github.com/Zushah/zushah.github.io
+
+-->
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noindex">
+        <title>404</title>
+        <script>
+            (() => {
+                const PROJECTS = ["WasmGPU", "Chalkboard", "Microcosm", "OpenMCAT"];
+                const distance = (a, b) => {
+                    let d = [], i, j, cost;
+                    for (i = 0; i <= a.length; i++) d[i] = [i];
+                    for (j = 0; j <= b.length; j++) d[0][j] = j;
+                    for (i = 1; i <= a.length; i++) {
+                        for (j = 1; j <= b.length; j++) {
+                            cost = a[i - 1] === b[j - 1] ? 0 : 1;
+                            d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + cost);
+                            if (i > 1 && j > 1 && a[i - 1] === b[j - 2] && a[i - 2] === b[j - 1]) d[i][j] = Math.min(d[i][j], d[i - 2][j - 2] + 1);
+                        }
+                    }
+                    return d[a.length][b.length];
+                };
+                const match = (segment) => {
+                    let s = segment.toLowerCase().replace(/[^a-z0-9]/g, ""), best = null, bestScore = Infinity;
+                    if (s.length < 3) return null;
+                    PROJECTS.forEach((name) => {
+                        let n = name.toLowerCase(), score = distance(s, n);
+                        if (n.indexOf(s) === 0) score = Math.min(score, 0.5);
+                        if (score <= Math.max(2, Math.floor(n.length * 0.4)) && score < bestScore) {
+                            best = name;
+                            bestScore = score;
+                        }
+                    });
+                    return best;
+                };
+                const path = location.pathname;
+                try { path = decodeURIComponent(path); } catch (e) {}
+                const parts = path.split("/");
+                const project = match(parts[1] || "");
+                if (project && project !== parts[1]) {
+                    parts[1] = project;
+                    if (parts.length === 2) parts.push("");
+                    location.replace(parts.join("/") + location.search + location.hash);
+                }
+            })();
+        </script>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat" rel="stylesheet">
+    </head>
+    <body>
+        <div class="page">
+            <div class="divider"></div>
+            <section class="section">
+                <div class="section-content" style="text-align: center;">
+                    <p>zushah.github.io</p>
+                    <h3>404: Page not found</h3>
+                    <p>
+                        <a href="/WasmGPU/">WasmGPU</a> |
+                        <a href="/Chalkboard/">Chalkboard</a> |
+                        <a href="/Microcosm/">Microcosm</a> |
+                        <a href="/OpenMCAT/">OpenMCAT</a> |
+                        <a href="/">Home</a>
+                    </p>
+                </div>
+            </section>
+            <div class="divider"></div>
+        </div>
+    </body>
+</html>
